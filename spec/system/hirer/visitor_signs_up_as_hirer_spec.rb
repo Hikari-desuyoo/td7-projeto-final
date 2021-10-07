@@ -14,5 +14,8 @@ describe 'Visitor signs up' do
         click_on 'commit'
 
         expect(current_path).to eq root_path
+        expect(page).to_not have_css('#signup_link')
+        expect(page).to_not have_css('#login_link')
+        expect(page).to have_css('#logout_link')
     end
 end

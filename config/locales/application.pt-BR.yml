@@ -3,3 +3,6 @@ pt-BR:
   layout:
     application:
       signup_link: 'Cadastre-se'
+      profile_link: 'Perfil'
+      logout_link: 'Sair'
+      login_link: 'Entrar'
