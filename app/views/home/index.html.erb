@@ -1,5 +1,7 @@
 <% if hirer_signed_in? %>
     <%= render 'home/hirer_homepage' %>
+<% elsif worker_signed_in? %>
+    <%= render 'home/worker_homepage' %>
 <% else %>
     <%= render 'home/visitor_homepage' %>
 <% end %>

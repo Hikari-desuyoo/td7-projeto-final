@@ -1,17 +1,17 @@
 require 'rails_helper'
 
 describe 'Visitor logs out' do    
-    def create_hirer
-        Hirer.create!(
+    def create_worker
+        Worker.create!(
             email: 'test@mail.com',
             password: '123456789'
         )
     end
 
     it 'successfully' do
-        hirer = create_hirer
+        worker = create_worker
         
-        login_as hirer, scope: :hirer
+        login_as worker, scope: :worker
 
         visit root_path
 
@@ -21,6 +21,6 @@ describe 'Visitor logs out' do
         expect(page).to have_css('.signup')
         expect(page).to have_css('.login')
         expect(page).to_not have_css('#logout_link')
-        expect(page).to_not have_css('#welcome_hirer')
+        expect(page).to_not have_css('#welcome_worker')
     end
 end

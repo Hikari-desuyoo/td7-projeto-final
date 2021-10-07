@@ -4,4 +4,5 @@ pt-BR:
     index:
       welcome_message: 'Boas vindas ao Lance'
       welcome_hirer_message: 'Boas vindas, contratante'
+      welcome_worker_message: 'Boas vindas, profissional'
       new_project_link: 'Criar um projeto'

@@ -2,7 +2,11 @@
 pt-BR:
   layout:
     application:
-      signup_link: 'Cadastre-se'
+      signup: 'Cadastre-se'
+      worker_signup_link: 'Para trabalhar'
+      hirer_signup_link: 'Para empregar'
       profile_link: 'Perfil'
       logout_link: 'Sair'
-      login_link: 'Entrar'
+      login: 'Entrar'
+      worker_login_link: 'Para trabalhar'
+      hirer_login_link: 'Para empregar'

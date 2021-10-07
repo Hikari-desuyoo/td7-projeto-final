@@ -14,11 +14,41 @@
     <header>
       <h1><%= link_to 'Lance', root_path %></h1>
       <nav>
-        <% unless hirer_signed_in? %>
-          <%= link_to t('layout.application.signup_link'),  new_hirer_registration_path, :id => 'signup_link'%>
-          <%= link_to t('layout.application.login_link'),  new_hirer_session_path, :id => 'login_link'%>
+        <% unless hirer_signed_in? or worker_signed_in? %>
+          <div class='signup'>
+            <span><%= t('layout.application.signup') %></span>
+            <%= 
+            link_to t('layout.application.worker_signup_link'),  
+            new_worker_registration_path, 
+            :id => 'worker_signup_link'
+            %>
+            <%= 
+            link_to t('layout.application.hirer_signup_link'),  
+            new_hirer_registration_path, 
+            :id => 'hirer_signup_link'
+            %>
+          </div>  
+
+          <div class='login'>
+            <span><%= t('layout.application.login') %></span>
+            <%= 
+            link_to t('layout.application.worker_login_link'),  
+            new_worker_session_path, 
+            :id => 'worker_login_link'
+            %>
+            <%= 
+            link_to t('layout.application.hirer_login_link'),  
+            new_hirer_session_path, 
+            :id => 'hirer_login_link'
+            %>
+          </div> 
         <% else %>
-          <%= link_to t('layout.application.logout_link'),  destroy_hirer_session_path, method: :delete, :id => 'logout_link'%>
+          <%= 
+          link_to t('layout.application.logout_link'),  
+          hirer_signed_in? ? destroy_hirer_session_path : destroy_worker_session_path, 
+          method: :delete, 
+          :id => 'logout_link'
+          %>
         <% end %>
       </nav>
     </header>

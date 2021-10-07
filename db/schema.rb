@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_07_193831) do
+ActiveRecord::Schema.define(version: 2021_10_07_215825) do
 
   create_table "hirers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -36,6 +36,18 @@ ActiveRecord::Schema.define(version: 2021_10_07_193831) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "hirer_id", null: false
     t.index ["hirer_id"], name: "index_projects_on_hirer_id"
+  end
+
+  create_table "workers", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_workers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_workers_on_reset_password_token", unique: true
   end
 
   add_foreign_key "projects", "hirers"

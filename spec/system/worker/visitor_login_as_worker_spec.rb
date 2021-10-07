@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe 'Visitor login' do    
-    def create_hirer
-        Hirer.create!(
+    def create_worker
+        Worker.create!(
             email: 'test@mail.com',
             password: '123456789'
         )
@@ -10,21 +10,21 @@ describe 'Visitor login' do
 
     def visit_login_page
         visit root_path
-        find('#hirer_login_link').click
+        find('#worker_login_link').click
     end
 
     it 'successfully' do
-        create_hirer
+        create_worker
 
         visit_login_page
-        fill_in 'hirer_email', with: 'test@mail.com'
-        fill_in 'hirer_password', with: '123456789'
+        fill_in 'worker_email', with: 'test@mail.com'
+        fill_in 'worker_password', with: '123456789'
         click_on 'commit'
 
         expect(current_path).to eq root_path
         expect(page).to_not have_css('.signup')
         expect(page).to_not have_css('.login')
-        expect(page).to have_css('#welcome_hirer')
+        expect(page).to have_css('#welcome_worker')
         expect(page).to have_css('#logout_link')
         expect(page).to_not have_css('.translation_missing')
     end
