@@ -12,7 +12,7 @@
 
   <body>
     <header>
-      <h1>Lance</h1>
+      <h1><%= link_to 'Lance', root_path %></h1>
       <nav>
         <% unless hirer_signed_in? %>
           <%= link_to t('layout.application.signup_link'),  new_hirer_registration_path, :id => 'signup_link'%>

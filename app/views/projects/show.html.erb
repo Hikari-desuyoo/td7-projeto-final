@@ -1,0 +1,22 @@
+<div id = project_details>
+    <h1 class='title'><%= @project.title %></h1>
+    <h2 class='description'><%= @project.description %></h2>
+    <h3 class='hirer'>de: <%= @project.hirer.email %></h2><!-- Vai mudar no futuro -->
+
+    <dl>
+        <dt><%= Project.human_attribute_name('skills_needed') %></dt>
+        <dd class='skills_needed'> <%= @project.skills_needed %></dd>
+
+        <dt><%=Project.human_attribute_name('max_pay_per_hour') %></dt>
+        <dd class='max_pay_per_hour'> <%= number_to_currency(@project.max_pay_per_hour, unit: 'R$', separator: ',', format: "%u %n") %></dd>
+
+        <dt><%= Project.human_attribute_name('open_until') %></dt>
+        <dd class='open_until'> <%= l @project.open_until %></dd>
+
+        <dt><%= Project.human_attribute_name('remote') %></dt>
+        <dd class='remote'> <%= @project.remote ? t('common.yes') : t('common.no')%></dd>
+
+        <dt><%= Project.human_attribute_name('presential') %></dt>
+        <dd class='presential'> <%= @project.presential ? t('common.yes') : t('common.no') %></dd>
+    </dl>
+</div>

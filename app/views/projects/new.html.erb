@@ -1,0 +1,43 @@
+<h1><%= t('.title') %></h1>
+
+<% if @project.errors.any? %>
+  <ul>
+    <% @project.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with(model: @project) do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div>
+    <%= f.label :skills_needed %>
+    <%= f.text_field :skills_needed %>
+  </div>
+  <div>
+    <%= f.label :max_pay_per_hour %>
+    <%= f.number_field :max_pay_per_hour %>
+  </div>
+  <div>
+    <%= f.label :open_until %>
+    <%= f.date_field :open_until %>
+  </div>
+  <div>
+    <%= f.check_box :remote %>
+    <%= f.label :remote %>
+  </div>
+  <div>
+    <%= f.check_box :presential %>
+    <%= f.label :presential %>
+  </div>
+  <%= f.submit 'Enviar' %>
+<% end %>
+
+<%= link_to 'Voltar', root_path, :class => 'back_button' %>

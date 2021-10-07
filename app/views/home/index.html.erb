@@ -1,3 +1,5 @@
-<div id="welcome">
-    <%= t('.subhead') %>
-</div>
+<% if hirer_signed_in? %>
+    <%= render 'home/hirer_homepage' %>
+<% else %>
+    <%= render 'home/visitor_homepage' %>
+<% end %>

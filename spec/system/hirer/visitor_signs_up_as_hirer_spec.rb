@@ -16,6 +16,8 @@ describe 'Visitor signs up' do
         expect(current_path).to eq root_path
         expect(page).to_not have_css('#signup_link')
         expect(page).to_not have_css('#login_link')
+        expect(page).to have_css('#welcome_hirer')
         expect(page).to have_css('#logout_link')
+        expect(page).to_not have_css('.translation_missing')
     end
 end

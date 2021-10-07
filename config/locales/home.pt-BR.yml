@@ -2,4 +2,6 @@
 pt-BR:
   home:
     index:
-      subhead: 'Boas vindas ao Lance'
+      welcome_message: 'Boas vindas ao Lance'
+      welcome_hirer_message: 'Boas vindas, contratante'
+      new_project_link: 'Criar um projeto'

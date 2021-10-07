@@ -21,5 +21,6 @@ describe 'Visitor logs out' do
         expect(page).to have_css('#signup_link')
         expect(page).to have_css('#login_link')
         expect(page).to_not have_css('#logout_link')
+        expect(page).to_not have_css('#welcome_hirer')
     end
 end
