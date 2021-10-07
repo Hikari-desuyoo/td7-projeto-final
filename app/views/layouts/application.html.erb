@@ -13,6 +13,7 @@
   <body>
     <header>
       <h1>Lance</h1>
+      <%= link_to t('layout.application.signup_link'),  new_hirer_registration_path, :id => 'signup_link'%>
     </header>
     <%= yield %>
   </body>
