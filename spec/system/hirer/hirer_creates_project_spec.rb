@@ -43,4 +43,43 @@ describe 'Logged Hirer creates project' do
         expect(page).to have_content('não pode ficar em branco', count: 5)
         
     end
+
+    it 'and fills wrong data type for payment' do 
+        visit root_path
+        find('#new_project_link').click
+        fill_in 'project_max_pay_per_hour', with: 'cinquenta conto'
+        click_on 'commit'
+
+        expect(page).to have_content('não é um número')
+    end
+
+    it 'and fills wrong data type for date' do 
+        visit root_path
+        find('#new_project_link').click
+        fill_in 'project_title', with: 'titulo'
+        fill_in 'project_description', with: 'descrição'
+        fill_in 'project_skills_needed', with: 'habilidades'
+        fill_in 'project_max_pay_per_hour', with: '234.42'
+        fill_in 'project_open_until', with: 'dia dez'#raises blank error
+        check 'project_remote'
+        check 'project_presential'
+        click_on 'commit'
+
+        expect(page).to have_content('não pode ficar em branco')
+    end
+
+    it 'and fills date before current date' do 
+        visit root_path
+        find('#new_project_link').click
+        fill_in 'project_title', with: 'titulo'
+        fill_in 'project_description', with: 'descrição'
+        fill_in 'project_skills_needed', with: 'habilidades'
+        fill_in 'project_max_pay_per_hour', with: '234.42'
+        fill_in 'project_open_until', with: '23/4/2009'
+        check 'project_remote'
+        check 'project_presential'
+        click_on 'commit'
+
+        expect(page).to have_content('já passou')
+    end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_07_215825) do
+ActiveRecord::Schema.define(version: 2021_10_07_235107) do
 
   create_table "hirers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 2021_10_07_215825) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_hirers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_hirers_on_reset_password_token", unique: true
+  end
+
+  create_table "occupations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "projects", force: :cascade do |t|
@@ -46,9 +52,18 @@ ActiveRecord::Schema.define(version: 2021_10_07_215825) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "full_name"
+    t.string "social_name"
+    t.date "birth_date"
+    t.text "education"
+    t.text "description"
+    t.text "experience"
+    t.integer "occupation_id"
     t.index ["email"], name: "index_workers_on_email", unique: true
+    t.index ["occupation_id"], name: "index_workers_on_occupation_id"
     t.index ["reset_password_token"], name: "index_workers_on_reset_password_token", unique: true
   end
 
   add_foreign_key "projects", "hirers"
+  add_foreign_key "workers", "occupations"
 end
