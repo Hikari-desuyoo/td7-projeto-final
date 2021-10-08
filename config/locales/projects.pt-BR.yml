@@ -12,6 +12,6 @@ pt-BR:
         open_until: 'Aceita propostas até'
         remote: 'Aceita trabalho remoto'
         presential: 'Aceita trabalho presencial'
-  project:
+  projects:
     new:
       title: 'Crie um novo projeto'
