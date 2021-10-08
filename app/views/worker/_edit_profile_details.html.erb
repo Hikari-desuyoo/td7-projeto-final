@@ -1,0 +1,37 @@
+<% if @current_worker.errors.any? %>
+  <ul>
+    <% @current_worker.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @current_worker do |f| %>
+  <div>
+    <%= f.label :full_name %>
+    <%= f.text_field :full_name %>
+  </div>
+  <div>
+    <%= f.label :social_name %>
+    <%= f.text_field :social_name %>
+  </div>
+  <div>
+    <%= f.label :birth_date %>
+    <%= f.date_field :birth_date %>
+  </div>
+  <div>
+    <%= f.label :education %>
+    <%= f.text_field :education %>
+  </div>
+  <div>
+    <%= f.label :experience %>
+    <%= f.text_field :experience %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <%= f.submit 'Enviar' %>
+<% end %>
+
+<%= link_to 'Voltar', root_path, :class => 'back_button' %>

@@ -5,4 +5,11 @@ class Worker < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :occupation, optional: true
+
+  def complete_profile?
+    not (
+      full_name.blank? or
+      birth_date.blank?
+    )
+  end
 end

@@ -1,3 +1,6 @@
 <div id="welcome_worker">
     <%= t('home.index.welcome_worker_message') %>
 </div>
+<% unless current_worker.complete_profile? %>
+    <%= render 'worker/edit_profile_details' %>
+<% end %>

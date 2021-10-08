@@ -8,8 +8,8 @@ pt-BR:
         title: 'Título'
         description: 'Descrição'
         skills_needed: 'Habilidades desejadas'
-        max_pay_per_hour: 'Máximo de pagamento por hora'
-        open_until: 'Aceita propostas até'
+        max_pay_per_hour: 'Pagamento máximo por hora'
+        open_until: 'Data de término do recrutamento'
         remote: 'Aceita trabalho remoto'
         presential: 'Aceita trabalho presencial'
   projects:
