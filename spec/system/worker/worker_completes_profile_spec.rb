@@ -3,6 +3,8 @@ require 'rails_helper'
 
 describe 'Logged (incomplete)Worker ' do    
     before(:each) do
+        Occupation.create!(name: 'dev')
+
         @worker = Worker.create!(
             email: 'test@mail.com',
             password: '123456789'
@@ -26,6 +28,7 @@ describe 'Logged (incomplete)Worker ' do
         fill_in 'worker_education', with: 'Formação'
         fill_in 'worker_description', with: 'descrição'
         fill_in 'worker_experience', with: 'experiencia'
+        select 'Desenvolvedor', from: 'worker_occupation_id'
         click_on 'commit'
 
         expect(page).to_not have_css('#complete_profile_form')

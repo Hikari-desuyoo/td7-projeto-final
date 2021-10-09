@@ -1,0 +1,6 @@
+---
+pt-BR:
+  occupation_name:
+    'dev': 'Desenvolvedor'
+    'ux': 'UX'
+    'dba': 'Administrador de banco de dados'

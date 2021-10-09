@@ -1,0 +1,14 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      worker: 'Profissional'
+    attributes:
+      worker:
+        full_name: 'Nome completo'
+        social_name: 'Nome social'
+        birth_date: 'Data de nascimento'
+        education: 'Formação'
+        experience: 'Experiência'
+        description: 'Descrição'
+        occupation_id: 'Área de atuação'
