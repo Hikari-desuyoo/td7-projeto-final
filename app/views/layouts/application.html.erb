@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Td7ProjetoFinal</title>
+    <title>Lance</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -51,6 +51,16 @@
           %>
         <% end %>
       </nav>
+      <% if notice %>
+        <div>
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div>
+          <%= alert %>
+        </div>
+      <% end %>
     </header>
     <%= yield %>
   </body>

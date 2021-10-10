@@ -5,7 +5,8 @@ pt-BR:
       worker: 'Profissional'
     attributes:
       worker:
-        full_name: 'Nome completo'
+        name: 'Nome'
+        surname: 'Sobrenome'
         social_name: 'Nome social'
         birth_date: 'Data de nascimento'
         education: 'Formação'

@@ -6,16 +6,25 @@
   </ul>
 <% end %>
 
-<%= form_for @current_worker do |f| %>
+<h2><%= t('home.index.complete_profile_title') %></h2>
+<%= form_for @current_worker, :url => complete_profile_path(@current_worker) do |f| %>
   <div>
-    <%= f.label :full_name %>
-    <%= f.text_field :full_name %>
+    <span><%= t('home.index.obligatory') %></span>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
   <div>
+    <span><%= t('home.index.obligatory') %></span>
+    <%= f.label :surname %>
+    <%= f.text_field :surname %>
+  </div>
+  <div>
+    <span><%= t('home.index.obligatory') %></span>
     <%= f.label :social_name %>
     <%= f.text_field :social_name %>
   </div>
   <div>
+    <span><%= t('home.index.obligatory') %></span>
     <%= f.label :birth_date %>
     <%= f.date_field :birth_date %>
   </div>
@@ -32,6 +41,7 @@
     <%= f.text_field :description %>
   </div>
   <div>
+  <span><%= t('home.index.obligatory') %></span>
   <%= f.label :occupation_id %>
     <%= 
     f.select :occupation_id, 

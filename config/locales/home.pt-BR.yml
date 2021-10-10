@@ -6,3 +6,5 @@ pt-BR:
       welcome_hirer_message: 'Boas vindas, contratante'
       welcome_worker_message: 'Boas vindas, profissional'
       new_project_link: 'Criar um projeto'
+      complete_profile_title: 'Complete seu perfil para usar a plataforma!'
+      obligatory: '(Obrigatório)'

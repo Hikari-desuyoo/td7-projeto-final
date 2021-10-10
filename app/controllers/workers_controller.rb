@@ -1,20 +1,20 @@
 class WorkersController < ApplicationController
-    def update
-        @current_worker = Worker.find(params[:id])
+    def complete_profile
+        @current_worker = current_worker
         @current_worker.update(worker_params)
 
         unless @current_worker.complete_profile?
-            flash[:notice] = t('.profile_still_incomplete')
+            flash[:alert] = t 'alert.profile_still_incomplete'
         end
 
         redirect_to root_path
-
     end
 
     private
     def worker_params
         params.require(:worker).permit(
-            :full_name,
+            :name,
+            :surname,
             :social_name,
             :birth_date,
             :education,

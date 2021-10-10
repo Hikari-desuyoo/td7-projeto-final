@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   devise_for :hirers
 
   resources :hirers, only: [:show]
-  resources :workers, only: [:show, :edit, :update]
+  resources :workers, only: [:show, :edit, :update] 
+  patch 'complete_profile', to: 'workers#complete_profile'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'home#index'
 
