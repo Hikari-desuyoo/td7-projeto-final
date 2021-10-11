@@ -4,9 +4,17 @@ class Project < ApplicationRecord
               presence: true
 
     validates :max_pay_per_hour, numericality: true
-    validate :valid_close_date
+    validate :valid_close_date, on: :create
 
     belongs_to :hirer
+
+    enum status: { open: 0, closed: 10, finished: 20 }
+    def get_status
+        if status == 'open' and  open_until < Date.today
+            closed!
+        end
+        status
+    end
 
     private
 
