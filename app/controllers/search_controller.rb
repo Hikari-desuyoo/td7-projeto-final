@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+    before_action :authenticate_user
+
     def search
         @search_term = params[:search_term]
         search_term_regex = normalize @search_term
@@ -23,4 +25,12 @@ class SearchController < ApplicationController
 
         Regexp.new "(?i)#{regex}"
     end
+
+    private
+    def authenticate_user
+        unless hirer_signed_in? or worker_signed_in? 
+            redirect_to '/' 
+        end
+    end
+
 end

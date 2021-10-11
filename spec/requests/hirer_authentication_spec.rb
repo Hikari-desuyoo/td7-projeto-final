@@ -10,4 +10,9 @@ describe 'Visitor' do
         get '/projects/new'
         expect(response).to redirect_to(new_hirer_session_path)
     end
+
+    it 'cannot search projects' do
+        get '/search'
+        expect(response).to redirect_to('/')
+    end
 end

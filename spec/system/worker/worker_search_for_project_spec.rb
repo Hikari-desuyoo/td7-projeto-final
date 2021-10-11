@@ -64,7 +64,6 @@ describe 'Logged (complete)Worker searchs for project' do
         login_as @worker, scope: :worker
         visit root_path
         search_for('titulo')
-
         
         [@projects[0], @projects[1]].each do |project|
             expect(page).to have_css(".project_#{project.id}")
