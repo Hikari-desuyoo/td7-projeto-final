@@ -9,11 +9,11 @@ class Project < ApplicationRecord
     belongs_to :hirer
 
     enum status: { open: 0, closed: 10, finished: 20 }
-    def get_status
-        if status == 'open' and  open_until < Date.today
+    def status
+        if self[:status] == 'open' and  open_until < Date.today
             closed!
         end
-        status
+        self[:status]
     end
 
     private
