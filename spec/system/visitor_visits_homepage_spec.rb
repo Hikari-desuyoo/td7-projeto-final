@@ -7,5 +7,6 @@ describe 'Visitor visit homepage' do
     expect(page).to have_content('Lance')
     expect(page).to have_css('#welcome')
     expect(page).to_not have_css('.translation_missing')
+    expect(page).to_not have_css('.homepage_projects')
   end
 end

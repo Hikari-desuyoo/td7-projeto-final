@@ -1,6 +1,19 @@
 <div id="welcome_worker">
-    <%= t('home.index.welcome_worker_message') %>
+    <h2><%= t('home.index.welcome_worker_message') %></h2>
 </div>
 <% unless current_worker.complete_profile? %>
     <%= render 'worker/edit_profile_details' %>
+<% else %>
+    <% if @projects.empty? %>
+        <span class='no_projects_notice'>
+            <%= t 'home.index.no_projects_notice' %>
+        </span>
+    <% else %>
+        <div class='homepage_projects'>
+            <h3><%= t 'home.index.homepage_projects_title' %></h3>
+            <% @projects.each do |project| %>
+                <%= render partial: 'projects/preview', locals: { project: project } %>
+            <% end %>
+        </div>
+    <% end %>
 <% end %>

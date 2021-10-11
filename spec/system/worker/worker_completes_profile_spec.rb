@@ -17,6 +17,8 @@ describe 'Logged (incomplete)Worker ' do
         visit root_path
 
         expect(page).to have_css('.edit_worker')
+        expect(page).to_not have_css('.homepage_projects')
+        expect(page).to_not have_css('.no_projects_notice')
     end
 
     it 'successfully fills in profile details' do 
@@ -34,6 +36,7 @@ describe 'Logged (incomplete)Worker ' do
 
         expect(page).to_not have_css('#complete_profile_form')
         expect(page).to_not have_css('.profile_still_incomplete')
+        expect(page).to have_css('.no_projects_notice')
     end
 
     it 'fills in nothing' do
@@ -42,5 +45,7 @@ describe 'Logged (incomplete)Worker ' do
 
         expect(page).to have_css('.edit_worker')
         expect(page).to have_content(I18n.t('alert.profile_still_incomplete'))
+        expect(page).to_not have_css('.homepage_projects')
+        expect(page).to_not have_css('.no_projects_notice')
     end
 end
