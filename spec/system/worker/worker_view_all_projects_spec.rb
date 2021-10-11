@@ -2,6 +2,8 @@ require 'rails_helper'
 
 
 describe 'Logged (complete)Worker' do    
+    include ActiveSupport::Testing::TimeHelpers
+
     before(:each) do
         Occupation.create!(name: 'dev')
 
@@ -59,6 +61,20 @@ describe 'Logged (complete)Worker' do
 
         @projects.each do |project|
             expect(page).to have_css(".project_#{project.id}")
+        end
+
+        expect(page).to_not have_css('.translation_missing')
+    end
+
+    it 'sees all open projects on homepage' do
+        login_as @worker, scope: :worker
+    
+        travel 3.day do
+            visit root_path
+            [@projects[0], @projects[2]].each do |project|
+                expect(page).to have_css(".project_#{project.id}")
+            end
+            expect(page).to_not have_css(".project_#{@projects[1].id}")
         end
 
         expect(page).to_not have_css('.translation_missing')

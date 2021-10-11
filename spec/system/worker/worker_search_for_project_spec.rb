@@ -2,6 +2,7 @@ require 'rails_helper'
 
 
 describe 'Logged (complete)Worker searchs for project' do    
+    include ActiveSupport::Testing::TimeHelpers
     before(:each) do
         Occupation.create!(name: 'dev')
 
@@ -37,7 +38,7 @@ describe 'Logged (complete)Worker searchs for project' do
                 description: 'me ache',
                 skills_needed: 'habilidades2',
                 max_pay_per_hour: '123',
-                open_until: 2.days.from_now,
+                open_until: 3.days.from_now,
                 hirer: @hirer1
             ),
             Project.create!(
@@ -46,6 +47,14 @@ describe 'Logged (complete)Worker searchs for project' do
                 skills_needed: 'mÊ AcHe',
                 max_pay_per_hour: '123',
                 open_until: 5.days.from_now,
+                hirer: @hirer2
+            ),
+            Project.create!(
+                title: 'titulo',
+                description: 'titulo',
+                skills_needed: 'titulo',
+                max_pay_per_hour: '123',
+                open_until: 1.days.from_now,
                 hirer: @hirer2
             )
         ]
@@ -61,12 +70,20 @@ describe 'Logged (complete)Worker searchs for project' do
     end
 
     it 'by title successfully' do
-        login_as @worker, scope: :worker
-        visit root_path
-        search_for('titulo')
-        
-        [@projects[0], @projects[1]].each do |project|
-            expect(page).to have_css(".project_#{project.id}")
+        travel 2.day do   
+            login_as @worker, scope: :worker
+            visit root_path
+            search_for('titulo')     
+            match_projects = [@projects[0], @projects[1]]
+            non_match_projects = @projects - match_projects
+
+            match_projects.each do |project|
+                expect(page).to have_css(".project_#{project.id}")
+            end
+
+            non_match_projects.each do |project|
+                expect(page).to_not have_css(".project_#{project.id}")
+            end
         end
 
         expect(page).to_not have_css('.translation_missing')
@@ -99,6 +116,8 @@ describe 'Logged (complete)Worker searchs for project' do
 
         expect(page).to_not have_css('.translation_missing')
     end
+
+
 
 
 end
