@@ -32,7 +32,9 @@ describe 'Logged (incomplete)Worker ' do
         fill_in 'worker_description', with: 'descrição'
         fill_in 'worker_experience', with: 'experiencia'
         find('#worker_occupation_id option:first-of-type').select_option
-        click_on 'commit'
+        within '.edit_worker' do
+            click_on 'commit'
+        end
 
         expect(page).to_not have_css('#complete_profile_form')
         expect(page).to_not have_css('.profile_still_incomplete')
@@ -41,7 +43,9 @@ describe 'Logged (incomplete)Worker ' do
 
     it 'fills in nothing' do
         visit root_path
-        click_on 'commit'
+        within '.edit_worker' do
+            click_on 'commit'
+        end
 
         expect(page).to have_css('.edit_worker')
         expect(page).to have_content(I18n.t('alert.profile_still_incomplete'))

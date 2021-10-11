@@ -1,0 +1,13 @@
+<h2><%= "#{t('.title')} \"#{@search_term}\"" %></h2>
+
+<div id="search_results">
+    <% if @results.empty? %>
+        <span id='no_results_notice'><%= t('.no_results_notice') %></span>
+    <% else %>
+        <% @results.each do |result| %>
+            <% if result.class == Project %>
+                <%= render partial: 'projects/preview', locals: { project: result } %>
+            <% end %>
+        <% end %>
+    <% end %>
+</div>

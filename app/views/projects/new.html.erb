@@ -8,7 +8,7 @@
   </ul>
 <% end %>
 
-<%= form_with(model: @project) do |f| %>
+<%= form_with(model: @project, id: 'new_project_form') do |f| %>
   <div>
     <%= f.label :title %>
     <%= f.text_field :title %>
