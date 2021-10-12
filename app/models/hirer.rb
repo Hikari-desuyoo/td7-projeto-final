@@ -5,5 +5,6 @@ class Hirer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :projects
+  has_many :worker_feedbacks
   has_many :project_applications, through: :projects
 end

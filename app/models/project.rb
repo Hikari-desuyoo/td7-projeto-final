@@ -12,15 +12,17 @@ class Project < ApplicationRecord
 
     enum status: { open: 0, closed: 10, finished: 20 }
 
+
+    def get_accepted_applications
+        project_applications.where(status: 'accepted')
+    end
+
     def get_team
-        accepted = project_applications.filter do |project_application|
-            project_application.accepted?
-        end
+        accepted = get_accepted_applications
 
         accepted.map do |project_application|
             project_application.worker
         end
-
     end
 
     #STATUS RELATED    
