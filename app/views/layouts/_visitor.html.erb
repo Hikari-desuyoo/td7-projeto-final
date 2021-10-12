@@ -1,0 +1,27 @@
+<div class='signup'>
+    <span><%= t('layout.application.signup') %></span>
+    <%= 
+    link_to t('layout.application.worker_signup_link'),  
+    new_worker_registration_path, 
+    :id => 'worker_signup_link'
+    %>
+    <%= 
+    link_to t('layout.application.hirer_signup_link'),  
+    new_hirer_registration_path, 
+    :id => 'hirer_signup_link'
+    %>
+</div>  
+
+<div class='login'>
+    <span><%= t('layout.application.login') %></span>
+    <%= 
+    link_to t('layout.application.worker_login_link'),  
+    new_worker_session_path, 
+    :id => 'worker_login_link'
+    %>
+    <%= 
+    link_to t('layout.application.hirer_login_link'),  
+    new_hirer_session_path, 
+    :id => 'hirer_login_link'
+    %>
+</div> 

@@ -2,7 +2,7 @@
     <h2><%= t('home.index.welcome_worker_message') %></h2>
 </div>
 <% unless current_worker.complete_profile? %>
-    <%= render 'worker/edit_profile_details' %>
+    <%= render 'workers/edit_profile_details' %>
 <% else %>
     <% if @projects.empty? %>
         <span class='no_projects_notice'>

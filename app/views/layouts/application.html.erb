@@ -12,36 +12,10 @@
 
   <body>
     <header>
-      <h1><%= link_to 'Lance', root_path %></h1>
+      <h1><%= link_to 'Hiring', root_path %></h1>
       <nav>
         <% unless hirer_signed_in? or worker_signed_in? %>
-          <div class='signup'>
-            <span><%= t('layout.application.signup') %></span>
-            <%= 
-            link_to t('layout.application.worker_signup_link'),  
-            new_worker_registration_path, 
-            :id => 'worker_signup_link'
-            %>
-            <%= 
-            link_to t('layout.application.hirer_signup_link'),  
-            new_hirer_registration_path, 
-            :id => 'hirer_signup_link'
-            %>
-          </div>  
-
-          <div class='login'>
-            <span><%= t('layout.application.login') %></span>
-            <%= 
-            link_to t('layout.application.worker_login_link'),  
-            new_worker_session_path, 
-            :id => 'worker_login_link'
-            %>
-            <%= 
-            link_to t('layout.application.hirer_login_link'),  
-            new_hirer_session_path, 
-            :id => 'hirer_login_link'
-            %>
-          </div> 
+          <%= render 'layouts/visitor' %>
         <% else %>
           <div id='search_bar'>
             <%= form_with url: search_path, method: :get do |form| %>
@@ -49,12 +23,11 @@
               <%= form.submit 'Procurar' %>
             <% end %>
           </div>
-          <%= 
-          link_to t('layout.application.logout_link'),  
-          hirer_signed_in? ? destroy_hirer_session_path : destroy_worker_session_path, 
-          method: :delete, 
-          :id => 'logout_link'
-          %>
+          <% if hirer_signed_in? %>
+            <%= render 'layouts/hirer' %>
+          <% else %>
+            <%= render 'layouts/worker' %>
+          <% end %>
         <% end %>
       </nav>
       <% if notice %>

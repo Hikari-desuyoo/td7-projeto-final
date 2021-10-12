@@ -10,6 +10,14 @@ class WorkersController < ApplicationController
         redirect_to root_path
     end
 
+    def show
+        @worker = Worker.find(params[:id])
+        unless @worker.complete_profile?
+            if current_worker then flash[:alert] = t 'alert.profile_still_incomplete' end
+            redirect_to root_path
+        end
+    end
+
     private
     def worker_params
         params.require(:worker).permit(
