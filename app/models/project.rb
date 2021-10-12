@@ -8,7 +8,7 @@ class Project < ApplicationRecord
 
     belongs_to :hirer
 
-    has_many :project_aplications, dependent: :destroy
+    has_many :project_applications, dependent: :destroy
 
     enum status: { open: 0, closed: 10, finished: 20 }
     

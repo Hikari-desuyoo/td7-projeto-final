@@ -4,3 +4,7 @@ pt-BR:
     create:
       failed: 'Algo deu errado ao enviar sua proposta. Tente de novo. '
       success: 'Proposta para trabalhar enviada!'
+    hirer_view:
+      is_applying: 'está se candidantando para trabalhar no seguinte projeto:'
+      accept_button: 'Aceitar'
+      decline_button: 'Rejeitar'

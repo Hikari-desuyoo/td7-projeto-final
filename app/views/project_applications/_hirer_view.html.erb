@@ -1,0 +1,6 @@
+<div id=<%= "application-#{application.id}" %>>
+    <span><%= "#{application.worker.get_full_name} #{t('project_applications.hirer_view.is_applying')}" %></span>
+    <span><%= link_to application.project.title, application.project %></span>
+    <%= link_to t('project_applications.hirer_view.accept_button'), root_path, id: 'accept_button'%>
+    <%= link_to t('project_applications.hirer_view.decline_button'), root_path, id: 'decline_button'%>
+</div>

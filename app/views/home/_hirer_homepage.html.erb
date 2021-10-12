@@ -5,3 +5,9 @@
 <nav>
     <%= link_to t('home.index.new_project_link'), new_project_path, :id => 'new_project_link' %>
 </nav>
+
+<div id='notifications'>
+    <% @applications.each do |application| %>
+        <%= render partial: 'project_applications/hirer_view', locals: { application: application } %>
+    <% end %>
+</div>
