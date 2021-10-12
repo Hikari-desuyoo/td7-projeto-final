@@ -1,5 +1,6 @@
  class ProjectApplicationsController < ApplicationController
     before_action :authenticate_worker!, only: [:create]
+    before_action :authenticate_hirer!, only: [:accept]
 
     def create
         @project = Project.find(params[:project_id])
@@ -19,5 +20,16 @@
         else
             redirect_to @project, notice: t('.failed')
         end
+    end
+
+    def accept
+        @project_application = ProjectApplication.find(params[:id])
+        @project_application.accepted!
+        redirect_to @project_application.project
+    end    
+
+    def decline
+        @project_application = ProjectApplication.find(params[:id])
+        redirect_to @project_application.project
     end
  end

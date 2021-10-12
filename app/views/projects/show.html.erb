@@ -1,4 +1,16 @@
-<div id = project_details>
+<div id = 'project_details'>
+    <% if @owner_signed_in %>
+        <div class = 'team_information'>
+            <% if @project_team.empty? %>
+                <%= t('.no_team_notice') %>
+            <% else %>
+                <% @project_team.each do |worker| %>
+                    <%= render partial: 'team/worker', locals: { worker: worker } %>
+                <% end %>
+            <% end %>
+        </div>
+    <% end %>
+
     <% if @worker_applied %>
         <span id='applied_notice'><%= t('.applied_notice') %></span>
     <% end %>

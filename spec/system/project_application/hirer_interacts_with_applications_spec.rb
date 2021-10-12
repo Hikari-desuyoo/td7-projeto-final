@@ -64,4 +64,23 @@ describe 'Hirer visits homepage ' do
         expect(page).to_not have_css('.translation_missing')
         expect(page).to_not have_content('translation missing')
     end
+
+    it 'and accepts application' do
+        login_as @hirer, scope: :hirer
+        visit root_path
+        
+        within "#application-#{@application.id}" do
+            click_on 'accept_button'
+        end
+
+        expect(page).to have_css('.project_worker', text: @worker.get_full_name)
+
+        
+    end
+
+    xit 'and decline application' do
+        login_as @hirer, scope: :hirer
+        visit root_path
+        click_on "#application-#{@application.id} #decline_button"
+    end
 end

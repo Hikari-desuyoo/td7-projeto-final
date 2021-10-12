@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :projects, only: [:new, :create, :show] do
-    resources :project_applications, only: [:create]
+    resources :project_applications, only: [:create], shallow: true do
+      post 'accept', on: :member
+      post 'decline', on: :member
+    end
   end
 end

@@ -11,7 +11,19 @@ class Project < ApplicationRecord
     has_many :project_applications, dependent: :destroy
 
     enum status: { open: 0, closed: 10, finished: 20 }
-    
+
+    def get_team
+        accepted = project_applications.filter do |project_application|
+            project_application.accepted?
+        end
+
+        accepted.map do |project_application|
+            project_application.worker
+        end
+
+    end
+
+    #STATUS RELATED    
     def status
         if self[:status] == 'open' and  open_until < Date.today
             closed!
