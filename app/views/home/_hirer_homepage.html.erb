@@ -7,7 +7,12 @@
 </nav>
 
 <div id='notifications'>
-    <% @applications.each do |application| %>
-        <%= render partial: 'project_applications/hirer_view', locals: { application: application } %>
+    <h2><%= t('home.index.notifications') %><h2>
+    <% if @applications.empty? %>
+        <%= t('home.index.no_notifications') %>
+    <% else %>
+        <% @applications.each do |application| %>
+            <%= render partial: 'project_applications/hirer_view', locals: { application: application } %>
+        <% end %>
     <% end %>
 </div>
