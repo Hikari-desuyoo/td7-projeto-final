@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_10_11_234457) do
   create_table "project_applications", force: :cascade do |t|
     t.integer "worker_id", null: false
     t.integer "project_id", null: false
-    t.integer "status", default: 0
+    t.integer "status", default: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_project_applications_on_project_id"

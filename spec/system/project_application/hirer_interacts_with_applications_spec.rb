@@ -60,27 +60,65 @@ describe 'Hirer visits homepage ' do
         expect(page).to have_content(@project.title)
         expect(page).to have_css("#accept_button")
         expect(page).to have_css("#decline_button")
+        expect(page).to have_content(I18n.t('project_applications.status.pending'))
 
         expect(page).to_not have_css('.translation_missing')
         expect(page).to_not have_content('translation missing')
     end
 
-    it 'and accepts application' do
-        login_as @hirer, scope: :hirer
-        visit root_path
-        
-        within "#application-#{@application.id}" do
-            click_on 'accept_button'
+    context ' accepts application' do
+        before :each do
+            login_as @hirer, scope: :hirer
+            visit root_path
+            
+            within "#application-#{@application.id}" do
+                click_on 'accept_button'
+            end
         end
 
-        expect(page).to have_css('.project_worker', text: @worker.get_full_name)
+        it 'and sees worker name' do
 
-        
+            expect(page).to have_content(I18n.t('project_applications.accept.success_notice'))
+            expect(page).to have_css('.project_worker', text: @worker.get_full_name)
+
+            expect(page).to_not have_css('.translation_missing')
+            expect(page).to_not have_content('translation missing')
+            
+        end
+
+        it 'and sees application as accepted' do
+            visit root_path
+            within "#application-#{@application.id}" do
+                expect(page).to have_css('#accept_button')
+                expect(page).to have_css('#decline_button')
+                expect(page).to have_content(I18n.t('project_applications.status.accepted'))
+            end
+
+            expect(page).to_not have_css('.translation_missing')
+            expect(page).to_not have_content('translation missing')
+        end
     end
 
-    xit 'and decline application' do
-        login_as @hirer, scope: :hirer
-        visit root_path
-        click_on "#application-#{@application.id} #decline_button"
+    context ' declines application' do
+        before :each do
+            login_as @hirer, scope: :hirer
+            visit root_path
+            
+            within "#application-#{@application.id}" do
+                click_on 'decline_button'
+            end
+        end
+
+        it 'and sees application as declined' do
+            visit root_path
+            within "#application-#{@application.id}" do
+                expect(page).to have_css('#accept_button')
+                expect(page).to have_css('#decline_button')
+                expect(page).to have_content(I18n.t('project_applications.status.declined'))
+            end
+
+            expect(page).to_not have_css('.translation_missing')
+            expect(page).to_not have_content('translation missing')
+        end
     end
 end

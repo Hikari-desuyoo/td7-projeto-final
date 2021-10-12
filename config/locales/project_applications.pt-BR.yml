@@ -8,3 +8,11 @@ pt-BR:
       is_applying: 'está se candidantando para trabalhar no seguinte projeto:'
       accept_button: 'Aceitar'
       decline_button: 'Rejeitar'
+    accept:
+      success_notice: 'Proposta aceita com sucesso!'
+    decline:
+      success_notice: 'Proposta rejeitada com sucesso.'
+    status:
+      declined: 'Rejeitado'
+      accepted: 'Aceito'
+      pending: 'Aguardando resposta'
