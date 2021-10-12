@@ -19,6 +19,14 @@ class Project < ApplicationRecord
         self[:status]
     end
 
+    def closed?
+        status == 'closed'
+    end
+
+    def open?
+        status == 'open'
+    end
+
     private
 
     def valid_close_date
