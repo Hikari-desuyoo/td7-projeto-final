@@ -1,0 +1,6 @@
+---
+pt-BR:
+  project_applications:
+    create:
+      failed: 'Algo deu errado ao enviar sua proposta. Tente de novo. '
+      success: 'Proposta para trabalhar enviada!'

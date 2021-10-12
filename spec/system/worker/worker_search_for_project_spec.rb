@@ -70,7 +70,7 @@ describe 'Logged (complete)Worker searchs for project' do
     end
 
     it 'by title successfully' do
-        travel 2.day do   
+        travel 3.day do   
             login_as @worker, scope: :worker
             visit root_path
             search_for('titulo')     

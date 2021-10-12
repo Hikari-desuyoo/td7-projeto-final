@@ -12,6 +12,9 @@ class Worker < ApplicationRecord
             :birth_date,
             presence: true, on: :update
 
+  has_many :project_applications
+  has_many :projects, through: :project_applications
+
   def complete_profile?
     not (
       name.blank? or

@@ -45,7 +45,7 @@ RSpec.describe Project, type: :model do
                 hirer: @hirer
             )
             
-            travel 6.day do
+            travel 7.day do
                 expect(@project.status).to eq 'closed'
             end
 

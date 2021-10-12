@@ -8,7 +8,10 @@ class Project < ApplicationRecord
 
     belongs_to :hirer
 
+    has_many :project_aplications, dependent: :destroy
+
     enum status: { open: 0, closed: 10, finished: 20 }
+    
     def status
         if self[:status] == 'open' and  open_until < Date.today
             closed!

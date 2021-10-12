@@ -69,7 +69,7 @@ describe 'Logged (complete)Worker' do
     it 'sees all open projects on homepage' do
         login_as @worker, scope: :worker
     
-        travel 3.day do
+        travel 4.day do
             visit root_path
             [@projects[0], @projects[2]].each do |project|
                 expect(page).to have_css(".project_#{project.id}")

@@ -18,6 +18,9 @@ class ProjectsController < ApplicationController
 
     def show
         @project = Project.find(params[:id])
+        @worker_applied = current_worker ? current_worker.projects.include?(@project) : false
+        
+        @project_status_notice = t(".#{@project.status}_project_notice")
     end
 
     def project_params 

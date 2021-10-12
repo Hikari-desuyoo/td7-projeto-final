@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 
-describe 'Logged (complete)Worker visits project page' do    
-    before(:each) do
+describe 'Logged (complete)Worker visits project page' do 
+    it 'and applies successfully' do
         Occupation.create!(name: 'dev')
 
         @worker = Worker.create!(
@@ -30,12 +30,18 @@ describe 'Logged (complete)Worker visits project page' do
         login_as @worker, scope: :worker
         visit root_path
         click_on @project.title
-    end
+        click_on 'apply_button'
 
-    it 'and sees apply button' do
         
-        expect(page).to have_css('.apply_button')     
+        expect(page).to have_content(I18n.t('project_applications.create.success'))
+        expect(page).to have_css('#applied_notice')
+        expect(page).to have_content(I18n.t('projects.show.applied_notice'))
+        project_aplication = ProjectApplication.all[0]
+        expect(project_aplication.worker).to eq(@worker)
+        expect(project_aplication.project).to eq(@project)
+        expect(page).to_not have_css('#apply_button')  
         expect(page).to_not have_css('.translation_missing')
-
+        expect(page).to_not have_content('translation missing')
+        
     end
 end

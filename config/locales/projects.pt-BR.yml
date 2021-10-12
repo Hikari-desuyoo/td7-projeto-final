@@ -15,3 +15,9 @@ pt-BR:
   projects:
     new:
       title: 'Crie um novo projeto'
+    show:
+      open_project_notice: 'Este projeto está aceitando candidatos'
+      closed_project_notice: 'Este projeto não está aceitando candidatos'
+      finished_project_notice: 'Este projeto não está aceitando candidatos, e já foi finalizado.'
+      apply_button: 'Me candidatar'
+      applied_notice: 'Você se candidatou para trabalhar neste projeto'
