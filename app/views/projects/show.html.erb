@@ -16,7 +16,7 @@
     <% end %>
     <h1 class='title'><%= @project.title %></h1>
     <h2 class='description'><%= @project.description %></h2>
-    <h3 class='hirer'>de: <%= @project.hirer.email %></h2><!-- Vai mudar no futuro -->
+    <h3 class='hirer'>de: <%= @project.hirer.username %></h2>
 
     <dl>
         <dt><%= Project.human_attribute_name('skills_needed') %></dt>

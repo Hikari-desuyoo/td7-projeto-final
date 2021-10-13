@@ -1,0 +1,18 @@
+<h2><%= @hirer.username %></h2>
+
+
+<div id="average_score">
+    <%= @hirer_average_score %>
+</div>
+
+<% if @feedback %>
+    <div id="your_feedback">
+        <span class="score"><%= @feedback.score %></span>
+        <span><%= @feedback.comment %></span>
+    </div>
+<% elsif @show_feedback_button %>
+<% end %>
+
+<div id='hirer_details'>
+    <h3><%= @hirer.email %></h3>
+</div>

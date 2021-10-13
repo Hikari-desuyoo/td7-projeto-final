@@ -16,7 +16,7 @@ describe 'Logged (complete)Worker sees own profile' do
         )
     end
 
-    it 'sees all projects on homepage' do
+    it 'successfully' do
         login_as @worker, scope: :worker
         visit root_path
 

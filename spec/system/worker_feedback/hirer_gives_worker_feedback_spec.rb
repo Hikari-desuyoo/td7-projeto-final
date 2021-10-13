@@ -34,7 +34,7 @@ describe 'hirer tries to give worker feedback' do
     end
 
     it 'successfully if worker was hired at least once' do
-        @project.closed!
+        @project.finished!
 
         login_as @hirer, scope: :hirer
         visit "/projects/#{@project.id}"
@@ -64,6 +64,18 @@ describe 'hirer tries to give worker feedback' do
     end
 
     it 'but sees no feedback button if project is still open' do
+        login_as @hirer, scope: :hirer
+        visit "/projects/#{@project.id}"
+
+        within ".project_worker" do
+            expect(page).to_not have_css(".feedback_button")
+        end
+
+    end
+
+    it 'but sees no feedback button if project is not finished' do
+        @project.closed!
+
         login_as @hirer, scope: :hirer
         visit "/projects/#{@project.id}"
 

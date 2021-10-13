@@ -1,7 +1,7 @@
 <div class='project_worker'>
     <span><%= worker.get_full_name %></span>
     <span><%= t('occupation_name.'+worker.occupation.to_s) %></span>
-    <% if project.closed? %>
+    <% if project.finished? %>
         <%= 
         link_to t('feedback.button'), 
         new_worker_feedback_path(worker), 
