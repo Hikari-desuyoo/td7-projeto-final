@@ -7,8 +7,8 @@ class Hirer < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   has_many :projects
-  has_many :worker_feedbacks
   has_many :project_applications, through: :projects
 
   has_many :hirer_feedbacks
+  has_many :worker_feedbacks
 end

@@ -7,7 +7,7 @@ class HirersController < ApplicationController
         @feedback = false
         
         if worker_signed_in?
-            feedback_query = current_worker.worker_feedbacks.where(:hirer => @hirer)
+            feedback_query = current_worker.hirer_feedbacks.where(:hirer => @hirer)
             unless feedback_query.empty?
                 @feedback = feedback_query[0]
             end

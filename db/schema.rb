@@ -10,18 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_144730) do
-
-  create_table "feedbacks", force: :cascade do |t|
-    t.integer "hirer_id", null: false
-    t.integer "worker_id", null: false
-    t.text "comment"
-    t.integer "score"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["hirer_id"], name: "index_feedbacks_on_hirer_id"
-    t.index ["worker_id"], name: "index_feedbacks_on_worker_id"
-  end
+ActiveRecord::Schema.define(version: 2021_10_13_201904) do
 
   create_table "hirer_feedbacks", force: :cascade do |t|
     t.integer "hirer_id", null: false
@@ -61,6 +50,17 @@ ActiveRecord::Schema.define(version: 2021_10_13_144730) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_project_applications_on_project_id"
     t.index ["worker_id"], name: "index_project_applications_on_worker_id"
+  end
+
+  create_table "project_feedbacks", force: :cascade do |t|
+    t.integer "project_id", null: false
+    t.integer "worker_id", null: false
+    t.text "comment"
+    t.integer "score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_project_feedbacks_on_project_id"
+    t.index ["worker_id"], name: "index_project_feedbacks_on_worker_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -110,12 +110,12 @@ ActiveRecord::Schema.define(version: 2021_10_13_144730) do
     t.index ["reset_password_token"], name: "index_workers_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "feedbacks", "hirers"
-  add_foreign_key "feedbacks", "workers"
   add_foreign_key "hirer_feedbacks", "hirers"
   add_foreign_key "hirer_feedbacks", "workers"
   add_foreign_key "project_applications", "projects"
   add_foreign_key "project_applications", "workers"
+  add_foreign_key "project_feedbacks", "projects"
+  add_foreign_key "project_feedbacks", "workers"
   add_foreign_key "projects", "hirers"
   add_foreign_key "worker_feedbacks", "hirers"
   add_foreign_key "worker_feedbacks", "workers"
