@@ -1,5 +1,18 @@
 <h2><%= @worker.get_full_name %></h2>
 
+
+<div id="average_score">
+    <%= @worker_average_score %>
+</div>
+
+<% if @feedback %>
+    <div id="your_feedback">
+        <span class="score"><%= @feedback.score %></span>
+        <span><%= @feedback.comment %></span>
+    </div>
+<% elsif @show_feedback_button %>
+<% end %>
+
 <div id='worker_details'>
     <h3><%= @worker.description %></h3>
 </div>

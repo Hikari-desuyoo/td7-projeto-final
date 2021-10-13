@@ -24,6 +24,7 @@ describe 'Logged (complete)Worker sees own profile' do
 
         expect(page).to have_css('#worker_details')
         expect(page).to have_content(@worker.get_full_name)
+        expect(page).to have_css('#average_score', text:'-')
 
         expect(page).to_not have_css('.translation_missing')
         expect(page).to_not have_content('translation_missing')
