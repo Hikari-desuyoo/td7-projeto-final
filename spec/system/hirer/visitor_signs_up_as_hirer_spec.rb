@@ -9,9 +9,11 @@ describe 'Visitor signs up' do
     it 'successfully' do
         visit_sign_up_page
         fill_in 'hirer_email', with: 'test@mail.com'
+        fill_in 'hirer_username', with: 'mister hirer'
         fill_in 'hirer_password', with: '123456789'
         fill_in 'hirer_password_confirmation', with: '123456789'
         click_on 'commit'
+
 
         expect(current_path).to eq root_path
         expect(page).to_not have_css('.signup')

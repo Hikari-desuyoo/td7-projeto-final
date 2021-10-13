@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :workers 
-  devise_for :hirers
+  devise_for :hirers, :controllers => { registrations: 'hirers/registrations' }
 
   resources :hirers, only: [:show]
   resources :workers, only: [:show, :edit, :update] do

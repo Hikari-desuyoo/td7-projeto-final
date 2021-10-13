@@ -12,7 +12,8 @@ describe 'hirer tries to give worker feedback' do
 
         @hirer = Hirer.create!(
             email: 'test@mail.com',
-            password: '123456789'
+            password: '123456789',
+            username: 'mister hirer'
         )
 
         @project = Project.create!(

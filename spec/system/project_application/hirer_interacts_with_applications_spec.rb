@@ -13,12 +13,14 @@ describe 'Hirer visits homepage ' do
 
         @hirer = Hirer.create!(
             email: 'test@mail.com',
-            password: '123456789'
+            password: '123456789',
+            username: 'mister hirer'
         )
 
         @hirer2 = Hirer.create!(
             email: 'test2@mail.com',
-            password: '123456789'
+            password: '123456789',
+            username: 'mister hirer2'
         )
 
         @project = Project.create!(
