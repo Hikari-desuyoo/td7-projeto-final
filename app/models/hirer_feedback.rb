@@ -1,0 +1,2 @@
+class HirerFeedback < Feedback
+end

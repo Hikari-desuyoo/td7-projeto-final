@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_12_212106) do
+ActiveRecord::Schema.define(version: 2021_10_13_135211) do
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.integer "hirer_id", null: false
+    t.integer "worker_id", null: false
+    t.text "comment"
+    t.integer "score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hirer_id"], name: "index_feedbacks_on_hirer_id"
+    t.index ["worker_id"], name: "index_feedbacks_on_worker_id"
+  end
+
+  create_table "hirer_feedbacks", force: :cascade do |t|
+    t.integer "hirer_id", null: false
+    t.integer "worker_id", null: false
+    t.text "comment"
+    t.integer "score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hirer_id"], name: "index_hirer_feedbacks_on_hirer_id"
+    t.index ["worker_id"], name: "index_hirer_feedbacks_on_worker_id"
+  end
 
   create_table "hirers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -87,6 +109,10 @@ ActiveRecord::Schema.define(version: 2021_10_12_212106) do
     t.index ["reset_password_token"], name: "index_workers_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "feedbacks", "hirers"
+  add_foreign_key "feedbacks", "workers"
+  add_foreign_key "hirer_feedbacks", "hirers"
+  add_foreign_key "hirer_feedbacks", "workers"
   add_foreign_key "project_applications", "projects"
   add_foreign_key "project_applications", "workers"
   add_foreign_key "projects", "hirers"
