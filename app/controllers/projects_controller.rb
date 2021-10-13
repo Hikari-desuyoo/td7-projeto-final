@@ -20,6 +20,9 @@ class ProjectsController < ApplicationController
         @project = Project.find(params[:id])
         @owner_signed_in = hirer_signed_in? and @project.hirer == current_hirer
         @project_team = @project.get_team
+        @team_worker_signed_in = current_worker ? @project_team.include?(current_worker) : false
+        @member_signed_in = (@owner_signed_in or @team_worker_signed_in)
+
         @worker_applied = current_worker ? current_worker.projects.include?(@project) : false
         
         @project_status_notice = t(".#{@project.status}_project_notice")

@@ -2,7 +2,15 @@ Rails.application.routes.draw do
   devise_for :workers 
   devise_for :hirers, :controllers => { registrations: 'hirers/registrations' }
 
-  resources :hirers, only: [:show]
+  resources :hirers, only: [:show] do
+    resources(
+      :hirer_feedbacks, 
+      :path => :feedbacks, 
+      :as => :feedbacks, 
+      only: [:new, :create, :update]
+    )
+  end
+
   resources :workers, only: [:show, :edit, :update] do
     resources(
       :worker_feedbacks, 

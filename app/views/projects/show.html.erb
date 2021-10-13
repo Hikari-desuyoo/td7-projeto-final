@@ -1,5 +1,6 @@
-<% if @owner_signed_in %>
+<% if @member_signed_in %>
     <div class = 'team_information'>
+        <%= render partial: 'team/hirer', locals: { project: @project } %>
         <% if @project_team.empty? %>
             <%= t('.no_team_notice') %>
         <% else %>

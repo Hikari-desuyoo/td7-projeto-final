@@ -1,0 +1,8 @@
+<%= 
+render(
+  partial: 'feedbacks/new', 
+  locals: { feedback: @feedback, 
+            feedback_for: @hirer, 
+            receiver_name: @hirer.username} 
+)
+%>

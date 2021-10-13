@@ -2,6 +2,7 @@ class WorkerFeedbacksController < ApplicationController
     before_action :authorize_hirer_access
     def new
         @feedback = WorkerFeedback.new()
+        @worker = Worker.find(params[:worker_id])
     end
 
     def create
@@ -11,7 +12,7 @@ class WorkerFeedbacksController < ApplicationController
         @feedback.hirer = current_hirer
 
         if @feedback.save
-            redirect_to @worker, notice: t('.submit_success')
+            redirect_to @worker, notice: t('feedbacks.create.submit_success')
         else
             render :new
         end

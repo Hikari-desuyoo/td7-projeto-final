@@ -9,4 +9,6 @@ class Hirer < ApplicationRecord
   has_many :projects
   has_many :worker_feedbacks
   has_many :project_applications, through: :projects
+
+  has_many :hirer_feedbacks
 end

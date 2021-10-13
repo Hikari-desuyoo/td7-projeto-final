@@ -1,13 +1,8 @@
-<h1><%= t('.title') %></h1>
-
-<%= form_with(model: @feedback, id: 'worker_feedback_form') do |f| %>
-  <div>
-    <%= f.label :score %>
-    <%= f.number_field :score, in: 1..5, step: 1 %>
-  </div>
-  <div>
-    <%= f.label :comment %>
-    <%= f.text_field :comment %>
-  </div>
-  <%= f.submit 'Enviar' %>
-<% end %>
+<%= 
+render(
+  partial: 'feedbacks/new', 
+  locals: { feedback: @feedback, 
+            feedback_for: @worker, 
+            receiver_name: @worker.get_full_name} 
+)
+%>

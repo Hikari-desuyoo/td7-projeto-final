@@ -21,13 +21,11 @@ class WorkersController < ApplicationController
         @worker_average_score = @worker.worker_feedbacks.average(:score)
 
         @feedback = false
-        @show_feedback_button = false
+        
         if hirer_signed_in?
             feedback_query = current_hirer.worker_feedbacks.where(:worker => @worker)
             unless feedback_query.empty?
                 @feedback = feedback_query[0]
-            else
-                @show_feedback_button = true
             end
 
         end

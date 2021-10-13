@@ -1,0 +1,7 @@
+---
+pt-BR:
+  feedbacks:
+    create:
+      submit_success: 'Avaliação enviada com sucesso!'
+    common:
+      youre_avaliating: 'Avaliação para: '
