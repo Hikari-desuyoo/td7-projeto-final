@@ -11,5 +11,13 @@ class FavoritedHirersController < ApplicationController
     end
 
     def unfavorite
+        hirer = Hirer.find(params[:id])
+        
+        FavoritedHirer.where(
+            hirer: hirer,
+            worker: current_worker
+        )[0].destroy
+        
+        redirect_to hirer
     end
 end

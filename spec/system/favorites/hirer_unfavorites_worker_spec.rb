@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'worker favorites hirer' do
+describe 'hirer unfavorites worker' do
     before(:each) do
         @worker = Worker.create!(
             email: 'test2@mail.com',
@@ -15,18 +15,23 @@ describe 'worker favorites hirer' do
             password: '123456789',
             username: 'mister hirer'
         )
+
+        FavoritedWorker.create!(
+            hirer: @hirer,
+            worker: @worker
+        )
     end
 
     it 'successfully' do
-        login_as @worker, scope: :worker
-        visit "/hirers/#{@hirer.id}"
+        login_as @hirer, scope: :hirer
+        visit "/workers/#{@worker.id}"
 
-        click_on 'favorite_button'
+        click_on 'unfavorite_button'
 
-        expect(page).to have_css('#unfavorite_button')
+        expect(page).to have_css('#favorite_button')
 
         expect(page).to_not have_css('.translation-missing')
         expect(page).to_not have_content('translation missing')
-        expect(@worker.favorited_hirers.where(hirer: @hirer).length).to eq(1)
+        expect(@hirer.favorited_workers.where(worker: @worker).length).to eq(0)
     end
 end
