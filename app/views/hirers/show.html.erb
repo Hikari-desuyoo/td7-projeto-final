@@ -1,6 +1,22 @@
 <h2><%= @hirer.username %></h2>
 
 
+<% if @show_favorite_button %>
+    <%= 
+    link_to t('favorites.favorite_button'), 
+    favorite_favorited_hirer_path(@hirer.id), 
+    id: 'favorite_button',
+    method: :post
+    %>
+<% elsif @show_unfavorite_button %>
+    <%= 
+    link_to t('favorites.unfavorite_button'), 
+    unfavorite_favorited_hirer_path(@hirer.id), 
+    id: 'unfavorite_button',
+    method: :delete
+    %>
+<% end %>
+
 <div id="average_score">
     <%= @hirer_average_score %>
 </div>

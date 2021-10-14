@@ -11,4 +11,6 @@ class Hirer < ApplicationRecord
 
   has_many :hirer_feedbacks
   has_many :worker_feedbacks
+
+  has_many :favorited_workers
 end

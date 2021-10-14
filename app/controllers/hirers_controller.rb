@@ -15,6 +15,21 @@ class HirersController < ApplicationController
 
         if @hirer_average_score == nil then @hirer_average_score = '-' end
 
+        set_favorite_attributes
+    end
+
+    private
+    def set_favorite_attributes
+        @show_favorite_button = false
+        @show_unfavorite_button = false
+        
+        if worker_signed_in?
+            if current_worker.favorited_hirers.where(:hirer => @hirer).empty?
+                @show_favorite_button = true
+            else
+                @show_unfavorite_button = true
+            end
+        end
     end
 
 end

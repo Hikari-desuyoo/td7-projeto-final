@@ -18,6 +18,8 @@ class Worker < ApplicationRecord
   has_many :worker_feedbacks
   has_many :project_feedbacks
 
+  has_many :favorited_hirers
+
   def complete_profile?
     not (
       name.blank? or

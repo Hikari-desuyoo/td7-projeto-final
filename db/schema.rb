@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_201904) do
+ActiveRecord::Schema.define(version: 2021_10_14_012624) do
+
+  create_table "favorited_hirers", force: :cascade do |t|
+    t.integer "hirer_id", null: false
+    t.integer "worker_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hirer_id"], name: "index_favorited_hirers_on_hirer_id"
+    t.index ["worker_id"], name: "index_favorited_hirers_on_worker_id"
+  end
+
+  create_table "favorited_workers", force: :cascade do |t|
+    t.integer "hirer_id", null: false
+    t.integer "worker_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hirer_id"], name: "index_favorited_workers_on_hirer_id"
+    t.index ["worker_id"], name: "index_favorited_workers_on_worker_id"
+  end
 
   create_table "hirer_feedbacks", force: :cascade do |t|
     t.integer "hirer_id", null: false
@@ -110,6 +128,10 @@ ActiveRecord::Schema.define(version: 2021_10_13_201904) do
     t.index ["reset_password_token"], name: "index_workers_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favorited_hirers", "hirers"
+  add_foreign_key "favorited_hirers", "workers"
+  add_foreign_key "favorited_workers", "hirers"
+  add_foreign_key "favorited_workers", "workers"
   add_foreign_key "hirer_feedbacks", "hirers"
   add_foreign_key "hirer_feedbacks", "workers"
   add_foreign_key "project_applications", "projects"

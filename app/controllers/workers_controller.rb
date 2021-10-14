@@ -32,9 +32,24 @@ class WorkersController < ApplicationController
 
         if @worker_average_score == nil then @worker_average_score = '-' end
 
+        set_favorite_attributes
     end
 
     private
+    def set_favorite_attributes
+        @show_favorite_button = false
+        @show_unfavorite_button = false
+        
+
+        if hirer_signed_in?
+            if current_hirer.favorited_workers.where(:worker => @worker).empty?
+                @show_favorite_button = true
+            else
+                @show_unfavorite_button = true
+            end
+        end
+    end
+
     def worker_params
         params.require(:worker).permit(
             :name,
