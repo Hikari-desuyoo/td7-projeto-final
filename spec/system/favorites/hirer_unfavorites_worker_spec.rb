@@ -30,8 +30,8 @@ describe 'hirer unfavorites worker' do
 
         expect(page).to have_css('#favorite_button')
 
-        expect(page).to_not have_css('.translation-missing')
-        expect(page).to_not have_content('translation missing')
+        expect(page.body).to_not include('translation-missing')
+        expect(page.body).to_not include('translation missing')
         expect(@hirer.favorited_workers.where(worker: @worker).length).to eq(0)
     end
 end
