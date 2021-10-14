@@ -2,12 +2,33 @@ require 'rails_helper'
 
 describe 'no missing translation' do
     def missing_check
-        expect(page).to_not have_css('.translation_missing')
+        expect(page.body).to_not include('translation-missing')
+        expect(page.body).to_not include('translation missing')
     end
 
     describe 'as visitor' do
         it 'homepage' do
             visit root_path
+            missing_check
+        end
+
+        it 'worker login page' do
+            visit new_worker_session_path
+            missing_check
+        end
+
+        it 'hirer login page' do
+            visit new_hirer_session_path
+            missing_check
+        end
+        
+        it 'hirer signup page' do
+            visit new_hirer_registration_path
+            missing_check
+        end
+
+        it 'worker signup page' do
+            visit new_worker_registration_path
             missing_check
         end
     end
