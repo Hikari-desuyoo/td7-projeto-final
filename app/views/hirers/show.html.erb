@@ -18,7 +18,7 @@
 <% end %>
 
 <div id="average_score">
-    <%= @hirer_average_score %>
+    <%= number_with_precision(@hirer_average_score, :precision => 2) %>
 </div>
 
 <% if @feedback %>

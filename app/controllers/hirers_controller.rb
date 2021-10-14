@@ -2,7 +2,7 @@ class HirersController < ApplicationController
     def show
         @hirer = Hirer.find(params[:id])
 
-        @hirer_average_score = @hirer.worker_feedbacks.average(:score)
+        @hirer_average_score = @hirer.hirer_feedbacks.average(:score)
 
         @feedback = false
         
