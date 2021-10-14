@@ -6,10 +6,7 @@
 </div>
 
 <% if @feedback %>
-    <div id="your_feedback">
-        <span class="score"><%= @feedback.score %></span>
-        <span><%= @feedback.comment %></span>
-    </div>
+    <%= render partial: 'feedbacks/yours', locals: { feedback: @feedback } %>
 <% end %>
 
 <div id='hirer_details'>

@@ -1,12 +1,24 @@
 <% if @member_signed_in %>
-    <div class = 'team_information'>
-        <%= render partial: 'team/hirer', locals: { project: @project } %>
-        <% if @project_team.empty? %>
-            <%= t('.no_team_notice') %>
-        <% else %>
-            <% @project_team.each do |worker| %>
-                <%= render partial: 'team/worker', locals: { worker: worker, project: @project } %>
+    <div>
+        <div class = 'team_information'>
+            <%= render partial: 'team/hirer', locals: { project: @project } %>
+            <% if @project_team.empty? %>
+                <%= t('.no_team_notice') %>
+            <% else %>
+                <% @project_team.each do |worker| %>
+                    <%= render partial: 'team/worker', locals: { worker: worker, project: @project } %>
+                <% end %>
             <% end %>
+        </div>
+        <% if worker_signed_in? and @project.finished? and not @feedback %>
+            <%= 
+            link_to t('feedback.project_button'), 
+            new_project_feedback_path(@project), 
+            class: 'project_feedback_button' 
+            %>
+        <% end %>
+        <% if @feedback %>
+            <%= render partial: 'feedbacks/yours', locals: { feedback: @feedback } %>
         <% end %>
     </div>
 <% end %>

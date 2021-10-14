@@ -11,6 +11,7 @@ class Project < ApplicationRecord
     has_many :project_applications, dependent: :destroy
 
     enum status: { open: 0, closed: 10, finished: 20 }
+    has_many :project_feedbacks
 
 
     def get_accepted_applications

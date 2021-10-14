@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+  #BASIC
+  root 'home#index'
+  patch 'complete_profile', to: 'workers#complete_profile'
+  get 'search', to: 'search#search'
+
+  #DEVISE
   devise_for :workers 
   devise_for :hirers, :controllers => { registrations: 'hirers/registrations' }
 
+  #RESOURCES
   resources :hirers, only: [:show] do
     resources(
       :hirer_feedbacks, 
@@ -20,15 +27,16 @@ Rails.application.routes.draw do
     )
   end
 
-  patch 'complete_profile', to: 'workers#complete_profile'
-  get 'search', to: 'search#search'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'home#index'
-
   resources :projects, only: [:new, :create, :show] do
     resources :project_applications, only: [:create], shallow: true do
       post 'accept', on: :member
       post 'decline', on: :member
     end
+    resources(
+      :project_feedbacks, 
+      :path => :feedbacks, 
+      :as => :feedbacks, 
+      only: [:new, :create, :update]
+    )
   end
 end

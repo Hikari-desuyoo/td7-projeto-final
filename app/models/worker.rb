@@ -16,6 +16,7 @@ class Worker < ApplicationRecord
   has_many :projects, through: :project_applications
   has_many :hirer_feedbacks
   has_many :worker_feedbacks
+  has_many :project_feedbacks
 
   def complete_profile?
     not (

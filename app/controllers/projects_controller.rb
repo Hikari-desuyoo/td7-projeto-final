@@ -26,6 +26,25 @@ class ProjectsController < ApplicationController
         @worker_applied = current_worker ? current_worker.projects.include?(@project) : false
         
         @project_status_notice = t(".#{@project.status}_project_notice")
+        
+        set_feedback_attributes
+
+    end
+
+    private
+    def set_feedback_attributes
+        @project_average_score = @project.project_feedbacks.average(:score)
+
+        @feedback = false
+        
+        if worker_signed_in?
+            feedback_query = current_worker.project_feedbacks.where(:project => @project)
+            unless feedback_query.empty?
+                @feedback = feedback_query[0]
+            end
+        end
+
+        if @project_average_score == nil then @project_average_score = '-' end
     end
 
     def project_params 
