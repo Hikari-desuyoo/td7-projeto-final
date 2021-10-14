@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Hirers::SessionsController < Devise::SessionsController
+class Workers::SessionsController < Devise::SessionsController
   include Accessible
   # before_action :configure_sign_in_params, only: [:create]
 

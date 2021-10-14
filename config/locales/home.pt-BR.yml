@@ -2,7 +2,7 @@
 pt-BR:
   home:
     index:
-      welcome_message: 'Boas vindas ao Lance'
+      welcome_message: 'Boas vindas ao Hiring, a plataforma onde você pode achar os profissionais ideais para o seu projeto, ou o projeto ideal para a sua profissão!'
       welcome_hirer_message: 'Boas vindas, contratante'
       welcome_worker_message: 'Boas vindas, profissional'
       new_project_link: 'Criar um projeto'

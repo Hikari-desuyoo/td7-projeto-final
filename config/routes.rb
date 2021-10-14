@@ -5,8 +5,15 @@ Rails.application.routes.draw do
   get 'search', to: 'search#search'
 
   #DEVISE
-  devise_for :workers 
-  devise_for :hirers, :controllers => { registrations: 'hirers/registrations' }
+  devise_for :workers, :controllers => { 
+    registrations: 'workers/registrations',
+    sessions: 'workers/sessions'
+  }
+  
+  devise_for :hirers, :controllers => { 
+    registrations: 'hirers/registrations',
+    sessions: 'hirers/sessions'
+  }
 
   #RESOURCES
   resources :hirers, only: [:show] do

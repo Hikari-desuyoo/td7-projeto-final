@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-class Hirers::RegistrationsController < Devise::RegistrationsController
+class Workers::RegistrationsController < Devise::RegistrationsController
   include Accessible
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+   super
+  end
 
   # POST /resource
   # def create
@@ -60,11 +60,4 @@ class Hirers::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-
-  private
-
-  def sign_up_params
-    params.require(:hirer).permit(:username, :email, :password, :password_confirmation)
-  end
-
 end
