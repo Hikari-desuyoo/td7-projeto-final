@@ -31,6 +31,13 @@ class ProjectsController < ApplicationController
 
     end
 
+    def finish
+        @project = Project.find(params[:id])
+        @project.finished!
+
+        redirect_to @project
+    end
+
     private
     def set_feedback_attributes
         @project_average_score = @project.project_feedbacks.average(:score)

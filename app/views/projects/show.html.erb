@@ -23,6 +23,10 @@
     </div>
 <% end %>
 
+<% if hirer_signed_in? %>
+    <%= link_to t('.finish_button'), finish_project_path, method: :post, id: 'finish_button' %>
+<% end %>
+
 <div id = 'project_details'>
     <% if @worker_applied %>
         <span id='applied_notice'><%= t('.applied_notice') %></span>

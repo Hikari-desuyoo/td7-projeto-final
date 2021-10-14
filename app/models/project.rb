@@ -31,6 +31,7 @@ class Project < ApplicationRecord
         if self[:status] == 'open' and  open_until < Date.today
             closed!
         end
+        
         self[:status]
     end
 

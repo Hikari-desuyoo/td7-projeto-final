@@ -3,7 +3,7 @@
     <span><%= t('occupation_name.'+worker.occupation.to_s) %></span>
     <% if (project.finished? and hirer_signed_in?) %>
         <%= 
-        link_to t('feedback.button'), 
+        link_to t('feedbacks.common.button'), 
         new_worker_feedback_path(worker), 
         class: 'feedback_button' 
         %>

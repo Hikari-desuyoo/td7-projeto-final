@@ -22,5 +22,6 @@ pt-BR:
       apply_button: 'Me candidatar'
       applied_notice: 'Você se candidatou para trabalhar neste projeto'
       no_team_notice: 'Esse projeto ainda não tem participantes'
+      finish_button: 'Encerrar projeto'
     common:
       project_owner: 'Dono do projeto'

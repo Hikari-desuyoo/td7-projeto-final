@@ -36,7 +36,9 @@ Rails.application.routes.draw do
     )
   end
 
-  resources :projects, only: [:new, :create, :show] do
+  resources :projects, only: [:new, :create, :show], shallow: true do
+    post 'finish', on: :member
+  
     resources :project_applications, only: [:create], shallow: true do
       post 'accept', on: :member
       post 'decline', on: :member
