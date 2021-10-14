@@ -49,7 +49,7 @@ describe 'Logged (complete)Worker sees own score' do
 
         expect(page).to have_css('#average_score', text:/^3,67$/)
 
-        expect(page).to_not have_css('.translation_missing')
-        expect(page).to_not have_content('translation_missing')
+        expect(page.body).to_not include('translation-missing')
+        expect(page.body).to_not include('translation missing')
     end
 end

@@ -41,8 +41,8 @@ describe 'Logged (complete)Worker visits project page' do
         expect(project_aplication.worker).to eq(@worker)
         expect(project_aplication.project).to eq(@project)
         expect(page).to_not have_css('#apply_button')  
-        expect(page).to_not have_css('.translation_missing')
-        expect(page).to_not have_content('translation missing')
+        expect(page.body).to_not include('translation-missing')
+        expect(page.body).to_not include('translation missing')
         
     end
 end

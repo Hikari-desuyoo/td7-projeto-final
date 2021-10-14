@@ -22,7 +22,7 @@ describe 'Logged hirer sees own profile' do
         expect(page).to have_content(@hirer.username)
         expect(page).to have_css('#average_score', text:'-')
 
-        expect(page).to_not have_css('.translation_missing')
-        expect(page).to_not have_content('translation_missing')
+        expect(page.body).to_not include('translation-missing')
+        expect(page.body).to_not include('translation missing')
     end
 end

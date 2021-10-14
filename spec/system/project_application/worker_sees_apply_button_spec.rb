@@ -37,7 +37,8 @@ describe 'Logged (complete)Worker visits project page' do
         click_on @project.title
         expect(page).to have_content(I18n.t('projects.show.open_project_notice')) 
         expect(page).to have_css('#apply_button')     
-        expect(page).to_not have_css('.translation_missing') 
+        expect(page.body).to_not include('translation-missing')
+        expect(page.body).to_not include('translation missing')
     end
 
     it 'does not see apply button if project is closed' do
@@ -46,7 +47,8 @@ describe 'Logged (complete)Worker visits project page' do
             
             expect(page).to_not have_css('#apply_button')  
             expect(page).to have_content(I18n.t('projects.show.closed_project_notice'))     
-            expect(page).to_not have_css('.translation_missing')
+            expect(page.body).to_not include('translation-missing')
+            expect(page.body).to_not include('translation missing')
         end
     end
 end

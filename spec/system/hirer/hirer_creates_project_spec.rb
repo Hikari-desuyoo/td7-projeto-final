@@ -95,5 +95,7 @@ describe 'Logged Hirer creates project' do
         end
 
         expect(page).to have_content('já passou')
+        expect(page.body).to_not include('translation-missing')
+        expect(page.body).to_not include('translation missing')
     end
 end

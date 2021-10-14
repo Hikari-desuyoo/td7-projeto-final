@@ -88,7 +88,8 @@ describe 'Logged (complete)Worker searchs for project' do
             end
         end
 
-        expect(page).to_not have_css('.translation_missing')
+        expect(page.body).to_not include('translation-missing')
+        expect(page.body).to_not include('translation missing')
     end
 
     it 'by other text informations successfully' do
@@ -116,7 +117,8 @@ describe 'Logged (complete)Worker searchs for project' do
         expect(page).to have_content(I18n.t("search.search.no_results_notice"))
         
 
-        expect(page).to_not have_css('.translation_missing')
+        expect(page.body).to_not include('translation-missing')
+        expect(page.body).to_not include('translation missing')
     end
 
 

@@ -64,8 +64,8 @@ describe 'Hirer visits homepage ' do
         expect(page).to have_css("#decline_button")
         expect(page).to have_content(I18n.t('project_applications.status.pending'))
 
-        expect(page).to_not have_css('.translation_missing')
-        expect(page).to_not have_content('translation missing')
+        expect(page.body).to_not include('translation-missing')
+        expect(page.body).to_not include('translation missing')
     end
 
     context ' accepts application' do
@@ -96,8 +96,8 @@ describe 'Hirer visits homepage ' do
                 expect(page).to have_content(I18n.t('project_applications.status.accepted'))
             end
 
-            expect(page).to_not have_css('.translation_missing')
-            expect(page).to_not have_content('translation missing')
+            expect(page.body).to_not include('translation-missing')
+            expect(page.body).to_not include('translation missing')
         end
     end
 
@@ -119,8 +119,8 @@ describe 'Hirer visits homepage ' do
                 expect(page).to have_content(I18n.t('project_applications.status.declined'))
             end
 
-            expect(page).to_not have_css('.translation_missing')
-            expect(page).to_not have_content('translation missing')
+            expect(page.body).to_not include('translation-missing')
+            expect(page.body).to_not include('translation missing')
         end
     end
 end

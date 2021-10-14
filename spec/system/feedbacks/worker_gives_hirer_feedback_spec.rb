@@ -59,8 +59,8 @@ describe 'worker tries to give hirer feedback' do
             expect(page).to have_css('.score', text: '1')
         end
 
-        expect(page).to_not have_css('.translation-missing')
-        expect(page).to_not have_content('translation missing')
+        expect(page.body).to_not include('translation-missing')
+        expect(page.body).to_not include('translation missing')
     end
 
     it 'but sees no feedback button if project is still open' do

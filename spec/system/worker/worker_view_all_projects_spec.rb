@@ -65,7 +65,8 @@ describe 'Logged (complete)Worker' do
             expect(page).to have_css(".project_#{project.id}")
         end
 
-        expect(page).to_not have_css('.translation_missing')
+        expect(page.body).to_not include('translation-missing')
+        expect(page.body).to_not include('translation missing')
     end
 
     it 'sees all open projects on homepage' do
@@ -79,7 +80,8 @@ describe 'Logged (complete)Worker' do
             expect(page).to_not have_css(".project_#{@projects[1].id}")
         end
 
-        expect(page).to_not have_css('.translation_missing')
+        expect(page.body).to_not include('translation-missing')
+        expect(page.body).to_not include('translation missing')
 
     end
 end

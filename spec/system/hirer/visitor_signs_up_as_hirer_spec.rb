@@ -20,6 +20,7 @@ describe 'Visitor signs up' do
         expect(page).to_not have_css('.login')
         expect(page).to have_css('#welcome_hirer')
         expect(page).to have_css('#logout_link')
-        expect(page).to_not have_css('.translation_missing')
+        expect(page.body).to_not include('translation-missing')
+        expect(page.body).to_not include('translation missing')
     end
 end
