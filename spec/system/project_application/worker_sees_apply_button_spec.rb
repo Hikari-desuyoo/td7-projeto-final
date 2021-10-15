@@ -35,7 +35,7 @@ describe 'Logged (complete)Worker visits project page' do
     it 'and sees status + apply button' do
         visit root_path
         click_on @project.title
-        expect(page).to have_content(I18n.t('projects.show.open_project_notice')) 
+        expect(page).to have_content(I18n.t('projects.show.open_project')) 
         expect(page).to have_css('#apply_button')     
         expect(page.body).to_not include('translation-missing')
         expect(page.body).to_not include('translation missing')
@@ -46,7 +46,7 @@ describe 'Logged (complete)Worker visits project page' do
             visit "/projects/#{@project.id}"
             
             expect(page).to_not have_css('#apply_button')  
-            expect(page).to have_content(I18n.t('projects.show.closed_project_notice'))     
+            expect(page).to have_content(I18n.t('projects.show.closed_project'))     
             expect(page.body).to_not include('translation-missing')
             expect(page.body).to_not include('translation missing')
         end

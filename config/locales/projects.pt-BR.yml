@@ -16,12 +16,12 @@ pt-BR:
     new:
       title: 'Crie um novo projeto'
     show:
-      open_project_notice: 'Este projeto está aceitando candidatos'
-      closed_project_notice: 'Este projeto não está aceitando candidatos'
-      finished_project_notice: 'Este projeto não está aceitando candidatos, e já foi finalizado.'
+      open_project: 'Este projeto está aceitando candidatos'
+      closed_project: 'Este projeto não está aceitando candidatos'
+      finished_project: 'Este projeto não está aceitando candidatos, e já foi finalizado.'
       apply_button: 'Me candidatar'
-      applied_notice: 'Você se candidatou para trabalhar neste projeto'
-      no_team_notice: 'Esse projeto ainda não tem participantes'
+      applied: 'Você se candidatou para trabalhar neste projeto'
+      no_team: 'Esse projeto ainda não tem participantes'
       finish_button: 'Encerrar projeto'
     common:
       project_owner: 'Dono do projeto'

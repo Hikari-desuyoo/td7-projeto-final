@@ -32,7 +32,7 @@ describe 'Logged Hirer creates project' do
         expect(page).to have_css(css_beginning + 'skills_needed', text: 'habilidades')
         expect(page).to have_css(css_beginning + 'max_pay_per_hour', text: 'R$ 234,42')
         expect(page).to have_css(css_beginning + 'open_until', text: '10/11/2022')
-        expect(page).to have_css('.team_information', text: I18n.t('projects.show.no_team_notice'))
+        expect(page).to have_css('.team_information', text: I18n.t('projects.show.no_team'))
         expect(page).to have_css(css_beginning + 'remote', text: 'sim')
         expect(page).to have_css(css_beginning + 'presential', text: 'sim')
 

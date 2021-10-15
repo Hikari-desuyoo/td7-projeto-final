@@ -25,7 +25,7 @@ class ProjectsController < ApplicationController
 
         @worker_applied = current_worker ? current_worker.projects.include?(@project) : false
         
-        @project_status_notice = t(".#{@project.status}_project_notice")
+        @project_status = t(".#{@project.status}_project")
         
         set_feedback_attributes
 

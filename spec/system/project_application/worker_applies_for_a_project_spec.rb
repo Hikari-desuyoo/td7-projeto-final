@@ -35,8 +35,8 @@ describe 'Logged (complete)Worker visits project page' do
 
         
         expect(page).to have_content(I18n.t('project_applications.create.success'))
-        expect(page).to have_css('#applied_notice')
-        expect(page).to have_content(I18n.t('projects.show.applied_notice'))
+        expect(page).to have_css('#applied')
+        expect(page).to have_content(I18n.t('projects.show.applied'))
         project_aplication = ProjectApplication.all[0]
         expect(project_aplication.worker).to eq(@worker)
         expect(project_aplication.project).to eq(@project)

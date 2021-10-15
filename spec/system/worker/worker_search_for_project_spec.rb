@@ -113,8 +113,8 @@ describe 'Logged (complete)Worker searchs for project' do
         search_for('batatinha')
 
 
-        expect(page).to have_css("#no_results_notice")
-        expect(page).to have_content(I18n.t("search.search.no_results_notice"))
+        expect(page).to have_css("#no_results")
+        expect(page).to have_content(I18n.t("search.search.no_results"))
         
 
         expect(page.body).to_not include('translation-missing')

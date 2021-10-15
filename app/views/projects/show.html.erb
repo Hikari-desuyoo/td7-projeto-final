@@ -3,7 +3,7 @@
         <div class = 'team_information'>
             <%= render partial: 'team/hirer', locals: { project: @project } %>
             <% if @project_team.empty? %>
-                <%= t('.no_team_notice') %>
+                <%= t('.no_team') %>
             <% else %>
                 <% @project_team.each do |worker| %>
                     <%= render partial: 'team/worker', locals: { worker: worker, project: @project } %>
@@ -37,7 +37,7 @@
 
 <div id = 'project_details'>
     <% if @worker_applied %>
-        <span id='applied_notice'><%= t('.applied_notice') %></span>
+        <span id='applied'><%= t('.applied') %></span>
     <% end %>
     <h1 class='title'><%= @project.title %></h1>
     <h2 class='description'><%= @project.description %></h2>
@@ -62,7 +62,7 @@
 </div>
 
 <div id='project_apply'>
-    <span><%= @project_status_notice %></span>
+    <span><%= @project_status %></span>
     <% if @project.open? and not @worker_applied and not hirer_signed_in? %>
         <%= link_to t('.apply_button'), project_project_applications_path(@project), method: :post, id: 'apply_button' %>
     <% end %>

@@ -41,7 +41,7 @@ describe 'hirer finishes project' do
 
         find("#finish_button").click
         
-        expect(page).to have_content(I18n.t('projects.show.finished_project_notice'))
+        expect(page).to have_content(I18n.t('projects.show.finished_project'))
 
         expect(page.body).to_not include('translation-missing')
         expect(page.body).to_not include('translation missing')

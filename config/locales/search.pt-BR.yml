@@ -3,4 +3,4 @@ pt-BR:
   search:
     search:
       title: 'Resultados para'
-      no_results_notice: 'Nenhum resultado'
+      no_results: 'Nenhum resultado'

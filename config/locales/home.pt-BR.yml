@@ -9,6 +9,6 @@ pt-BR:
       complete_profile_title: 'Complete seu perfil para usar a plataforma!'
       obligatory: '(Obrigatório)'
       homepage_projects_title: 'Projetos disponíveis'
-      no_projects_notice: 'Nenhum projeto ativo no momento'
+      no_projects: 'Nenhum projeto ativo no momento'
       notifications: 'Notificações'
       no_notifications: 'Você não tem nada novo'

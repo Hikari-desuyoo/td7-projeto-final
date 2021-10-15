@@ -2,7 +2,7 @@
 
 <div id="search_results">
     <% if @results.empty? %>
-        <span id='no_results_notice'><%= t('.no_results_notice') %></span>
+        <span id='no_results'><%= t('.no_results') %></span>
     <% else %>
         <% @results.each do |result| %>
             <% if result.class == Project %>

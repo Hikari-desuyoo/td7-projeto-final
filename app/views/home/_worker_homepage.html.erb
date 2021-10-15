@@ -5,8 +5,8 @@
     <%= render 'workers/edit_profile_details' %>
 <% else %>
     <% if @projects.empty? %>
-        <span class='no_projects_notice'>
-            <%= t 'home.index.no_projects_notice' %>
+        <span class='no_projects'>
+            <%= t 'home.index.no_projects' %>
         </span>
     <% else %>
         <div class='homepage_projects'>

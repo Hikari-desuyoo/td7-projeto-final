@@ -18,7 +18,7 @@ describe 'Logged (incomplete)Worker ' do
 
         expect(page).to have_css('.edit_worker')
         expect(page).to_not have_css('.homepage_projects')
-        expect(page).to_not have_css('.no_projects_notice')
+        expect(page).to_not have_css('.no_projects')
         expect(page.body).to_not include('translation-missing')
         expect(page.body).to_not include('translation missing')
     end
@@ -40,7 +40,7 @@ describe 'Logged (incomplete)Worker ' do
 
         expect(page).to_not have_css('#complete_profile_form')
         expect(page).to_not have_css('.profile_still_incomplete')
-        expect(page).to have_css('.no_projects_notice')
+        expect(page).to have_css('.no_projects')
 
         expect(page.body).to_not include('translation-missing')
         expect(page.body).to_not include('translation missing')
@@ -55,7 +55,7 @@ describe 'Logged (incomplete)Worker ' do
         expect(page).to have_css('.edit_worker')
         expect(page).to have_content(I18n.t('alert.profile_still_incomplete'))
         expect(page).to_not have_css('.homepage_projects')
-        expect(page).to_not have_css('.no_projects_notice')
+        expect(page).to_not have_css('.no_projects')
 
         expect(page.body).to_not include('translation-missing')
         expect(page.body).to_not include('translation missing')
