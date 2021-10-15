@@ -42,6 +42,8 @@ class ProjectsController < ApplicationController
     def set_feedback_attributes
         @project_average_score = @project.project_feedbacks.average(:score)
 
+        @feedbacks = @project.project_feedbacks
+
         @feedback = false
         
         if worker_signed_in?

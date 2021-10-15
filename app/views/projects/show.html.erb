@@ -27,6 +27,14 @@
     <%= link_to t('.finish_button'), finish_project_path, method: :post, id: 'finish_button' %>
 <% end %>
 
+<% if not @feedbacks.empty? %>
+    <div class='project_feedbacks'>
+        <% @feedbacks.each do |feedback| %>
+            <%= render partial: 'feedbacks/show', locals: { feedback: feedback } %>
+        <% end %>
+    </div>
+<% end %>
+
 <div id = 'project_details'>
     <% if @worker_applied %>
         <span id='applied_notice'><%= t('.applied_notice') %></span>
