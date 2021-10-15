@@ -24,6 +24,8 @@ class SearchController < ApplicationController
         }
     end
 
+    a = Occupation.where('name like ? collate utf8_general_ci', '%coisa%')
+
     def to_regex(string)
         string = string.downcase
 

@@ -20,10 +20,7 @@ class Project < ApplicationRecord
 
     def get_team
         accepted = get_accepted_applications
-
-        accepted.map do |project_application|
-            project_application.worker
-        end
+        Worker.where(id: accepted.pluck(:worker_id).uniq)
     end
 
     #STATUS RELATED    
