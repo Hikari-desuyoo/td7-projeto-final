@@ -41,6 +41,7 @@ describe 'project feedback shows up on project page' do
         visit "/projects/#{@project.id}"
 
         within '.project_feedback' do
+            expect(page).to have_content(@project_feedback.worker.get_full_name)
             expect(page).to have_content(@project_feedback.comment)
             expect(page).to have_content('5')
         end

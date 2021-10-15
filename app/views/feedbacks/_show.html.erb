@@ -1,4 +1,15 @@
+<%
+    class_to_identifier = { 
+        'ProjectFeedback' => 'feedback.worker.get_full_name',
+        'WorkerFeedback' => 'feedback.worker.get_full_name',
+        'HirerFeedback' => 'feedback.hirer.get_username'
+    } 
+%>
+
 <div class="project_feedback">
+    <span class='from'><%= 
+        eval(class_to_identifier[feedback.class.to_s])
+    %></span>
     <span class='score'><%= feedback.score %></span>
     <span class='comment'><%= feedback.comment %></span>
 </div>
