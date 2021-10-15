@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 
-describe 'Logged (complete)Worker sees own score' do    
+describe 'Logged (complete)Worker' do    
     include ActiveSupport::Testing::TimeHelpers
 
     before(:each) do
@@ -24,7 +24,8 @@ describe 'Logged (complete)Worker sees own score' do
         WorkerFeedback.create!(
             worker: @worker,
             hirer: @hirer,
-            score: 2
+            score: 2,
+            comment: 'bom freelancer ;)'
         )
 
 
@@ -41,7 +42,7 @@ describe 'Logged (complete)Worker sees own score' do
         )
     end
 
-    it 'successfully' do
+    it 'successfully sees average' do
         login_as @worker, scope: :worker
         visit root_path
 
@@ -51,6 +52,24 @@ describe 'Logged (complete)Worker sees own score' do
         expect(page).to have_content(@worker.get_full_name)
         
         expect(page).to have_css('#average_score', text:/^3,67$/)
+
+        expect(page.body).to_not include('translation-missing')
+        expect(page.body).to_not include('translation missing')
+    end
+
+    it 'successfully sees feedbacks' do
+        login_as @worker, scope: :worker
+        visit root_path
+
+        click_on 'worker_profile_button'
+
+        within '#worker_feedbacks' do
+            expect(page).to have_content(@hirer.username, count:3)#NÃO ACONTECE NORMALMENTE(3 vezes mesma pessoa)
+            expect(page).to have_content('bom freelancer')
+            expect(page).to have_content('5')
+            expect(page).to have_content('4')
+            expect(page).to have_content('2')
+        end
 
         expect(page.body).to_not include('translation-missing')
         expect(page.body).to_not include('translation missing')

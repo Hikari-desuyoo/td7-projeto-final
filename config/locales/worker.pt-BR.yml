@@ -13,3 +13,6 @@ pt-BR:
         experience: 'Experiência'
         description: 'Descrição'
         occupation_id: 'Área de atuação'
+  workers:
+    show:
+      empty_worker_feedbacks: 'Esse usuário ainda não tem avaliações'

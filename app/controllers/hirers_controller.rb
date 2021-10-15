@@ -2,9 +2,16 @@ class HirersController < ApplicationController
     def show
         @hirer = Hirer.find(params[:id])
 
+        set_feedback_attributes
+        set_favorite_attributes
+    end
+
+    private
+    def set_feedback_attributes
         @hirer_average_score = @hirer.hirer_feedbacks.average(:score)
 
         @feedback = false
+        @feedbacks = @hirer.hirer_feedbacks
         
         if worker_signed_in?
             feedback_query = current_worker.hirer_feedbacks.where(:hirer => @hirer)
@@ -14,11 +21,8 @@ class HirersController < ApplicationController
         end
 
         if @hirer_average_score == nil then @hirer_average_score = '-' end
-
-        set_favorite_attributes
     end
 
-    private
     def set_favorite_attributes
         @show_favorite_button = false
         @show_unfavorite_button = false

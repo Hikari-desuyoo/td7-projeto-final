@@ -18,9 +18,16 @@ class WorkersController < ApplicationController
             return
         end
 
+        set_feedback_attributes
+        set_favorite_attributes
+    end
+
+    private
+    def set_feedback_attributes
         @worker_average_score = @worker.worker_feedbacks.average(:score)
 
         @feedback = false
+        @feedbacks = @worker.worker_feedbacks
         
         if hirer_signed_in?
             feedback_query = current_hirer.worker_feedbacks.where(:worker => @worker)
@@ -31,11 +38,8 @@ class WorkersController < ApplicationController
         end
 
         if @worker_average_score == nil then @worker_average_score = '-' end
-
-        set_favorite_attributes
     end
 
-    private
     def set_favorite_attributes
         @show_favorite_button = false
         @show_unfavorite_button = false

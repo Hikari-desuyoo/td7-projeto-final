@@ -25,6 +25,16 @@
     <%= render partial: 'feedbacks/yours', locals: { feedback: @feedback } %>
 <% end %>
 
+<div id='hirer_feedbacks'>
+    <% if @feedbacks.empty? %>
+        <%= t('.empty_hirer_feedbacks') %>
+    <% else %>
+        <% @feedbacks.each do |feedback| %>
+            <%= render partial: 'feedbacks/show', locals: { feedback: feedback } %>
+        <% end %>
+    <% end %>
+</div>
+
 <div id='hirer_details'>
     <h3><%= @hirer.email %></h3>
 </div>
