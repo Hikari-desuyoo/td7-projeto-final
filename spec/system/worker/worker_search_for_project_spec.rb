@@ -36,7 +36,7 @@ describe 'Logged (complete)Worker searchs for project' do
                 hirer: @hirer1
             ),
             Project.create!(
-                title: 'títULO2',
+                title: 'titULO2',
                 description: 'me ache',
                 skills_needed: 'habilidades2',
                 max_pay_per_hour: '123',
@@ -46,7 +46,7 @@ describe 'Logged (complete)Worker searchs for project' do
             Project.create!(
                 title: 'outra_coisa',
                 description: 'descrição3',
-                skills_needed: 'mÊ AcHe',
+                skills_needed: 'mE AcHe',
                 max_pay_per_hour: '123',
                 open_until: 5.days.from_now,
                 hirer: @hirer2

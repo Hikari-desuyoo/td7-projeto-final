@@ -8,36 +8,38 @@ class SearchController < ApplicationController
 
     private
     def only_open_project_results
-        @results = @results.select { |project|
-            project.status == 'open'
-        }
+        @results = @results.where(
+            status: 'open'
+        ).where(
+            'open_until >= ?', Date.today
+        )
+    end
+
+    def get_search_term
+        @search_term = params[:search_term].gsub(/['"]/, '')
     end
 
     def search_projects
-        @search_term = params[:search_term]
-        search_term_regex = to_regex @search_term
+        get_search_term
 
-        Project.all.select { |project|
-            all_content = "#{project.title} #{project.description} #{project.skills_needed}"
+        results = Project.where(
+            'title like ?', "%#{@search_term}%"
+        )
 
-            (all_content =~ search_term_regex) != nil
-        }
-    end
+        results = results.or(
+            Project.where(
+                'description like ?', "%#{@search_term}%"
+            )
+        )
 
-    a = Occupation.where('name like ? collate utf8_general_ci', '%coisa%')
+        results = results.or(
+            Project.where(
+                'skills_needed like ?', "%#{@search_term}%"
+            )
+        )
 
-    def to_regex(string)
-        string = string.downcase
 
-        regex = string.gsub(/[AaÄÅÁÂÀÃäáâàã]/, '[AaÄÅÁÂÀÃäáâàã]')
-        regex = regex.gsub(/[EeÉÊËÈéêëè]/, '[EeÉÊËÈéêëè]')
-        regex = regex.gsub(/[OoÖÓÔÒÕöóôòõ]/, '[OoÖÓÔÒÕöóôòõ]')
-        regex = regex.gsub(/[UuÜÚÛÙüúûù]/, '[UuÜÚÛÙüúûù]')
-        regex = regex.gsub(/[IiÍÎÏÌíîïì]/, '[IiÍÎÏÌíîïì]')
-        regex = regex.gsub(/[CÇcç]/, '[CÇcç]')
-        regex = regex.gsub(/[nñÑ]/, '[nñÑ]')
-
-        Regexp.new "(?i)#{regex}"
+        return results
     end
 
     def authenticate_user
