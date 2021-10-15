@@ -20,8 +20,8 @@
     <%= number_with_precision(@worker_average_score, :precision => 2) %>
 </div>
 
-<% if @feedback %>
-    <%= render partial: 'feedbacks/yours', locals: { feedback: @feedback } %>
+<% if @your_feedback %>
+    <%= render partial: 'feedbacks/yours', locals: { feedback: @your_feedback } %>
 <% end %>
 
 <div id='worker_feedbacks'>

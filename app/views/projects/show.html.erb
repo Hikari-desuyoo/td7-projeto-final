@@ -10,15 +10,15 @@
                 <% end %>
             <% end %>
         </div>
-        <% if worker_signed_in? and @project.finished? and not @feedback %>
+        <% if worker_signed_in? and @project.finished? and not @your_feedback %>
             <%= 
             link_to t('feedback.project_button'), 
             new_project_feedback_path(@project), 
             class: 'project_feedback_button' 
             %>
         <% end %>
-        <% if @feedback %>
-            <%= render partial: 'feedbacks/yours', locals: { feedback: @feedback } %>
+        <% if @your_feedback %>
+            <%= render partial: 'feedbacks/yours', locals: { feedback: @your_feedback } %>
         <% end %>
     </div>
 <% end %>
@@ -27,7 +27,7 @@
     <%= link_to t('.finish_button'), finish_project_path, method: :post, id: 'finish_button' %>
 <% end %>
 
-<% if not @feedbacks.empty? %>
+<% unless @feedbacks.empty? %>
     <div class='project_feedbacks'>
         <% @feedbacks.each do |feedback| %>
             <%= render partial: 'feedbacks/show', locals: { feedback: feedback } %>

@@ -44,12 +44,12 @@ class ProjectsController < ApplicationController
 
         @feedbacks = @project.project_feedbacks
 
-        @feedback = false
+        @your_feedback = false
         
         if worker_signed_in?
             feedback_query = current_worker.project_feedbacks.where(:project => @project)
             unless feedback_query.empty?
-                @feedback = feedback_query[0]
+                @your_feedback = feedback_query[0]
             end
         end
 

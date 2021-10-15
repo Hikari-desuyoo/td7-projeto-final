@@ -10,13 +10,13 @@ class HirersController < ApplicationController
     def set_feedback_attributes
         @hirer_average_score = @hirer.hirer_feedbacks.average(:score)
 
-        @feedback = false
+        @your_feedback = false
         @feedbacks = @hirer.hirer_feedbacks
         
         if worker_signed_in?
             feedback_query = current_worker.hirer_feedbacks.where(:hirer => @hirer)
             unless feedback_query.empty?
-                @feedback = feedback_query[0]
+                @your_feedback = feedback_query[0]
             end
         end
 
