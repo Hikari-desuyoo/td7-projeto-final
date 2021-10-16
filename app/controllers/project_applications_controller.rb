@@ -5,6 +5,8 @@
     def create
         @project = Project.find(params[:project_id])
         
+        description = params[:description]
+        
         if current_worker.projects.include?(@project)
             redirect_to root_path
             return
@@ -12,7 +14,8 @@
 
         @project_application = ProjectApplication.new(
             project: @project,
-            worker: current_worker
+            worker: current_worker,
+            description: description
         )
 
         if @project_application.save

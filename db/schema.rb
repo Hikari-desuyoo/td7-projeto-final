@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_14_012624) do
+ActiveRecord::Schema.define(version: 2021_10_16_150412) do
 
   create_table "favorited_hirers", force: :cascade do |t|
     t.integer "hirer_id", null: false
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2021_10_14_012624) do
     t.integer "status", default: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "description"
     t.index ["project_id"], name: "index_project_applications_on_project_id"
     t.index ["worker_id"], name: "index_project_applications_on_worker_id"
   end
