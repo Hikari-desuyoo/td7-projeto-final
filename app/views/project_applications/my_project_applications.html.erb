@@ -1,0 +1,3 @@
+<% @project_applications.each do |application| %>
+    <%= render partial: "project_applications/#{@signed_user}_view", locals: { application: application } %>
+<% end %>

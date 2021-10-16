@@ -9,6 +9,16 @@
         application_from_linked_users_authetication!
     end
 
+    def my_project_applications
+        if hirer_signed_in?
+            @signed_user = 'hirer'
+            @project_applications = current_hirer.project_applications
+        elsif worker_signed_in?
+            @signed_user = 'worker'
+            @project_applications = current_worker.project_applications
+        end
+    end
+
     # NESTED ON PROJECT ROUTES
     def create
         @project = Project.find(params[:project_id])

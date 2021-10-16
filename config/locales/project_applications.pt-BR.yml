@@ -6,6 +6,8 @@ pt-BR:
       success: 'Proposta para trabalhar enviada!'
     hirer_view:
       is_applying: 'está se candidantando para trabalhar no seguinte projeto:'
+    worker_view:
+      is_applying: 'Você está se candidantando para trabalhar no seguinte projeto:'  
     accept:
       success_notice: 'Proposta aceita com sucesso!'
     decline:

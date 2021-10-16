@@ -1,0 +1,12 @@
+<div id=<%= "application-#{application.id}" %>>
+    <span><%= "#{t('project_applications.worker_view.is_applying')}" %></span>
+    <span><%= link_to application.project.title, application.project %></span>
+    
+    <span><%= t("project_applications.status.#{application.status}") %></span>
+
+    <%=
+    link_to t('project_applications.show.see_more_button'), 
+    project_application_path(application), 
+    class: 'see_more_button'
+    %>
+</div>
