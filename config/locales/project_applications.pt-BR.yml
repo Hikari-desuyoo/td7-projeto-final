@@ -6,8 +6,6 @@ pt-BR:
       success: 'Proposta para trabalhar enviada!'
     hirer_view:
       is_applying: 'está se candidantando para trabalhar no seguinte projeto:'
-      accept_button: 'Aceitar'
-      decline_button: 'Rejeitar'
     accept:
       success_notice: 'Proposta aceita com sucesso!'
     decline:
@@ -16,3 +14,8 @@ pt-BR:
       declined: 'Rejeitado'
       accepted: 'Aceito'
       pending: 'Aguardando resposta'
+    show:
+      see_more_button: 'Ver mais'
+      accept_button: 'Aceitar'
+      decline_button: 'Rejeitar'
+      no_description: 'Sem descrição'

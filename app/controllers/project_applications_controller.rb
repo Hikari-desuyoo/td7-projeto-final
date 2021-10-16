@@ -2,6 +2,14 @@
     before_action :authenticate_worker!, only: [:create]
     before_action :authenticate_hirer!, only: [:accept]
 
+
+    # NOT NESTED ON PROJECT ROUTES
+    def show
+        @project_application = ProjectApplication.find(params[:id])
+        application_from_linked_users_authetication!
+    end
+
+    # NESTED ON PROJECT ROUTES
     def create
         @project = Project.find(params[:project_id])
         
@@ -39,5 +47,23 @@
         if @project_application.declined?
             redirect_to @project_application.project, notice: t('.success_notice')
         end
+    end
+
+    private
+    def application_for_current_hirer!
+        if hirer_signed_in? and current_hirer != @project_application.project.hirer
+            redirect_to root_path
+        end
+    end
+
+    def application_from_current_worker!
+        if worker_signed_in? and current_worker != @project_application.worker
+            redirect_to root_path
+        end
+    end
+
+    def application_from_linked_users_authetication!
+        application_for_current_hirer!
+        application_from_current_worker!
     end
  end

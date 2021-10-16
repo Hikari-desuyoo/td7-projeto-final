@@ -43,6 +43,8 @@ Rails.application.routes.draw do
     )
   end
 
+  resources :project_applications, only: [:show] 
+
   resources :projects, only: [:new, :create, :show], shallow: true do
     post 'finish', on: :member
     get 'my_projects', on: :collection

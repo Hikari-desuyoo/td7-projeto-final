@@ -43,13 +43,15 @@ describe 'Hirer visits homepage ' do
 
         @application = ProjectApplication.create!(
             worker: @worker,
-            project: @project
+            project: @project,
+            description: 'descricaoproposta'
         )
 
 
         @application2 = ProjectApplication.create!(
             worker: @worker,
-            project: @project2
+            project: @project2,
+            description: 'descricaoproposta2'
         )
     end
 
@@ -57,13 +59,28 @@ describe 'Hirer visits homepage ' do
         login_as @hirer, scope: :hirer
         visit root_path
         expect(page).to have_css("#application-#{@application.id}")
+
         expect(page).to_not have_css("#application-#{@application2.id}")
         expect(page).to have_content("#{@worker.get_full_name} #{I18n.t('project_applications.hirer_view.is_applying')}")
         expect(page).to have_content(@project.title)
-        expect(page).to have_css("#accept_button")
-        expect(page).to have_css("#decline_button")
+        expect(page).to have_css(".see_more_button")
+
         expect(page).to have_content(I18n.t('project_applications.status.pending'))
 
+        expect(page.body).to_not include('translation-missing')
+        expect(page.body).to_not include('translation missing')
+    end
+
+    it 'sees application show page' do
+        login_as @hirer, scope: :hirer
+        visit root_path
+
+        click_on(class: 'see_more_button')
+        
+        expect(page).to have_content(@project.title)
+        expect(page).to have_content(@application.description)
+        expect(page).to have_css("#accept_button")
+        expect(page).to have_css("#decline_button")
         expect(page.body).to_not include('translation-missing')
         expect(page.body).to_not include('translation missing')
     end
@@ -72,10 +89,10 @@ describe 'Hirer visits homepage ' do
         before :each do
             login_as @hirer, scope: :hirer
             visit root_path
+
+            click_on(class: 'see_more_button')
             
-            within "#application-#{@application.id}" do
-                click_on 'accept_button'
-            end
+            click_on 'accept_button'
         end
 
         it 'and sees worker name' do
@@ -91,8 +108,6 @@ describe 'Hirer visits homepage ' do
         it 'and sees application as accepted' do
             visit root_path
             within "#application-#{@application.id}" do
-                expect(page).to have_css('#accept_button')
-                expect(page).to have_css('#decline_button')
                 expect(page).to have_content(I18n.t('project_applications.status.accepted'))
             end
 
@@ -106,16 +121,14 @@ describe 'Hirer visits homepage ' do
             login_as @hirer, scope: :hirer
             visit root_path
             
-            within "#application-#{@application.id}" do
-                click_on 'decline_button'
-            end
+            click_on(class: 'see_more_button')
+            click_on 'decline_button'
+            
         end
 
         it 'and sees application as declined' do
             visit root_path
             within "#application-#{@application.id}" do
-                expect(page).to have_css('#accept_button')
-                expect(page).to have_css('#decline_button')
                 expect(page).to have_content(I18n.t('project_applications.status.declined'))
             end
 
