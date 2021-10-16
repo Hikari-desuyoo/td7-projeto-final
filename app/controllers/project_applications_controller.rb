@@ -37,15 +37,20 @@
         @project_application = ProjectApplication.find(params[:id])
         @project_application.accepted!
         if @project_application.accepted?
-            redirect_to @project_application.project, notice: t('.success_notice')
+            redirect_to @project_application, notice: t('.success_notice')
         end
     end    
 
     def decline
         @project_application = ProjectApplication.find(params[:id])
         @project_application.declined!
+        decline_params = params.require(:project_application).permit(
+            :decline_reason
+        )
+
+        @project_application.update!(decline_params)
         if @project_application.declined?
-            redirect_to @project_application.project, notice: t('.success_notice')
+            redirect_to @project_application, notice: t('.success_notice')
         end
     end
 

@@ -18,4 +18,6 @@ pt-BR:
       see_more_button: 'Ver mais'
       accept_button: 'Aceitar'
       decline_button: 'Rejeitar'
+      decline_reason: 'Por que você está rejeitando esta proposta?'
       no_description: 'Sem descrição'
+      no_decline_reason: 'Nenhuma razão especificada.'

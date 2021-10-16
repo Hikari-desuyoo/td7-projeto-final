@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 
-describe 'Hirer visits homepage ' do 
+describe 'Hirer visits homepage' do 
     before(:each) do
         @worker = Worker.create!(
             email: 'test2@mail.com',
@@ -80,12 +80,12 @@ describe 'Hirer visits homepage ' do
         expect(page).to have_content(@project.title)
         expect(page).to have_content(@application.description)
         expect(page).to have_css("#accept_button")
-        expect(page).to have_css("#decline_button")
+        expect(page).to have_css("#decline_form")
         expect(page.body).to_not include('translation-missing')
         expect(page.body).to_not include('translation missing')
     end
 
-    context ' accepts application' do
+    context 'accepts application' do
         before :each do
             login_as @hirer, scope: :hirer
             visit root_path
@@ -96,8 +96,8 @@ describe 'Hirer visits homepage ' do
         end
 
         it 'and sees worker name' do
+            click_on(@project.title)
 
-            expect(page).to have_content(I18n.t('project_applications.accept.success_notice'))
             expect(page).to have_css('.project_worker', text: @worker.get_full_name)
 
             expect(page).to_not have_css('.translation_missing')
@@ -116,24 +116,39 @@ describe 'Hirer visits homepage ' do
         end
     end
 
-    context ' declines application' do
+    context 'visits application' do
         before :each do
             login_as @hirer, scope: :hirer
             visit root_path
             
             click_on(class: 'see_more_button')
-            click_on 'decline_button'
-            
         end
 
-        it 'and sees application as declined' do
-            visit root_path
-            within "#application-#{@application.id}" do
-                expect(page).to have_content(I18n.t('project_applications.status.declined'))
+        it 'and declines with no reason' do
+            within '#decline_form' do
+                click_on 'commit'
             end
+
+            expect(page).to have_content(I18n.t('project_applications.status.declined'))
+            expect(page).to have_content(I18n.t('project_applications.show.no_decline_reason'))
 
             expect(page.body).to_not include('translation-missing')
             expect(page.body).to_not include('translation missing')
         end
+
+        it 'and declines with reason' do
+            fill_in 'project_application_decline_reason', with: 'rejeitei porque sim'
+            within '#decline_form' do
+                click_on 'commit'
+            end
+            
+            expect(page).to have_content(I18n.t('project_applications.status.declined'))
+            expect(page).to have_content('rejeitei porque sim')
+            
+
+            expect(page.body).to_not include('translation-missing')
+            expect(page.body).to_not include('translation missing')
+        end
+
     end
 end

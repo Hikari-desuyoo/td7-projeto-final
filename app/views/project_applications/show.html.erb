@@ -9,6 +9,15 @@
     <span><%= link_to @project_application.project.title, @project_application.project %></span>
 
     <span><%= t("project_applications.status.#{@project_application.status}") %></span>
+    <% if @project_application.declined? %>
+        <span>
+        <% if (not @project_application.decline_reason or @project_application.decline_reason.empty?) %>
+            <%= t('project_applications.show.no_decline_reason') %>
+        <% else %>
+            <%= @project_application.decline_reason %>
+        <% end %>
+        </span>
+    <% end %>
 </div>
 
 <% if hirer_signed_in? %>
@@ -18,10 +27,19 @@
     id: 'accept_button',
     method: :post
     %>
-    <%=
-    link_to t('project_applications.show.decline_button'), 
-    decline_project_application_path(@project_application.id), 
-    id: 'decline_button',
-    method: :post
+    <%= 
+    form_with(
+        model: @project_application, 
+        id: 'decline_form', 
+        url: decline_project_application_path(@project_application.id),
+        method: :post
+    ) do |f|
     %>
+    <div>
+        <%= f.label :decline_reason %>
+        <%= f.text_field :decline_reason %>
+    </div>
+    <%= f.submit t('project_applications.show.decline_button') %>
+    <% end %>
+
 <% end %>
