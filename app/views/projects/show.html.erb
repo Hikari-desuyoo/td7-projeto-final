@@ -25,6 +25,7 @@
 
 <% if hirer_signed_in? %>
     <%= link_to t('.finish_button'), finish_project_path, method: :post, id: 'finish_button' %>
+    <%= link_to t('.close_button'), close_project_path, method: :post, id: 'close_button' %>
 <% end %>
 
 <% unless @feedbacks.empty? %>

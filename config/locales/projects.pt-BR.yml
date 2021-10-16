@@ -23,5 +23,6 @@ pt-BR:
       applied: 'Você se candidatou para trabalhar neste projeto'
       no_team: 'Esse projeto ainda não tem participantes'
       finish_button: 'Encerrar projeto'
+      close_button: 'Fechar inscrições'
     common:
       project_owner: 'Dono do projeto'

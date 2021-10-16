@@ -33,7 +33,18 @@ class ProjectsController < ApplicationController
 
     def finish
         @project = Project.find(params[:id])
-        @project.finished!
+        if project_owner?
+            @project.finished!
+        end
+
+        redirect_to @project
+    end
+
+    def close
+        @project = Project.find(params[:id])
+        if project_owner?
+            @project.closed!
+        end
 
         redirect_to @project
     end
@@ -66,6 +77,9 @@ class ProjectsController < ApplicationController
             :max_pay_per_hour, :open_until, :remote, 
             :presential
         )
+    end
 
+    def project_owner?
+        @project.hirer == current_hirer
     end
 end

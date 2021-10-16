@@ -66,7 +66,7 @@ describe 'Worker visits my applications page' do
         expect(page).to have_content(@application.project.title)
         expect(page).to have_content(I18n.t('project_applications.status.pending'))
         expect(page).to have_css(".see_more_button")
-                
+        
         expect(page).to have_content(@application2.project.title)
         expect(page).to have_content(I18n.t('project_applications.status.declined'))
 

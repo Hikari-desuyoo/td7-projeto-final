@@ -11,11 +11,11 @@
     <span><%= t("project_applications.status.#{@project_application.status}") %></span>
     <% if @project_application.declined? %>
         <span>
-        <% if (not @project_application.decline_reason or @project_application.decline_reason.empty?) %>
-            <%= t('project_applications.show.no_decline_reason') %>
-        <% else %>
-            <%= @project_application.decline_reason %>
-        <% end %>
+            <% if (not @project_application.decline_reason or @project_application.decline_reason.empty?) %>
+                <%= t('project_applications.show.no_decline_reason') %>
+            <% else %>
+                <%= @project_application.decline_reason %>
+            <% end %>
         </span>
     <% end %>
 </div>

@@ -102,7 +102,6 @@ describe 'Hirer visits homepage' do
 
             expect(page).to_not have_css('.translation_missing')
             expect(page).to_not have_content('translation missing')
-            
         end
 
         it 'and sees application as accepted' do
