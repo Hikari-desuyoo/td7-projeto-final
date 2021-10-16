@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-    before_action :authenticate_hirer!, only: [:new, :create]
+    before_action :authenticate_hirer!, only: [:new, :create, :my_projects]
 
     def new
         @project = Project.new
@@ -36,6 +36,10 @@ class ProjectsController < ApplicationController
         @project.finished!
 
         redirect_to @project
+    end
+
+    def my_projects
+        @projects = current_hirer.projects
     end
 
     private

@@ -1,0 +1,5 @@
+<div id='projects'>
+    <% @projects.each do |project|%>
+        <%= render partial: 'projects/preview', locals: { project: project } %>
+    <% end %>
+</div>
