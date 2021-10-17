@@ -8,7 +8,7 @@ class HirerFeedbacksController < ApplicationController
     def create
         @feedback = HirerFeedback.new(feedback_params)
         @hirer = Hirer.find(params[:hirer_id])
-        if already_feedback
+        if cant_feedback
             redirect_to @hirer
             return
         end
@@ -23,8 +23,12 @@ class HirerFeedbacksController < ApplicationController
     end
 
     private
-    def already_feedback
-        not @hirer.hirer_feedbacks.where(worker: current_worker).empty?
+    def cant_feedback
+        zero_feedbacks = @hirer.hirer_feedbacks.where(worker: current_worker).empty? 
+        #There's probably a better way to do this
+        involved = current_worker.get_feedbackable_project_id.intersection(@hirer.projects.pluck(:id)).any?
+        
+        not (zero_feedbacks and involved)
     end
 
     def feedback_params 

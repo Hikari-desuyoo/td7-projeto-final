@@ -35,4 +35,8 @@ class Worker < ApplicationRecord
   def get_full_name
     get_name + surname
   end
+
+  def get_feedbackable_project_id
+    project_applications.where(status: 'accepted').pluck(:project_id)
+  end
 end

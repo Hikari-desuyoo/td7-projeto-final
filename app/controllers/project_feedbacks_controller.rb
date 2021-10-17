@@ -8,7 +8,7 @@ class ProjectFeedbacksController < ApplicationController
     def create
         @feedback = ProjectFeedback.new(feedback_params)
         @project = Project.find(params[:project_id])
-        if already_feedback
+        if cant_feedback
             redirect_to @project
             return
         end
@@ -24,8 +24,12 @@ class ProjectFeedbacksController < ApplicationController
     end
 
     private
-    def already_feedback
-        not @project.project_feedbacks.where(worker: current_worker).empty?
+    def cant_feedback
+        zero_feedbacks = @project.project_feedbacks.where(worker: current_worker).empty?
+        #There's probably a better way to do this
+        involved = current_worker.get_feedbackable_project_id.include? @project.id
+        
+        not (zero_feedbacks and involved)
     end
 
     def feedback_params 

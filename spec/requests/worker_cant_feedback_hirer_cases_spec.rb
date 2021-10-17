@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'worker tries to give project feedback twice' do
+describe 'worker tries to give hirer feedback' do
     before(:each) do
         @worker = Worker.create!(
             email: 'test2@mail.com',
@@ -25,6 +25,9 @@ describe 'worker tries to give project feedback twice' do
             hirer: @hirer
         )
 
+    end
+    
+    it 'twice and fails' do
         @project_application = ProjectApplication.create!(
             project: @project,
             worker: @worker
@@ -33,19 +36,25 @@ describe 'worker tries to give project feedback twice' do
         @project_application.accepted!
         @project.finished!
 
-        ProjectFeedback.create!(
+        HirerFeedback.create!(
             worker: @worker,
-            project: @project,
+            hirer: @hirer,
             score: 4
         )
 
-    end
-    
-    it 'and fails' do
         login_as @worker, scope: :worker
-        post "/projects/#{@project.id}/feedbacks", 
-        params: {:project_feedback => { score: 3, comment: 'muito bom'}}
+        post "/hirers/#{@hirer.id}/feedbacks", 
+        params: {:hirer_feedback => { score: 3, comment: 'muito bom'}}
         
-        expect(@project.project_feedbacks.where(worker: @worker).length).to eq(1)
+        expect(@hirer.hirer_feedbacks.where(worker: @worker).length).to eq(1)
+    end
+
+    it 'without having participated and fails' do
+        login_as @worker, scope: :worker
+        
+        post "/hirers/#{@hirer.id}/feedbacks", 
+        params: {:hirer_feedback => { score: 3, comment: 'muito bom'}}
+        
+        expect(@hirer.hirer_feedbacks.where(worker: @worker).length).to eq(0)
     end
 end
