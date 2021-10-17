@@ -1,44 +1,58 @@
 <h2><%= @hirer.username %></h2>
 
 
-<% if @show_favorite_button %>
-    <%= 
-    link_to t('favorites.favorite_button'), 
-    favorite_favorited_hirer_path(@hirer.id), 
-    id: 'favorite_button',
-    method: :post
-    %>
-<% elsif @show_unfavorite_button %>
-    <%= 
-    link_to t('favorites.unfavorite_button'), 
-    unfavorite_favorited_hirer_path(@hirer.id), 
-    id: 'unfavorite_button',
-    method: :delete
-    %>
-<% end %>
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div id="average_score">
+        <span>
+        <%= t('.average_score') %>
+        <%= number_with_precision(@hirer_average_score, :precision => 2) %>
+        <img src="https://img.icons8.com/ios/20/000000/star.png" class='img-responsive'/>
+        </span>
+    </div>
 
-<div id="average_score">
-    <span>
-    <%= t('.average_score') %>
-    <%= number_with_precision(@hirer_average_score, :precision => 2) %>
-    <img src="https://img.icons8.com/ios/20/000000/star.png" class='img-responsive'/>
-    </span>
-</div>
+    <div id='favorite_div' class=''>
+        <% if @show_favorite_button %>
+            <%= 
+            button_to t('favorites.favorite_button'), 
+            favorite_favorited_hirer_path(@hirer.id), 
+            id: 'favorite_button',
+            class: 'btn btn-primary',
+            method: :post
+            %>
+        <% elsif @show_unfavorite_button %>
+            <%= 
+            button_to t('favorites.unfavorite_button'), 
+            unfavorite_favorited_hirer_path(@hirer.id), 
+            id: 'unfavorite_button',
+            class: 'btn btn-secondary',
+            method: :delete
+            %>
+        <% end %>
+    </div>
+</nav>
 
 <% if @your_feedback %>
     <%= render partial: 'feedbacks/yours', locals: { feedback: @your_feedback } %>
 <% end %>
 
-<div id='hirer_feedbacks'>
-    <% if @feedbacks.empty? %>
-        <%= t('.empty_hirer_feedbacks') %>
-    <% else %>
-        <% @feedbacks.each do |feedback| %>
-            <%= render partial: 'feedbacks/show', locals: { feedback: feedback } %>
-        <% end %>
-    <% end %>
-</div>
+
 
 <div id='hirer_details'>
-    <h3><%= @hirer.email %></h3>
+    <ul class="nav nav-tabs">
+        <li><a data-toggle="tab" href="#hirer_feedbacks" class="nav-link active">
+        <%= Hirer.human_attribute_name('hirer_feedbacks') %>
+        </a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id='hirer_feedbacks'>
+            <% if @feedbacks.empty? %>
+                <%= t('.empty_hirer_feedbacks') %>
+            <% else %>
+                <% @feedbacks.each do |feedback| %>
+                    <%= render partial: 'feedbacks/show', locals: { feedback: feedback } %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
 </div>

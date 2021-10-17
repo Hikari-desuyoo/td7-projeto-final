@@ -1,5 +1,9 @@
 ---
 pt-BR:
+  activerecord:
+    attributes:
+      hirer:
+        hirer_feedbacks: 'Avaliações'
   hirers:
     show:
       empty_hirer_feedbacks: 'Esse usuário ainda não tem avaliações'
