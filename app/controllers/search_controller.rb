@@ -2,8 +2,12 @@ class SearchController < ApplicationController
     before_action :authenticate_user
 
     def search
-        @results = search_projects
-        only_open_project_results        
+        if worker_signed_in?
+            @results = search_projects
+            only_open_project_results  
+        else
+            @results = search_workers
+        end      
     end
 
     private
@@ -35,6 +39,29 @@ class SearchController < ApplicationController
         results = results.or(
             Project.where(
                 'skills_needed like ?', "%#{@search_term}%"
+            )
+        )
+
+
+        return results
+    end
+
+    def search_workers
+        get_search_term
+
+        results = Worker.where(
+            'name like ?', "%#{@search_term}%"
+        )
+
+        results = results.or(
+            Worker.where(
+                'surname like ?', "%#{@search_term}%"
+            )
+        )
+
+        results = results.or(
+            Project.where(
+                'social_name like ?', "%#{@search_term}%"
             )
         )
 
