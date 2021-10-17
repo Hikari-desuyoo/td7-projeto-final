@@ -1,5 +1,6 @@
  class ProjectApplicationsController < ApplicationController
     before_action :authenticate_worker!, only: [:create, :cancel]
+    before_action :authenticate_complete_worker!, only: [:create, :cancel]
     before_action :authenticate_hirer!, only: [:accept, :decline]
 
 
@@ -89,5 +90,11 @@
     def application_from_linked_users_authetication!
         application_for_current_hirer!
         application_from_current_worker!
+    end
+
+    def authenticate_complete_worker!
+        unless current_worker.complete_profile?
+            redirect_to root_path
+        end
     end
  end

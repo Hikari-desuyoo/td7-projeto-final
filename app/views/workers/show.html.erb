@@ -9,7 +9,18 @@
         </span>
     </div>
 
-    <div id='favorite_div' class=''>
+    <% if worker_signed_in? and (@worker == current_worker) %>
+        <%= 
+        button_to t('.edit_profile_button'), 
+        edit_worker_path(@worker.id), 
+        id: 'edit_profile_button',
+        class: 'btn btn-primary',
+        method: :get
+        %>
+    <% end %>
+
+
+    <div id='favorite_div'>
         <% if @show_favorite_button %>
             <%= 
             button_to t('favorites.favorite_button'), 

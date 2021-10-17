@@ -1,5 +1,12 @@
 class WorkersController < ApplicationController
+    before_action :authenticate_right_worker!, only: [:edit ,:update]
+
     def complete_profile
+        unless worker_signed_in?
+            redirect_to root_path
+            return
+        end
+
         @current_worker = current_worker
         @current_worker.update(worker_params)
 
@@ -23,7 +30,25 @@ class WorkersController < ApplicationController
         set_favorite_attributes
     end
 
+    def edit
+        @occupations = Occupation.all
+        @current_worker = current_worker
+    end
+
+    def update
+        @current_worker = current_worker
+        @current_worker.update(edit_worker_params)
+
+        redirect_to @current_worker
+    end
+
     private
+    def authenticate_right_worker!
+        unless worker_signed_in? and (current_worker == Worker.find(params[:id]))
+            redirect_to root_path
+        end
+    end
+
     def set_feedback_attributes
         @worker_average_score = @worker.worker_feedbacks.average(:score)
 
@@ -53,6 +78,15 @@ class WorkersController < ApplicationController
                 @show_unfavorite_button = true
             end
         end
+    end
+
+    def edit_worker_params
+        params.require(:worker).permit(
+            :education,
+            :description,
+            :experience,
+            :occupation_id
+        )
     end
 
     def worker_params

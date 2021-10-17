@@ -6,26 +6,7 @@
   </ul>
 <% end %>
 
-<%= form_for @current_worker, :url => complete_profile_path(@current_worker) do |f| %>
-  <div>
-    <span><%= t('home.index.obligatory') %></span>
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control'%>
-  </div>
-  <div>
-    <span><%= t('home.index.obligatory') %></span>
-    <%= f.label :surname %>
-    <%= f.text_field :surname, class: 'form-control' %>
-  </div>
-  <div>
-    <%= f.label :social_name %>
-    <%= f.text_field :social_name, class: 'form-control' %>
-  </div>
-  <div>
-    <span><%= t('home.index.obligatory') %></span>
-    <%= f.label :birth_date %>
-    <%= f.date_field :birth_date, class: 'form-control' %>
-  </div>
+<%= form_for @current_worker, :url => worker_path(@current_worker), method: :patch do |f| %>
   <div>
     <%= f.label :education %>
     <%= f.text_field :education, class: 'form-control' %>
