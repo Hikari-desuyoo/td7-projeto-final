@@ -55,6 +55,7 @@ Rails.application.routes.draw do
     resources :project_applications, only: [:create], shallow: true do
       post 'accept', on: :member
       post 'decline', on: :member
+      delete 'cancel', on: :member
     end
     resources(
       :project_feedbacks, 

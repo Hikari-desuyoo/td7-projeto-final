@@ -1,6 +1,6 @@
  class ProjectApplicationsController < ApplicationController
-    before_action :authenticate_worker!, only: [:create]
-    before_action :authenticate_hirer!, only: [:accept]
+    before_action :authenticate_worker!, only: [:create, :cancel]
+    before_action :authenticate_hirer!, only: [:accept, :decline]
 
 
     # NOT NESTED ON PROJECT ROUTES
@@ -62,6 +62,15 @@
         if @project_application.declined?
             redirect_to @project_application, notice: t('.success_notice')
         end
+    end
+
+    def cancel
+        @project_application = ProjectApplication.find(params[:id])
+        if @project_application.pending?
+            @project_application.destroy
+        end
+
+        redirect_to my_project_applications_project_applications_path, notice: t('.success_notice')
     end
 
     private

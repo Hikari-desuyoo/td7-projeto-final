@@ -42,4 +42,11 @@
     <%= f.submit t('project_applications.show.decline_button') %>
     <% end %>
 
+<% elsif worker_signed_in? and @project_application.pending? %>
+    <%=
+    link_to t('project_applications.show.cancel_button'), 
+    cancel_project_application_path(@project_application.id), 
+    id: 'cancel_button',
+    method: :delete
+    %>
 <% end %>

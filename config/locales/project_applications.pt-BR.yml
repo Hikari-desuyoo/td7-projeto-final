@@ -12,6 +12,8 @@ pt-BR:
       success_notice: 'Proposta aceita com sucesso!'
     decline:
       success_notice: 'Proposta rejeitada com sucesso.'
+    cancel:
+      success_notice: 'Proposta cancelada com sucesso.'
     status:
       declined: 'Rejeitado'
       accepted: 'Aceito'
@@ -20,6 +22,7 @@ pt-BR:
       see_more_button: 'Ver mais'
       accept_button: 'Aceitar'
       decline_button: 'Rejeitar'
+      cancel_button: 'Cancelar proposta'
       decline_reason: 'Por que você está rejeitando esta proposta?'
       no_description: 'Sem descrição'
       no_decline_reason: 'Nenhuma razão especificada.'
