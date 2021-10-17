@@ -10,41 +10,41 @@
   <div>
     <span><%= t('home.index.obligatory') %></span>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control'%>
   </div>
   <div>
     <span><%= t('home.index.obligatory') %></span>
     <%= f.label :surname %>
-    <%= f.text_field :surname %>
+    <%= f.text_field :surname, class: 'form-control' %>
   </div>
   <div>
     <%= f.label :social_name %>
-    <%= f.text_field :social_name %>
+    <%= f.text_field :social_name, class: 'form-control' %>
   </div>
   <div>
     <span><%= t('home.index.obligatory') %></span>
     <%= f.label :birth_date %>
-    <%= f.date_field :birth_date %>
+    <%= f.date_field :birth_date, class: 'form-control' %>
   </div>
   <div>
     <%= f.label :education %>
-    <%= f.text_field :education %>
+    <%= f.text_field :education, class: 'form-control' %>
   </div>
   <div>
     <%= f.label :experience %>
-    <%= f.text_field :experience %>
+    <%= f.text_field :experience, class: 'form-control' %>
   </div>
   <div>
     <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, class: 'form-control' %>
   </div>
-  <div>
-  <span><%= t('home.index.obligatory') %></span>
-  <%= f.label :occupation_id %>
+  <div
+    <span><%= t('home.index.obligatory') %></span>
+    <%= f.label :occupation_id %>
     <%= 
     f.select :occupation_id, 
-    @occupations.map {|o_type| [t('occupation_name.'+o_type.name), o_type.id]} 
+    @occupations.map {|o_type| [t('occupation_name.'+o_type.name), o_type.id]}
     %>
   </div>
-  <%= f.submit 'Enviar' %>
+  <%= f.submit t('common.submit'), class: 'btn btn-primary'%>
 <% end %>
