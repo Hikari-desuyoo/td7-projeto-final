@@ -8,39 +8,44 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <header>
-      <h1><%= link_to 'Hiring', root_path %></h1>
-      <nav>
-        <% unless hirer_signed_in? or worker_signed_in? %>
-          <%= render 'layouts/visitor' %>
-        <% else %>
-          <div id='search_bar'>
-            <%= form_with url: search_path, method: :get do |form| %>
-              <%= form.text_field :search_term, placeholder: t('layout.application.search_term'), class: 'search_term' %>
-              <%= form.submit 'Procurar' %>
-            <% end %>
-          </div>
-          <% if hirer_signed_in? %>
-            <%= render 'layouts/hirer' %>
+    <div class="container">
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <%= link_to 'Hiring', root_path, class: 'navbar-brand' %>
+          <% unless hirer_signed_in? or worker_signed_in? %>
+            <%= render 'layouts/visitor' %>
           <% else %>
-            <%= render 'layouts/worker' %>
+            <div id='search_bar'>
+              <%= form_with url: search_path, method: :get do |form| %>
+                <%= form.text_field :search_term, placeholder: t('layout.application.search_term'), class: 'search_term' %>
+                <%= form.submit 'Procurar' %>
+              <% end %>
+            </div>
+            <% if hirer_signed_in? %>
+              <%= render 'layouts/hirer' %>
+            <% else %>
+              <%= render 'layouts/worker' %>
+            <% end %>
           <% end %>
+        </nav>
+        <% if notice %>
+          <div>
+            <%= notice %>
+          </div>
         <% end %>
-      </nav>
-      <% if notice %>
-        <div>
-          <%= notice %>
-        </div>
-      <% end %>
-      <% if alert %>
-        <div>
-          <%= alert %>
-        </div>
-      <% end %>
-    </header>
-    <%= yield %>
+        <% if alert %>
+          <div>
+            <%= alert %>
+          </div>
+        <% end %>
+      </header>
+      <%= yield %>
+    </div>
   </body>
 </html>

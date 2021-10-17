@@ -1,15 +1,21 @@
-<div class='signup'>
-    <span><%= t('layout.application.signup') %></span>
-    <%= 
-    link_to t('layout.application.worker_signup_link'),  
-    new_worker_registration_path, 
-    :id => 'worker_signup_link'
-    %>
-    <%= 
-    link_to t('layout.application.hirer_signup_link'),  
-    new_hirer_registration_path, 
-    :id => 'hirer_signup_link'
-    %>
+<div class='signup nav-item dropdown'>
+    <a class="nav-link dropdown-toggle" href="#" id="signupDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= t('layout.application.signup') %>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="signupDropdown">
+        <%= 
+        link_to t('layout.application.worker_signup_link'),  
+        new_worker_registration_path, 
+        :id => 'worker_signup_link',
+        :class => 'dropdown-item'
+        %>
+        <%= 
+        link_to t('layout.application.hirer_signup_link'),  
+        new_hirer_registration_path, 
+        :id => 'hirer_signup_link',
+        :class => 'dropdown-item'
+        %>
+    </div>  
 </div>  
 
 <div class='login'>
