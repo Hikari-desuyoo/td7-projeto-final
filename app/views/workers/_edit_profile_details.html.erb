@@ -6,7 +6,6 @@
   </ul>
 <% end %>
 
-<h2><%= t('home.index.complete_profile_title') %></h2>
 <%= form_for @current_worker, :url => complete_profile_path(@current_worker) do |f| %>
   <div>
     <span><%= t('home.index.obligatory') %></span>
@@ -50,5 +49,3 @@
   </div>
   <%= f.submit 'Enviar' %>
 <% end %>
-
-<%= link_to 'Voltar', root_path, :class => 'back_button' %>

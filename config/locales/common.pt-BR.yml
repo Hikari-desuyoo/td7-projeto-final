@@ -3,3 +3,4 @@ pt-BR:
   common:
     'yes': 'sim'
     'no': 'não'
+    submit: 'Enviar'
