@@ -26,3 +26,5 @@ pt-BR:
       decline_reason: 'Por que você está rejeitando esta proposta?'
       no_description: 'Sem descrição'
       no_decline_reason: 'Nenhuma razão especificada.'
+    my_project_applications:
+      empty: 'Você não está com nenhuma proposta no momento'

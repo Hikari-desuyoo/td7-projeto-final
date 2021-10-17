@@ -1,4 +1,7 @@
-<div class=<%= "worker_#{worker.id}" %>>
-    <h4><%= link_to worker.get_full_name, worker %></h4>
-    <h3><%= t("occupation_name.#{worker.occupation}") %></h3>
+<div class=<%= "worker_#{worker.id} card" %>>
+    <div class='card-body'>
+        <h4 class="card-title"><%= link_to worker.get_full_name, worker %></h4>
+        <h5 class="card-title"><%= t("occupation_name.#{worker.occupation.name}") %></h5>
+        <p class="card-text"><%= worker.description %></p>
+    </div>
 </div>

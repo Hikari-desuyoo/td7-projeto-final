@@ -4,7 +4,7 @@ require 'rails_helper'
 describe 'Logged Hirer searchs for worker' do    
     include ActiveSupport::Testing::TimeHelpers
     before(:each) do
-        Occupation.create!(name: 'dev')
+        dev = Occupation.create!(name: 'dev')
 
         @hirer = Hirer.create!(
             email: 'test@mail.com',
@@ -19,28 +19,32 @@ describe 'Logged Hirer searchs for worker' do
                 password: '123456789',
                 name: 'alguma coisa nada a ver',
                 surname: 'sobrenome2',
-                birth_date: '2002-06-27'
+                birth_date: '2002-06-27',
+                occupation: dev
             ),
             Worker.create!(
                 email: 'test3@mail.com',
                 password: '123456789',
                 name: 'nome2',
                 surname: 'sobrenome2',
-                birth_date: '2002-06-27'
+                birth_date: '2002-06-27',
+                occupation: dev
             ),
             Worker.create!(
                 email: 'test4@mail.com',
                 password: '123456789',
                 name: 'nome2',
                 surname: 'alguma coisa',
-                birth_date: '2002-06-27'
+                birth_date: '2002-06-27',
+                occupation: dev
             ),
             Worker.create!(
                 email: 'test5@mail.com',
                 password: '123456789',
                 name: 'nome2',
                 surname: 'sobrenome2',
-                birth_date: '2002-06-27'
+                birth_date: '2002-06-27',
+                occupation: dev
             )
         ]
     

@@ -2,10 +2,6 @@
     <h2><%= t('home.index.welcome_hirer_message') %></h2>
 </div>
 
-<nav>
-    <%= link_to t('home.index.new_project_link'), new_project_path, :id => 'new_project_link' %>
-</nav>
-
 <div id='notifications'>
     <h2><%= t('home.index.notifications') %><h2>
     <% if @applications.empty? %>

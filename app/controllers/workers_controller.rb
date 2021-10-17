@@ -4,7 +4,8 @@ class WorkersController < ApplicationController
         @current_worker.update(worker_params)
 
         unless @current_worker.complete_profile?
-            flash[:alert] = t 'alert.profile_still_incomplete'
+            redirect_to root_path, alert: t('alert.profile_still_incomplete')
+            return
         end
 
         redirect_to root_path
@@ -62,7 +63,8 @@ class WorkersController < ApplicationController
             :birth_date,
             :education,
             :description,
-            :experience
+            :experience,
+            :occupation_id
         )
     end
 end

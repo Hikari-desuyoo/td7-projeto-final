@@ -1,7 +1,7 @@
 ---
 pt-BR:
   occupation_name:
-    'dev': 'Desenvolvedor'
+    'dev': 'Desenvolvimento'
     'ux': 'UX'
-    'dba': 'Administrador de banco de dados'
+    'dba': 'Administração de banco de dados'
     'nil': 'Área não especificada'

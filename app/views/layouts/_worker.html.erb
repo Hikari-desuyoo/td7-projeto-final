@@ -1,18 +1,34 @@
-<%= 
-link_to t('layout.application.logout_link'),  
-destroy_worker_session_path, 
-method: :delete, 
-:id => 'logout_link'
-%>
+<div class="navbar-nav dropdown">
 <% if current_worker.complete_profile? %>
-    <%= 
-    link_to current_worker.get_full_name,  
-    current_worker, 
-    :id => 'worker_profile_button'
-    %>
-    <%= 
-    link_to t('layout.application.my_project_applications_button'),  
-    my_project_applications_project_applications_path, 
-    :id => 'my_project_applications_button'
-    %>
+    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= current_worker.get_full_name %>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="profileDropdown">
+        <div class="nav-item">
+            <%= 
+            link_to t('layout.application.my_profile'),  
+            current_worker, 
+            :id => 'worker_profile_button',
+            class: 'dropdown-item'
+            %>
+        </div>
+        <div class="nav-item">
+            <%= 
+            link_to t('layout.application.my_project_applications_button'),  
+            my_project_applications_project_applications_path, 
+            :id => 'my_project_applications_button',
+            class: 'dropdown-item'
+            %>
+        </div>
+    </div>
 <% end %>
+</div>
+<div class="nav-item">
+    <%= 
+    button_to t('layout.application.logout_link'),  
+    destroy_worker_session_path, 
+    method: :delete, 
+    :id => 'logout_link',
+    class: 'nav-btn btn btn-secondary'
+    %>
+</div>

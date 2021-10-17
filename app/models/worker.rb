@@ -8,8 +8,8 @@ class Worker < ApplicationRecord
 
   validates :name, 
             :surname,
-            :social_name,
             :birth_date,
+            :occupation_id,
             presence: true, on: :update
 
   has_many :project_applications
@@ -33,7 +33,7 @@ class Worker < ApplicationRecord
   end
 
   def get_full_name
-    get_name + surname
+    "#{get_name} #{surname}"
   end
 
   def get_feedbackable_project_id

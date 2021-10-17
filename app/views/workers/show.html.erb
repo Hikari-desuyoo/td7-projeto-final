@@ -1,39 +1,79 @@
-<h2><%= @worker.get_full_name %></h2>
+<h1><%= @worker.get_full_name %></h1>
 
-<% if @show_favorite_button %>
-    <%= 
-    link_to t('favorites.favorite_button'), 
-    favorite_favorited_worker_path(@worker.id), 
-    id: 'favorite_button',
-    method: :post
-    %>
-<% elsif @show_unfavorite_button %>
-    <%= 
-    link_to t('favorites.unfavorite_button'), 
-    unfavorite_favorited_worker_path(@worker.id), 
-    id: 'unfavorite_button',
-    method: :delete
-    %>
-<% end %>
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div id="average_score">
+        <span>
+        <%= t('.average_score') %>
+        <%= number_with_precision(@worker_average_score, :precision => 2) %>
+        <img src="https://img.icons8.com/ios/20/000000/star.png" class='img-responsive'/>
+        </span>
+    </div>
 
-<div id="average_score">
-    <%= number_with_precision(@worker_average_score, :precision => 2) %>
-</div>
+    <div id='favorite_div' class=''>
+        <% if @show_favorite_button %>
+            <%= 
+            button_to t('favorites.favorite_button'), 
+            favorite_favorited_worker_path(@worker.id), 
+            id: 'favorite_button',
+            class: 'btn btn-primary',
+            method: :post
+            %>
+        <% elsif @show_unfavorite_button %>
+            <%= 
+            button_to t('favorites.unfavorite_button'), 
+            unfavorite_favorited_worker_path(@worker.id), 
+            id: 'unfavorite_button',
+            class: 'btn btn-secondary',
+            method: :delete
+            %>
+        <% end %>
+    </div>
+</nav>
 
 <% if @your_feedback %>
     <%= render partial: 'feedbacks/yours', locals: { feedback: @your_feedback } %>
 <% end %>
 
-<div id='worker_feedbacks'>
-    <% if @feedbacks.empty? %>
-        <%= t('.empty_worker_feedbacks') %>
-    <% else %>
-        <% @feedbacks.each do |feedback| %>
-            <%= render partial: 'feedbacks/show', locals: { feedback: feedback } %>
-        <% end %>
-    <% end %>
-</div>
-
 <div id='worker_details'>
-    <h3><%= @worker.description %></h3>
+    <ul class="nav nav-tabs">
+        <li><a data-toggle="tab" href="#description" class="nav-link active">
+        <%= Worker.human_attribute_name('description') %>
+        </a></li>
+
+        <li><a data-toggle="tab" href="#experience" class="nav-link">
+        <%= Worker.human_attribute_name('experience') %>
+        </a></li>
+
+        <li><a data-toggle="tab" href="#education" class="nav-link">
+        <%= Worker.human_attribute_name('education') %>
+        </a></li>
+
+        <li><a data-toggle="tab" href="#worker_feedbacks" class="nav-link">
+        <%= Worker.human_attribute_name('worker_feedbacks') %>
+        </a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="description" class="tab-pane active">
+            <h3><%= Worker.human_attribute_name('description') %></h3>
+            <span><%= @worker.description.blank? ? t('.not_filled') : @worker.description %></span>
+        </div>
+        <div id="experience" class="tab-pane fade">
+            <h3><%= Worker.human_attribute_name('experience') %></h3>
+            <span><%= @worker.experience.blank? ? t('.not_filled') : @worker.experience %></span>
+        </div>
+        <div id="education" class="tab-pane fade">
+            <h3><%= Worker.human_attribute_name('education') %></h3>
+            <span><%= @worker.education.blank? ? t('.not_filled') : @worker.education %></span>
+        </div>
+        <div id='worker_feedbacks' class="tab-pane fade">
+            <% if @feedbacks.empty? %>
+                <%= t('.empty_worker_feedbacks') %>
+            <% else %>
+                <% @feedbacks.each do |feedback| %>
+                    <%= render partial: 'feedbacks/show', locals: { feedback: feedback } %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
 </div>

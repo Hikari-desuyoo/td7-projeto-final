@@ -18,7 +18,11 @@
 <% end %>
 
 <div id="average_score">
+    <span>
+    <%= t('.average_score') %>
     <%= number_with_precision(@hirer_average_score, :precision => 2) %>
+    <img src="https://img.icons8.com/ios/20/000000/star.png" class='img-responsive'/>
+    </span>
 </div>
 
 <% if @your_feedback %>

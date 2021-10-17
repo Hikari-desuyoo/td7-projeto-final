@@ -13,6 +13,9 @@ pt-BR:
         experience: 'Experiência'
         description: 'Descrição'
         occupation_id: 'Área de atuação'
+        worker_feedbacks: 'Avaliações'
   workers:
     show:
       empty_worker_feedbacks: 'Esse usuário ainda não tem avaliações'
+      average_score: 'Avaliação: '
+      not_filled: 'Este campo não foi preenchido'

@@ -1,5 +1,9 @@
 <div id='project_applications'>
-    <% @project_applications.each do |application| %>
-        <%= render partial: "project_applications/#{@signed_user}_view", locals: { application: application } %>
+    <% unless @project_applications.empty? %>
+        <% @project_applications.each do |application| %>
+            <%= render partial: "project_applications/#{@signed_user}_view", locals: { application: application } %>
+        <% end %>
+    <% else %>
+        <%= t('.empty') %>
     <% end %>
 </div>

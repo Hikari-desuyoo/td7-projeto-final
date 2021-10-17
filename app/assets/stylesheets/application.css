@@ -14,3 +14,7 @@
  *= require_self
  *= require bootstrap/dist/css/bootstrap
  */
+
+ .btn{
+    margin-left:10px;
+}

@@ -3,3 +3,4 @@ pt-BR:
   hirers:
     show:
       empty_hirer_feedbacks: 'Esse usuário ainda não tem avaliações'
+      average_score: 'Avaliação: '

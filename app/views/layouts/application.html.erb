@@ -18,29 +18,39 @@
       <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <%= link_to 'Hiring', root_path, class: 'navbar-brand' %>
-          <% unless hirer_signed_in? or worker_signed_in? %>
-            <%= render 'layouts/visitor' %>
-          <% else %>
-            <div id='search_bar'>
-              <%= form_with url: search_path, method: :get do |form| %>
-                <%= form.text_field :search_term, placeholder: t('layout.application.search_term'), class: 'search_term' %>
-                <%= form.submit 'Procurar' %>
-              <% end %>
-            </div>
-            <% if hirer_signed_in? %>
-              <%= render 'layouts/hirer' %>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <% unless hirer_signed_in? or worker_signed_in? %>
+              <%= render 'layouts/visitor' %>
             <% else %>
-              <%= render 'layouts/worker' %>
+              <div id='search_bar' class='navbar-nav me-auto'>
+                <%= form_with url: search_path, method: :get, class: 'form-inline input-group my-2 my-lg-0' do |form| %>
+                  <%= 
+                  form.text_field :search_term, 
+                  placeholder: t('layout.application.search_term'), 
+                  class: 'search_term form-control mr-sm-2',
+                  type: 'search'
+                  %>
+                  <%= 
+                  form.submit 'Procurar' ,
+                  class: 'btn btn-outline-success my-2 my-sm-0'
+                  %>
+                <% end %>
+              </div>
+              <% if hirer_signed_in? %>
+                <%= render 'layouts/hirer' %>
+              <% else %>
+                <%= render 'layouts/worker' %>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         </nav>
         <% if notice %>
-          <div>
+          <div class="alert alert-info" role="alert">
             <%= notice %>
           </div>
         <% end %>
         <% if alert %>
-          <div>
+          <div class="alert alert-warning" role="alert">
             <%= alert %>
           </div>
         <% end %>

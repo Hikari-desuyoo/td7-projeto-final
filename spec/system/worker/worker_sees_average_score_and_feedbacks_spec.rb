@@ -51,7 +51,7 @@ describe 'Logged (complete)Worker' do
         expect(page).to have_css('#worker_details')
         expect(page).to have_content(@worker.get_full_name)
         
-        expect(page).to have_css('#average_score', text:/^3,67$/)
+        expect(page).to have_css('#average_score', text:'3,67')
 
         expect(page.body).to_not include('translation-missing')
         expect(page.body).to_not include('translation missing')

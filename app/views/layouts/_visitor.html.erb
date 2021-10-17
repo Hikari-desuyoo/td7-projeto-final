@@ -18,16 +18,23 @@
     </div>  
 </div>  
 
-<div class='login'>
-    <span><%= t('layout.application.login') %></span>
-    <%= 
-    link_to t('layout.application.worker_login_link'),  
-    new_worker_session_path, 
-    :id => 'worker_login_link'
-    %>
-    <%= 
-    link_to t('layout.application.hirer_login_link'),  
-    new_hirer_session_path, 
-    :id => 'hirer_login_link'
-    %>
+<div class='login nav-item dropdown'>
+    <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= t('layout.application.login') %>
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="loginDropdown">
+        <%= 
+        link_to t('layout.application.worker_login_link'),  
+        new_worker_session_path, 
+        :id => 'worker_login_link',
+        :class => 'dropdown-item'
+        %>
+        <%= 
+        link_to t('layout.application.hirer_login_link'),  
+        new_hirer_session_path, 
+        :id => 'hirer_login_link',
+        :class => 'dropdown-item'
+        %>
+    </div> 
 </div> 

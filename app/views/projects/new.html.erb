@@ -11,33 +11,31 @@
 <%= form_with(model: @project, id: 'new_project_form') do |f| %>
   <div>
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
   <div>
     <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, class: 'form-control' %>
   </div>
   <div>
     <%= f.label :skills_needed %>
-    <%= f.text_field :skills_needed %>
+    <%= f.text_field :skills_needed, class: 'form-control' %>
   </div>
   <div>
     <%= f.label :max_pay_per_hour %>
-    <%= f.text_field :max_pay_per_hour %>
+    <%= f.text_field :max_pay_per_hour, class: 'form-control' %>
   </div>
   <div>
     <%= f.label :open_until %>
-    <%= f.date_field :open_until %>
+    <%= f.date_field :open_until, class:"form-date-input" %>
   </div>
   <div>
-    <%= f.check_box :remote %>
+    <%= f.check_box :remote, class:"form-check-input" %>
     <%= f.label :remote %>
   </div>
   <div>
-    <%= f.check_box :presential %>
+    <%= f.check_box :presential, class:"form-check-input" %>
     <%= f.label :presential %>
   </div>
-  <%= f.submit 'Enviar' %>
+  <%= f.submit 'Enviar', class:'btn btn-primary' %>
 <% end %>
-
-<%= link_to 'Voltar', root_path, :class => 'back_button' %>

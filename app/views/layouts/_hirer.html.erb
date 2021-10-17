@@ -1,16 +1,40 @@
-<%= 
-link_to t('layout.application.logout_link'),  
-destroy_hirer_session_path,
-method: :delete, 
-:id => 'logout_link'
-%>
-<%= 
-link_to current_hirer.username,  
-current_hirer, 
-:id => 'hirer_profile_button'
-%>
-<%= 
-link_to t('layout.application.my_projects_button'),  
-my_projects_projects_path, 
-:id => 'my_projects_button'
-%>
+<div class="nav-item">
+    <%= 
+    link_to t('home.index.new_project_link'), 
+    new_project_path, 
+    :id => 'new_project_link', 
+    class: 'btn btn-primary' 
+    %>
+</div>
+<div class="navbar-nav dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= current_hirer.username %>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="profileDropdown">
+        <div class="nav-item">
+            <%= 
+            link_to t('layout.application.my_profile'),  
+            current_hirer, 
+            :id => 'hirer_profile_button',
+            class: 'dropdown-item'
+            %>
+        </div>
+        <div class="nav-item">
+            <%= 
+            link_to t('layout.application.my_projects_button'),  
+            my_projects_projects_path, 
+            :id => 'my_projects_button',
+            class: 'dropdown-item'
+            %>
+        </div>
+        <div class="nav-item">
+            <%= 
+            button_to t('layout.application.logout_link'),  
+            destroy_hirer_session_path,
+            method: :delete, 
+            :id => 'logout_link',
+            class: 'dropdown-item'
+            %>
+        </div>
+    </div>
+</div>
