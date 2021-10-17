@@ -1,5 +1,5 @@
 class WorkerFeedbacksController < ApplicationController
-    before_action :authorize_hirer_access
+    before_action :authenticate_hirer!
     def new
         @feedback = WorkerFeedback.new()
         @worker = Worker.find(params[:worker_id])
@@ -8,6 +8,11 @@ class WorkerFeedbacksController < ApplicationController
     def create
         @feedback = WorkerFeedback.new(feedback_params)
         @worker = Worker.find(params[:worker_id])
+        if already_feedback
+            redirect_to @worker
+            return
+        end
+
         @feedback.worker = @worker
         @feedback.hirer = current_hirer
 
@@ -19,7 +24,8 @@ class WorkerFeedbacksController < ApplicationController
     end
 
     private
-    def authorize_hirer_access
+    def already_feedback
+        not @worker.worker_feedbacks.where(hirer: current_hirer).empty?
     end
 
     def feedback_params 

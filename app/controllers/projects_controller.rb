@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
     before_action :authenticate_hirer!, only: [:new, :create, :my_projects]
+    
 
     def new
         @project = Project.new

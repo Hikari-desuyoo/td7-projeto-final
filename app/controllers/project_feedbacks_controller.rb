@@ -1,5 +1,5 @@
 class ProjectFeedbacksController < ApplicationController
-    before_action :authorize_worker_access
+    before_action :authenticate_worker!
     def new
         @project = Project.find(params[:project_id])
         @feedback = ProjectFeedback.new()
@@ -8,6 +8,11 @@ class ProjectFeedbacksController < ApplicationController
     def create
         @feedback = ProjectFeedback.new(feedback_params)
         @project = Project.find(params[:project_id])
+        if already_feedback
+            redirect_to @project
+            return
+        end
+
         @feedback.project = @project
         @feedback.worker = current_worker
 
@@ -19,7 +24,8 @@ class ProjectFeedbacksController < ApplicationController
     end
 
     private
-    def authorize_worker_access
+    def already_feedback
+        not @project.project_feedbacks.where(worker: current_worker).empty?
     end
 
     def feedback_params 
