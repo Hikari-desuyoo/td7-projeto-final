@@ -8,3 +8,4 @@ pt-BR:
       button: 'Avaliar'
       score: 'Nota(1 a 5)'
       comment: 'Comentário (opcional)'
+      score_show: 'Nota: '

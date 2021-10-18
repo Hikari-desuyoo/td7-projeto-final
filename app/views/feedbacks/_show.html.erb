@@ -1,15 +1,19 @@
-<%
-    class_to_identifier = { 
-        'ProjectFeedback' => 'feedback.worker.get_full_name',
-        'WorkerFeedback' => 'feedback.hirer.username',
-        'HirerFeedback' => 'feedback.worker.get_full_name'
-    } 
-%>
+<div class="project_feedback card m-2 p-2">
+    <% if [ProjectFeedback, HirerFeedback].include?(feedback.class) %>
+        <%= 
+        link_to feedback.worker.get_full_name,
+        worker_path(feedback.worker),
+        class: 'from'
+        %>
+    <% elsif WorkerFeedback == feedback.class %>
+        <%= 
+        link_to feedback.hirer.username,
+        hirer_path(feedback.hirer),
+        class: 'from'
+        %>
+    <% end %>
+    
 
-<div class="project_feedback">
-    <span class='from'><%= 
-        eval(class_to_identifier[feedback.class.to_s])
-    %></span>
-    <span class='score'><%= feedback.score %></span>
+    <span class='score'><%= t('feedbacks.common.score_show') %><%= feedback.score %></span>
     <span class='comment'><%= feedback.comment %></span>
 </div>

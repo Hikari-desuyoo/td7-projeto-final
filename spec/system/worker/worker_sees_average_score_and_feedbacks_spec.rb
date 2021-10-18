@@ -62,7 +62,7 @@ describe 'Logged (complete)Worker' do
         visit root_path
 
         click_on 'worker_profile_button'
-
+        
         within '#worker_feedbacks' do
             expect(page).to have_content(@hirer.username, count:3)#NÃO ACONTECE NORMALMENTE(3 vezes mesma pessoa)
             expect(page).to have_content('bom freelancer')
