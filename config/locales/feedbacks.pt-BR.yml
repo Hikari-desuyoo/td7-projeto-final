@@ -9,3 +9,5 @@ pt-BR:
       score: 'Nota(1 a 5)'
       comment: 'Comentário (opcional)'
       score_show: 'Nota: '
+      yours: 'Sua avaliação:'
+      project_button: 'Avaliar projeto'

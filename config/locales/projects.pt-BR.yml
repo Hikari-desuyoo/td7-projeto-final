@@ -28,6 +28,7 @@ pt-BR:
       project_details: 'Detalhes'
       team_reserved: 'Área do time'
       application_details: 'Propostas'
+      feedbacks: 'Avaliações'
       team_list: 'Usuários participantes: '
       apply_reason: 'Por que você quer trabalhar neste projeto?'
     common:

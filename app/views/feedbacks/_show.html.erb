@@ -1,4 +1,5 @@
 <div class="project_feedback card m-2 p-2">
+    <h4>
     <% if [ProjectFeedback, HirerFeedback].include?(feedback.class) %>
         <%= 
         link_to feedback.worker.get_full_name,
@@ -12,6 +13,7 @@
         class: 'from'
         %>
     <% end %>
+    </h4>
     
 
     <span class='score'><%= t('feedbacks.common.score_show') %><%= feedback.score %></span>

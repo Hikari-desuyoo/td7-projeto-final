@@ -1,4 +1,5 @@
-<div id="your_feedback">
-    <span class="score"><%= feedback.score %></span>
-    <span><%= feedback.comment %></span>
+<div id="your_feedback" class="project_feedback card m-2 p-2">
+    <h5><%= t('feedbacks.common.yours') %></h5>
+    <span class='score'><%= t('feedbacks.common.score_show') %><%= feedback.score %></span>
+    <span class='comment'><%= feedback.comment %></span>
 </div>

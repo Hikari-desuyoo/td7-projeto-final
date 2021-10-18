@@ -16,6 +16,12 @@
             <%= t('.team_reserved') %>
             </a></li>
         <% end %>
+
+        <% if @member_signed_in %>
+            <li><a data-toggle="tab" href="#feedbacks" class="nav-link">
+            <%= t('.feedbacks') %>
+            </a></li>
+        <% end %>
     </ul>
 
     <div class='tab-content'>
@@ -76,9 +82,9 @@
                     </div>
                     <% if worker_signed_in? and @project.finished? and not @your_feedback %>
                         <%= 
-                        link_to t('feedback.project_button'), 
+                        link_to t('feedbacks.common.project_button'), 
                         new_project_feedback_path(@project), 
-                        class: 'project_feedback_button' 
+                        class: 'project_feedback_button btn btn-primary' 
                         %>
                     <% end %>
                     <% if @your_feedback %>
@@ -87,17 +93,19 @@
                 </div>
             <% end %>
         </div>
-
-        <div id = 'application_details' class='card tab-pane fade' >
-            <% unless @feedbacks.empty? %>
+        <% unless @feedbacks.empty? %>
+        <div id = 'feedbacks' class='card tab-pane fade' >
+            
                 <div class='project_feedbacks'>
                     <% @feedbacks.each do |feedback| %>
                         <%= render partial: 'feedbacks/show', locals: { feedback: feedback } %>
                     <% end %>
                 </div>
-            <% end %>
+            
+        </div>
+        <% end %>
 
-
+        <div id = 'application_details' class='card tab-pane fade' >
             <div id='project_apply' class='card p-2'>
                 <% if @worker_applied %>
                     <%=
