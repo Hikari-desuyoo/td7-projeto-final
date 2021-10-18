@@ -6,3 +6,5 @@ pt-BR:
     common:
       youre_avaliating: 'Avaliação para: '
       button: 'Avaliar'
+      score: 'Nota(1 a 5)'
+      comment: 'Comentário (opcional)'

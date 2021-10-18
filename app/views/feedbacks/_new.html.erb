@@ -1,15 +1,15 @@
-<h1><%= "#{t('feedback.common.youre_avaliating')} #{receiver_name}" %></h1>
+<h1><%= "#{t('feedbacks.common.youre_avaliating')} #{receiver_name}" %></h1>
 
 <% form_id = "#{feedback_for.class.name.downcase}_feedback_form" %>
 
-<%= form_with(model: feedback, id: form_id) do |f| %>
+<%= form_with(model: feedback, id: form_id, class:'card p-2') do |f| %>
   <div>
-    <%= f.label :score %>
-    <%= f.number_field :score, in: 1..5, step: 1 %>
+    <%= f.label :score, t('feedbacks.common.score') %>
+    <%= f.number_field :score, in: 1..5, step: 1, class: 'form-control'%>
   </div>
   <div>
-    <%= f.label :comment %>
-    <%= f.text_field :comment %>
+    <%= f.label :comment, t('feedbacks.common.comment') %>
+    <%= f.text_area :comment, class: 'form-control' %>
   </div>
-  <%= f.submit t('common.submit') %>
+  <%= f.submit t('common.submit'), class: 'btn btn-primary'  %>
 <% end %>
