@@ -24,5 +24,11 @@ pt-BR:
       no_team: 'Esse projeto ainda não tem participantes'
       finish_button: 'Encerrar projeto'
       close_button: 'Fechar inscrições'
+      from: 'Criado por: '
+      project_details: 'Detalhes'
+      team_reserved: 'Área do time'
+      application_details: 'Propostas'
+      team_list: 'Usuários participantes: '
+      apply_reason: 'Por que você quer trabalhar neste projeto?'
     common:
       project_owner: 'Dono do projeto'

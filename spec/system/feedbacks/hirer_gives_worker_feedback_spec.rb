@@ -7,7 +7,8 @@ describe 'hirer tries to give worker feedback' do
             password: '123456789',
             name: 'nome2',
             surname: 'sobrenome2',
-            birth_date: '2002-06-27'
+            birth_date: '2002-06-27',
+            occupation: Occupation.create!(name: 'dev')
         )
 
         @hirer = Hirer.create!(

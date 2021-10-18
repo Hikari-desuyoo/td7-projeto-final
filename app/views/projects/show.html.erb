@@ -1,76 +1,134 @@
-<% if @member_signed_in %>
-    <div>
-        <div class = 'team_information'>
-            <%= render partial: 'team/hirer', locals: { project: @project } %>
-            <% if @project_team.empty? %>
-                <%= t('.no_team') %>
-            <% else %>
-                <% @project_team.each do |worker| %>
-                    <%= render partial: 'team/worker', locals: { worker: worker, project: @project } %>
+<h1 class='title'><%= @project.title %></h1>
+<h3 class='hirer'><%= t('.from') %> <%= link_to @project.hirer.username, hirer_path(@project.hirer) %></h2>
+
+<div id='project_tabs'>
+    <ul class="nav nav-tabs">
+        <li><a data-toggle="tab" href="#project_details" class="nav-link active">
+        <%= t('.project_details') %>
+        </a></li>
+
+        <li><a data-toggle="tab" href="#application_details" class="nav-link">
+        <%= t('.application_details') %>
+        </a></li>
+
+        <% if @member_signed_in %>
+            <li><a data-toggle="tab" href="#team_reserved" class="nav-link">
+            <%= t('.team_reserved') %>
+            </a></li>
+        <% end %>
+    </ul>
+
+    <div class='tab-content'>
+        <div id = 'project_details' class='card tab-pane active'>
+            <dl>
+                <dt><%= Project.human_attribute_name('description') %></dt>
+                <dd class='description'> <%= @project.description %></dd>
+
+                <dt><%= Project.human_attribute_name('skills_needed') %></dt>
+                <dd class='skills_needed'> <%= @project.skills_needed %></dd>
+
+                <dt><%=Project.human_attribute_name('max_pay_per_hour') %></dt>
+                <dd class='max_pay_per_hour'> <%= number_to_currency(@project.max_pay_per_hour, unit: 'R$', separator: ',', format: "%u %n") %></dd>
+
+                <dt><%= Project.human_attribute_name('open_until') %></dt>
+                <dd class='open_until'> <%= l @project.open_until %></dd>
+
+                <dt><%= Project.human_attribute_name('remote') %></dt>
+                <dd class='remote'> <%= @project.remote ? t('common.yes') : t('common.no')%></dd>
+
+                <dt><%= Project.human_attribute_name('presential') %></dt>
+                <dd class='presential'> <%= @project.presential ? t('common.yes') : t('common.no') %></dd>
+            </dl>
+        </div>
+
+        <div id = 'team_reserved' class='tab-pane fade mr-auto' >
+            <% if hirer_signed_in? %>
+                <br>
+                <% if @project.open? %>
+                    <%= 
+                    link_to t('.close_button'), 
+                    close_project_path, 
+                    method: :post, 
+                    id: 'close_button',
+                    class: 'btn btn-primary'
+                    %>
+                <% elsif @project.closed? %>
+                    <%= 
+                    link_to t('.finish_button'), 
+                    finish_project_path, 
+                    method: :post, 
+                    id: 'finish_button', 
+                    class: 'btn btn-danger'
+                    %>
                 <% end %>
+                <br>
+                <br>
+            <% end %>
+            
+            <% if @member_signed_in %>
+                <div id='member_div' class='card'>
+                    <h3 class='card-title' ><%= t('.team_list') %></h3>
+                    <div class = 'team_information'>
+                        <%= render partial: 'team/hirer', locals: { project: @project } %>
+                        <% @project_team.each do |worker| %>
+                            <%= render partial: 'team/worker', locals: { worker: worker, project: @project } %>
+                        <% end %>
+                    </div>
+                    <% if worker_signed_in? and @project.finished? and not @your_feedback %>
+                        <%= 
+                        link_to t('feedback.project_button'), 
+                        new_project_feedback_path(@project), 
+                        class: 'project_feedback_button' 
+                        %>
+                    <% end %>
+                    <% if @your_feedback %>
+                        <%= render partial: 'feedbacks/yours', locals: { feedback: @your_feedback } %>
+                    <% end %>
+                </div>
             <% end %>
         </div>
-        <% if worker_signed_in? and @project.finished? and not @your_feedback %>
-            <%= 
-            link_to t('feedback.project_button'), 
-            new_project_feedback_path(@project), 
-            class: 'project_feedback_button' 
-            %>
-        <% end %>
-        <% if @your_feedback %>
-            <%= render partial: 'feedbacks/yours', locals: { feedback: @your_feedback } %>
-        <% end %>
-    </div>
-<% end %>
 
-<% if hirer_signed_in? %>
-    <%= link_to t('.finish_button'), finish_project_path, method: :post, id: 'finish_button' %>
-    <%= link_to t('.close_button'), close_project_path, method: :post, id: 'close_button' %>
-<% end %>
+        <div id = 'application_details' class='card tab-pane fade' >
+            <% unless @feedbacks.empty? %>
+                <div class='project_feedbacks'>
+                    <% @feedbacks.each do |feedback| %>
+                        <%= render partial: 'feedbacks/show', locals: { feedback: feedback } %>
+                    <% end %>
+                </div>
+            <% end %>
 
-<% unless @feedbacks.empty? %>
-    <div class='project_feedbacks'>
-        <% @feedbacks.each do |feedback| %>
-            <%= render partial: 'feedbacks/show', locals: { feedback: feedback } %>
-        <% end %>
-    </div>
-<% end %>
 
-<div id = 'project_details'>
-    <% if @worker_applied %>
-        <span id='applied'><%= t('.applied') %></span>
-    <% end %>
-    <h1 class='title'><%= @project.title %></h1>
-    <h2 class='description'><%= @project.description %></h2>
-    <h3 class='hirer'>de: <%= @project.hirer.username %></h2>
+            <div id='project_apply' class='card p-2'>
+                <% if @worker_applied %>
+                    <%=
+                        link_to t('.applied'),
+                        project_application_path(@project_application),
+                        class: 'text-center bg-light text-success p-2',
+                        id: 'applied'
+                    %>
+                    <span class='bg-light p-2'><%= @project_status %></span>
+                <% else %>
+                    <span class='text-center bg-light p-2'><%= @project_status %></span>
+                <% end %>
+                
 
-    <dl>
-        <dt><%= Project.human_attribute_name('skills_needed') %></dt>
-        <dd class='skills_needed'> <%= @project.skills_needed %></dd>
-
-        <dt><%=Project.human_attribute_name('max_pay_per_hour') %></dt>
-        <dd class='max_pay_per_hour'> <%= number_to_currency(@project.max_pay_per_hour, unit: 'R$', separator: ',', format: "%u %n") %></dd>
-
-        <dt><%= Project.human_attribute_name('open_until') %></dt>
-        <dd class='open_until'> <%= l @project.open_until %></dd>
-
-        <dt><%= Project.human_attribute_name('remote') %></dt>
-        <dd class='remote'> <%= @project.remote ? t('common.yes') : t('common.no')%></dd>
-
-        <dt><%= Project.human_attribute_name('presential') %></dt>
-        <dd class='presential'> <%= @project.presential ? t('common.yes') : t('common.no') %></dd>
-    </dl>
-</div>
-
-<div id='project_apply'>
-    <span><%= @project_status %></span>
-    <% if @project.open? and not @worker_applied and not hirer_signed_in? %>
-        <%= form_with(model: @project_application, id: 'project_application_form', url: project_project_applications_path(@project)) do |f| %>
-            <div>
-                <%= f.label :description %>
-                <%= f.text_field :description %>
+                <% if @project.open? and not @worker_applied and not hirer_signed_in? %>
+                    <%= form_with(model: @project_application, id: 'project_application_form', url: project_project_applications_path(@project)) do |f| %>
+                        <div>
+                            <%= f.label :description, t('.apply_reason') %>
+                            <%= f.text_area :description, class: 'form-control'%>
+                        </div>
+                        <%= f.submit t('.apply_button'), class: 'btn btn-primary'%>
+                    <% end %>
+                <% end %>
             </div>
-            <%= f.submit t('.apply_button') %>
-        <% end %>
-    <% end %>
+        </div>  
+    </div>   
 </div>
+
+
+
+
+
+
+

@@ -4,3 +4,4 @@ pt-BR:
     search:
       title: 'Resultados para'
       no_results: 'Nenhum resultado'
+      needs: 'Precisa de: '

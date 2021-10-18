@@ -1,10 +1,11 @@
-<div class='project_worker'>
-    <span><%= worker.get_full_name %></span>
-    <span><%= t('occupation_name.'+worker.occupation.to_s) %></span>
-    <% if (project.finished? and hirer_signed_in?) %>
+<div class='project_worker card m-1'>
+    <h5 class='card-title'><%= t('occupation_name.'+worker.occupation.name) %></h5>
+    <span><%= link_to worker.get_full_name, worker_path(worker) %></span>
+    
+    <% if project.finished? and hirer_signed_in? %>
         <%= 
         link_to t('feedbacks.common.button'), 
-        new_worker_feedback_path(worker), 
+        new_worker_feedback_path(project.hirer), 
         class: 'feedback_button' 
         %>
     <% end %>

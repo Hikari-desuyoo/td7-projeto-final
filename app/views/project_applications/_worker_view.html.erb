@@ -1,12 +1,13 @@
-<div id=<%= "application-#{application.id}" %>>
-    <span><%= "#{t('project_applications.worker_view.is_applying')}" %></span>
-    <span><%= link_to application.project.title, application.project %></span>
-    
-    <span><%= t("project_applications.status.#{application.status}") %></span>
-
-    <%=
-    link_to t('project_applications.show.see_more_button'), 
-    project_application_path(application), 
-    class: 'see_more_button'
-    %>
+<div class='card project_application_details'>
+    <div class='text-right card-header text-dark'>
+        <span><%= t("project_applications.status.#{application.status}") %></span>
+    </div>
+    <div class='card-body p-4'>
+        <h3><%= link_to application.project.title, application.project %></h3>
+        <%=
+        link_to t('project_applications.show.see_more_button'), 
+        project_application_path(application), 
+        class: 'see_more_button btn btn-primary'
+        %>
+    </div>
 </div>

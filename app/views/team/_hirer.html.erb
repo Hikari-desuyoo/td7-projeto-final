@@ -1,6 +1,10 @@
-<div class='project_hirer'>
-    <span><%= project.hirer.username %></span>
-    <span><%= t('projects.common.project_owner') %></span>
+<div class='project_hirer card m-1'>
+
+    <h4 class='card-title'><%= t('projects.common.project_owner') %></h4>
+    <h4>
+    <span><%= link_to project.hirer.username, hirer_path(project.hirer) %></span>
+    </h4>
+
     <% if project.finished? and worker_signed_in? %>
         <%= 
         link_to t('feedbacks.common.button'), 

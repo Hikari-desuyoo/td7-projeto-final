@@ -25,7 +25,10 @@ class ProjectsController < ApplicationController
         @member_signed_in = (@owner_signed_in or @team_worker_signed_in)
 
         @worker_applied = current_worker ? current_worker.projects.include?(@project) : false
-        
+        if @worker_applied
+            @project_application = current_worker.project_applications.where(project: @project)[0]
+        end
+
         @project_status = t(".#{@project.status}_project")
         
         set_feedback_attributes

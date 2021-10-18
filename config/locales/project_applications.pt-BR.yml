@@ -5,9 +5,9 @@ pt-BR:
       failed: 'Algo deu errado ao enviar sua proposta. Tente de novo. '
       success: 'Proposta para trabalhar enviada!'
     hirer_view:
-      is_applying: 'está se candidantando para trabalhar no seguinte projeto:'
+      is_applying: 'está se candidatando para trabalhar no seguinte projeto:'
     worker_view:
-      is_applying: 'Você está se candidantando para trabalhar no seguinte projeto:'  
+      is_applying: 'Você está se candidatando para trabalhar no seguinte projeto:'  
     accept:
       success_notice: 'Proposta aceita com sucesso!'
     decline:
@@ -26,5 +26,10 @@ pt-BR:
       decline_reason: 'Por que você está rejeitando esta proposta?'
       no_description: 'Sem descrição'
       no_decline_reason: 'Nenhuma razão especificada.'
+      project_application: 'Proposta de trabalho'
+      decline_reason_why: 'Por quê? '
+      decline_reason_ask_to_type: 'Digite a razão para você rejeitar esta proposta'
+      decline_reason_title: 'Motivo da rejeição:'
     my_project_applications:
       empty: 'Você não está com nenhuma proposta no momento'
+      project_application: 'Suas propostas'

@@ -1,45 +1,67 @@
-<div id='project_application_details'>
-    <span><%= "#{@project_application.worker.get_full_name} #{t('project_applications.hirer_view.is_applying')}" %></span>
-    <% unless @project_application.description == nil %>
-        <span><%= @project_application.description %><span>
-    <% else %>
-        <span><%= t('project_applications.show.no_description') %><span>
-    <% end %>
+<h1><%= t('.project_application') %></h1>
+<div id='project_application_details' class='card'>
+    <div class='text-right card-header text-dark'>
+        <span><%= t("project_applications.status.#{@project_application.status}") %></span>
+    </div>
+    <div class='card-body p-4'>
+        <h4 class='card-title text-secondary'>
+        <%= 
+        link_to @project_application.worker.get_full_name, 
+        worker_path(@project_application.worker),
+        class: 'text-dark'
+        %>
+        <span><%= t('project_applications.hirer_view.is_applying') %></span>
+        </h4>
 
-    <span><%= link_to @project_application.project.title, @project_application.project %></span>
+        <h2><%= link_to @project_application.project.title, @project_application.project %></h2>
 
-    <span><%= t("project_applications.status.#{@project_application.status}") %></span>
-    <% if @project_application.declined? %>
-        <span>
-            <% if (not @project_application.decline_reason or @project_application.decline_reason.empty?) %>
-                <%= t('project_applications.show.no_decline_reason') %>
-            <% else %>
-                <%= @project_application.decline_reason %>
-            <% end %>
-        </span>
-    <% end %>
+        <% unless @project_application.description == nil %>
+            <span><%= @project_application.description %><span>
+        <% else %>
+            <span><%= t('project_applications.show.no_description') %><span>
+        <% end %>
+
+        <% if @project_application.declined? %>
+            <div class='bg-warning card p-2'>
+                <h3><%= t('.decline_reason_title') %></h3>
+                <% if (not @project_application.decline_reason or @project_application.decline_reason.empty?) %>
+                    <%= t('project_applications.show.no_decline_reason') %>
+                <% else %>
+                    <%= @project_application.decline_reason %>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
 </div>
 
-<% if hirer_signed_in? %>
+<% if hirer_signed_in? and @project_application.project.open? %>
     <%=
     link_to t('project_applications.show.accept_button'), 
     accept_project_application_path(@project_application.id), 
     id: 'accept_button',
+    class: 'btn btn-primary',
     method: :post
     %>
+    <a data-toggle="collapse" href="#decline_form" class='btn btn-secondary'><%= t('project_applications.show.decline_button') %></a>
+
     <%= 
     form_with(
         model: @project_application, 
         id: 'decline_form', 
         url: decline_project_application_path(@project_application.id),
+        class: 'collapse card',
         method: :post
     ) do |f|
     %>
     <div>
-        <%= f.label :decline_reason %>
-        <%= f.text_field :decline_reason %>
+        <%= f.label :decline_reason, t('.decline_reason_why') %>
+        <%= 
+        f.text_area :decline_reason, 
+        placeholder: t('.decline_reason_ask_to_type') ,
+        class: 'form-control'
+        %>
     </div>
-    <%= f.submit t('project_applications.show.decline_button') %>
+    <%= f.submit t('project_applications.show.decline_button'), class: 'btn btn-danger'%>
     <% end %>
 
 <% elsif worker_signed_in? and @project_application.pending? %>
@@ -47,6 +69,7 @@
     link_to t('project_applications.show.cancel_button'), 
     cancel_project_application_path(@project_application.id), 
     id: 'cancel_button',
+    class: 'btn btn-danger',
     method: :delete
     %>
 <% end %>

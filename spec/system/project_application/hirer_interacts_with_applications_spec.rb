@@ -8,7 +8,8 @@ describe 'Hirer visits homepage' do
             password: '123456789',
             name: 'nome2',
             surname: 'sobrenome2',
-            birth_date: '2002-06-27'
+            birth_date: '2002-06-27',
+            occupation: Occupation.create!(name: 'dev')
         )
 
         @hirer = Hirer.create!(
@@ -58,7 +59,7 @@ describe 'Hirer visits homepage' do
     it 'and sees his own projects applications' do
         login_as @hirer, scope: :hirer
         visit root_path
-        expect(page).to have_css("#application-#{@application.id}")
+        expect(page).to have_css(".project_application_details")
 
         expect(page).to_not have_css("#application-#{@application2.id}")
         expect(page).to have_content("#{@worker.get_full_name} #{I18n.t('project_applications.hirer_view.is_applying')}")
@@ -106,7 +107,7 @@ describe 'Hirer visits homepage' do
 
         it 'and sees application as accepted' do
             visit root_path
-            within "#application-#{@application.id}" do
+            within ".project_application_details" do
                 expect(page).to have_content(I18n.t('project_applications.status.accepted'))
             end
 

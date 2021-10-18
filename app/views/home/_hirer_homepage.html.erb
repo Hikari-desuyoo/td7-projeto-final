@@ -1,9 +1,9 @@
 <div id="welcome_hirer">
-    <h2><%= t('home.index.welcome_hirer_message') %></h2>
+    <h4 class='text-secondary'><%= t('home.index.welcome_hirer_message') %></h4>
 </div>
 
-<div id='notifications'>
-    <h2><%= t('home.index.notifications') %><h2>
+<h2><%= t('home.index.notifications') %><h2>
+<div id='notifications' class='card'>
     <% if @applications.empty? %>
         <%= t('home.index.no_notifications') %>
     <% else %>
