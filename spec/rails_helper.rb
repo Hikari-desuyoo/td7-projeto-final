@@ -7,6 +7,9 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 
 #PLACED AFTER RAILS NEW
+require 'simplecov'
+SimpleCov.start
+
 RSpec.configure do |config|
   config.include Warden::Test::Helpers
 end

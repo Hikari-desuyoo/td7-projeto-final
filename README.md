@@ -15,3 +15,5 @@ Uma vez instalado, pode-se usar `rspec` para executar os testes do programa, ou 
 ## <a name="extra-gems"></a>Gems adicionais utilizadas
 ### Devise
 Usada para gerenciar cadastro de usuários e autenticação.
+### SimpleCov
+Usada para analisar quais partes do projeto estão sendo cobertas pelo código e quais não estão.
