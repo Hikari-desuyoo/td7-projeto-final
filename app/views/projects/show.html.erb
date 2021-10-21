@@ -120,7 +120,7 @@
                 <% end %>
                 
 
-                <% if @project.open? and not @worker_applied and not hirer_signed_in? %>
+                <% if @project.can_apply? current_worker %>
                     <%= form_with(model: @project_application, id: 'project_application_form', url: project_project_applications_path(@project)) do |f| %>
                         <div>
                             <%= f.label :description, t('.apply_reason') %>

@@ -23,6 +23,19 @@ class Project < ApplicationRecord
         Worker.where(id: accepted.pluck(:worker_id).uniq)
     end
 
+    def is_worker_involved?(worker)
+        worker_search_results = project_applications.where(worker_id: worker.id)
+        worker_search_results.any?
+    end
+
+    def can_apply?(worker)
+        if worker == nil then return false end
+        is_open = open?
+        worker_not_involved = not(is_worker_involved?(worker))
+        is_open and worker_not_involved
+    end
+    
+
     #STATUS RELATED    
     def status
         if self[:status] == 'open' and  open_until < Date.today
