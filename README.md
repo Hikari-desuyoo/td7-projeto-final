@@ -1,5 +1,5 @@
-# Lance
-Lance é uma plataforma Web que permite que freelancers voltados a trabalhos relacionados a tecnologia possam ser contratos para projetos, por pessoas que tenham o interessa de contratá-las. A aplicação é feita usando Ruby on Rails, com Capybara e Rspec para testes, além de algumas [gems adicionais](#extra-gems).
+# Hiring
+Hiring é uma plataforma Web que permite que freelancers voltados a trabalhos relacionados a tecnologia possam ser contratos para projetos, por pessoas que tenham o interessa de contratá-las. A aplicação é feita usando Ruby on Rails, com Capybara e Rspec para testes, além de algumas [gems adicionais](#extra-gems).
 Feito como projeto final para a primeira etapa do TreinaDev, turma 7.
 
 ## Setup e instalação
