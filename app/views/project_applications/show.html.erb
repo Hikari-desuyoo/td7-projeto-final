@@ -64,7 +64,7 @@
     <%= f.submit t('project_applications.show.decline_button'), class: 'btn btn-danger'%>
     <% end %>
 
-<% elsif worker_signed_in? and @project_application.pending? %>
+<% elsif @project_application.can_worker_cancel? current_worker %>
     <%=
     link_to t('project_applications.show.cancel_button'), 
     cancel_project_application_path(@project_application.id), 

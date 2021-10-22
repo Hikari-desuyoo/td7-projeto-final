@@ -39,4 +39,13 @@ class Worker < ApplicationRecord
   def get_feedbackable_project_id
     project_applications.where(status: 'accepted').pluck(:project_id)
   end
+
+  def gave_project_feedback?(project)
+    feedback_query = project_feedbacks.where(:project => project)
+    feedback_query.any?
+  end
+
+  def human_occupation_name
+    I18n.t('occupation_name.' + occupation.name)
+  end
 end

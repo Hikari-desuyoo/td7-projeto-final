@@ -1,11 +1,11 @@
 <div class='project_worker card m-1'>
     <h5 class=" d-flex justify-content-between align-items-center">
         <div>
-            <h5 class='card-title'><%= t('occupation_name.'+worker.occupation.name) %></h5>
+            <h5 class='card-title'><%= worker.human_occupation_name %></h5>
             <span><%= link_to worker.get_full_name, worker_path(worker) %></span>
         </div>
         <span>
-        <% if project.finished? and hirer_signed_in? %>
+        <% if project.can_feedback_member?(current_hirer) %>
             <%= 
             link_to t('feedbacks.common.button'), 
             new_worker_feedback_path(project.hirer), 

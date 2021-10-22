@@ -13,4 +13,11 @@ class Hirer < ApplicationRecord
   has_many :worker_feedbacks
 
   has_many :favorited_workers
+
+  def get_feedback_by(worker)
+    query_results = hirer_feedbacks.where(worker: worker)
+    if query_results.any? 
+      return query_results[0]
+    end
+  end
 end

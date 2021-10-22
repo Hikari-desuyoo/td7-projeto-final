@@ -48,7 +48,7 @@
         </div>
 
         <div id = 'team_reserved' class='tab-pane fade mr-auto' >
-            <% if hirer_signed_in? %>
+            <% if @owner_signed_in %>
                 <br>
                 <% if @project.open? %>
                     <%= 
@@ -80,7 +80,7 @@
                             <%= render partial: 'team/worker', locals: { worker: worker, project: @project } %>
                         <% end %>
                     </div>
-                    <% if worker_signed_in? and @project.finished? and not @your_feedback %>
+                    <% if @project.can_feedback?(current_worker) %>
                         <%= 
                         link_to t('feedbacks.common.project_button'), 
                         new_project_feedback_path(@project), 
@@ -107,7 +107,7 @@
 
         <div id = 'application_details' class='card tab-pane fade' >
             <div id='project_apply' class='card p-2'>
-                <% if @worker_applied %>
+                <% if @project.applied? current_worker %>
                     <%=
                         link_to t('.applied'),
                         project_application_path(@project_application),
@@ -118,7 +118,6 @@
                 <% else %>
                     <span class='text-center bg-light p-2'><%= @project_status %></span>
                 <% end %>
-                
 
                 <% if @project.can_apply? current_worker %>
                     <%= form_with(model: @project_application, id: 'project_application_form', url: project_project_applications_path(@project)) do |f| %>

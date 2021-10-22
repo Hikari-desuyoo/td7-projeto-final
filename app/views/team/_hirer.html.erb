@@ -5,7 +5,7 @@
             <span><%= link_to project.hirer.username, hirer_path(project.hirer) %></span>
         </div>
         <span>
-        <% if project.finished? and worker_signed_in? %>
+        <% if project.can_feedback_member?(current_worker) %>
             <%= 
             link_to t('feedbacks.common.button'), 
             new_hirer_feedback_path(project.hirer), 

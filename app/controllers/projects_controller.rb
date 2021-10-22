@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
     before_action :authenticate_hirer!, only: [:new, :create, :my_projects]
     
-
     def new
         @project = Project.new
     end
@@ -19,20 +18,14 @@ class ProjectsController < ApplicationController
 
     def show
         @project = Project.find(params[:id])
-        @owner_signed_in = hirer_signed_in? and @project.hirer == current_hirer
-        @project_team = @project.get_team
-        @team_worker_signed_in = current_worker ? @project_team.include?(current_worker) : false
-        @member_signed_in = (@owner_signed_in or @team_worker_signed_in)
+        @owner_signed_in = @project.owner? current_hirer
+        @project_team = @project.workers
+        @member_signed_in = (@owner_signed_in or @project.team_member?(current_worker))
 
-        @worker_applied = current_worker ? current_worker.projects.include?(@project) : false
-        if @worker_applied
-            @project_application = current_worker.project_applications.where(project: @project)[0]
-        end
-
-        @project_status = t(".#{@project.status}_project")
+        @project_application = @project.get_application(current_worker)
+        @project_status = @project.get_i18n_status
         
         set_feedback_attributes
-
     end
 
     def finish
@@ -59,18 +52,9 @@ class ProjectsController < ApplicationController
 
     private
     def set_feedback_attributes
-        @project_average_score = @project.project_feedbacks.average(:score)
-
+        @project_average_score = @project.get_average_score
         @feedbacks = @project.project_feedbacks
-
-        @your_feedback = false
-        
-        if worker_signed_in?
-            feedback_query = current_worker.project_feedbacks.where(:project => @project)
-            unless feedback_query.empty?
-                @your_feedback = feedback_query[0]
-            end
-        end
+        @your_feedback = @project.get_feedback(current_worker)
 
         if @project_average_score == nil then @project_average_score = '-' end
     end
