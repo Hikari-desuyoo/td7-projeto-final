@@ -20,4 +20,10 @@ class Hirer < ApplicationRecord
       return query_results[0]
     end
   end
+
+  def favorited_by?(worker)
+    if worker
+      worker.favorited_hirers.where(:hirer => self).any?
+    end
+  end
 end

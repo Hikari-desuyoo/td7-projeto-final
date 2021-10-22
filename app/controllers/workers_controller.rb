@@ -51,33 +51,15 @@ class WorkersController < ApplicationController
 
     def set_feedback_attributes
         @worker_average_score = @worker.worker_feedbacks.average(:score)
-
-        @your_feedback = false
+        @your_feedback = @worker.get_feedback_by current_hirer
         @feedbacks = @worker.worker_feedbacks
-        
-        if hirer_signed_in?
-            feedback_query = current_hirer.worker_feedbacks.where(:worker => @worker)
-            unless feedback_query.empty?
-                @your_feedback = feedback_query[0]
-            end
-
-        end
 
         if @worker_average_score == nil then @worker_average_score = '-' end
     end
 
     def set_favorite_attributes
-        @show_favorite_button = false
-        @show_unfavorite_button = false
-        
-
-        if hirer_signed_in?
-            if current_hirer.favorited_workers.where(:worker => @worker).empty?
-                @show_favorite_button = true
-            else
-                @show_unfavorite_button = true
-            end
-        end
+        @show_favorite_button = @worker.favorited_by?(current_hirer) == false
+        @show_unfavorite_button = @worker.favorited_by?(current_hirer) == true
     end
 
     def edit_worker_params

@@ -17,16 +17,8 @@ class HirersController < ApplicationController
     end
 
     def set_favorite_attributes
-        @show_favorite_button = false
-        @show_unfavorite_button = false
-        
-        if worker_signed_in?
-            if current_worker.favorited_hirers.where(:hirer => @hirer).empty?
-                @show_favorite_button = true
-            else
-                @show_unfavorite_button = true
-            end
-        end
+        @show_favorite_button = @hirer.favorited_by?(current_worker) == false
+        @show_unfavorite_button = @hirer.favorited_by?(current_worker) == true
     end
 
 end

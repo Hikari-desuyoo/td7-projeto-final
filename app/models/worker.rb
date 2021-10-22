@@ -48,4 +48,17 @@ class Worker < ApplicationRecord
   def human_occupation_name
     I18n.t('occupation_name.' + occupation.name)
   end
+
+  def favorited_by?(hirer)
+    if hirer
+      hirer.favorited_workers.where(:worker => self).any?
+    end
+  end
+
+  def get_feedback_by(hirer)
+    query_results = worker_feedbacks.where(hirer: hirer)
+    if query_results.any? 
+      return query_results[0]
+    end
+  end
 end
