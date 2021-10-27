@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   #RESOURCES
   resources :hirers, only: [:show] do
-    resources :favorited_workers, only: [], shallow: true do
+    resources :favorited_workers, shallow: true do
       post 'favorite', on: :member
       delete 'unfavorite', on: :member
     end
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   end
 
   resources :workers, only: [:show, :edit, :update] do
-    resources :favorited_hirers, only: [], shallow: true do
+    resources :favorited_hirers, shallow: true do
       post 'favorite', on: :member
       delete 'unfavorite', on: :member
     end
