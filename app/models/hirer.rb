@@ -26,4 +26,5 @@ class Hirer < ApplicationRecord
       worker.favorited_hirers.where(:hirer => self).any?
     end
   end
+  
 end

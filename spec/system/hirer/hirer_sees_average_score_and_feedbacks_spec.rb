@@ -21,25 +21,25 @@ describe 'Logged (complete)Hirer' do
             username: 'mister hirer'
         )
 
-        HirerFeedback.create!(
+        HirerFeedback.new(
             worker: @worker,
             hirer: @hirer,
             score: 2
-        )
+        ).save(validate: false)
 
 
-        HirerFeedback.create!(
+        HirerFeedback.new(
             worker: @worker,
             hirer: @hirer,
             score: 4,
             comment: 'bom projetador de projetos'
-        )
+        ).save(validate: false)
 
-        HirerFeedback.create!(
+        HirerFeedback.new(
             worker: @worker,
             hirer: @hirer,
             score: 5
-        )
+        ).save(validate: false)
     end
 
     it 'successfully sees own score' do
