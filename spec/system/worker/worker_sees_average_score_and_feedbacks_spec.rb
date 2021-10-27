@@ -21,25 +21,25 @@ describe 'Logged (complete)Worker' do
             username: 'mister hirer'
         )
 
-        WorkerFeedback.create!(
+        WorkerFeedback.new(
             worker: @worker,
             hirer: @hirer,
             score: 2,
-            comment: 'bom freelancer ;)'
-        )
+            comment: 'bom freelancer ;)',
+        ).save(validate: false)
 
 
-        WorkerFeedback.create!(
+        WorkerFeedback.new(
             worker: @worker,
             hirer: @hirer,
             score: 4
-        )
+        ).save(validate: false)
 
-        WorkerFeedback.create!(
+        WorkerFeedback.new(
             worker: @worker,
             hirer: @hirer,
             score: 5
-        )
+        ).save(validate: false)
     end
 
     it 'successfully sees average' do

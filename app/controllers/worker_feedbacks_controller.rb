@@ -8,10 +8,6 @@ class WorkerFeedbacksController < ApplicationController
     def create
         @feedback = WorkerFeedback.new(feedback_params)
         @worker = Worker.find(params[:worker_id])
-        if cant_feedback
-            redirect_to @worker
-            return
-        end
 
         @feedback.worker = @worker
         @feedback.hirer = current_hirer
@@ -19,7 +15,7 @@ class WorkerFeedbacksController < ApplicationController
         if @feedback.save
             redirect_to @worker, notice: t('feedbacks.create.submit_success')
         else
-            render :new
+            redirect_to @worker
         end
     end
 

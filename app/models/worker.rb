@@ -20,6 +20,8 @@ class Worker < ApplicationRecord
 
   has_many :favorited_hirers
 
+
+
   def complete_profile?
     not (
       name.blank? or
