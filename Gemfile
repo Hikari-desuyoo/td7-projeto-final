@@ -7,7 +7,6 @@ ruby '2.7.0'
 gem 'capybara'
 gem 'devise'
 gem 'devise-i18n'
-gem 'simplecov', require: false, group: :test
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
@@ -38,6 +37,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 5.0.0'
+  gem 'simplecov', require: false
+  gem 'factory_bot_rails'
 end
 
 group :development do
