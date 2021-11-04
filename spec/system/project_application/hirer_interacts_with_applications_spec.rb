@@ -3,44 +3,11 @@ require 'rails_helper'
 
 describe 'Hirer visits homepage' do 
     before(:each) do
-        @worker = Worker.create!(
-            email: 'test2@mail.com',
-            password: '123456789',
-            name: 'nome2',
-            surname: 'sobrenome2',
-            birth_date: '2002-06-27',
-            occupation: Occupation.create!(name: 'dev')
-        )
-
-        @hirer = Hirer.create!(
-            email: 'test@mail.com',
-            password: '123456789',
-            username: 'mister hirer'
-        )
-
-        @hirer2 = Hirer.create!(
-            email: 'test2@mail.com',
-            password: '123456789',
-            username: 'mister hirer2'
-        )
-
-        @project = Project.create!(
-                title: 'titulo',
-                description: 'descrição',
-                skills_needed: 'habilidades',
-                max_pay_per_hour: '123',
-                open_until: 5.days.from_now,
-                hirer: @hirer
-            )
-
-        @project2 = Project.create!(
-            title: 'titulo2',
-            description: 'descrição2',
-            skills_needed: 'habilidades2',
-            max_pay_per_hour: '123',
-            open_until: 5.days.from_now,
-            hirer: @hirer2
-        )
+        @worker = create(:worker, :complete, occupation: Occupation.create!(name: 'dev'))
+        @hirer = create(:hirer)
+        @hirer2 = create(:hirer)
+        @project = create(:project, hirer: @hirer)
+        @project2 = create(:project, hirer: @hirer2)
 
         @application = ProjectApplication.create!(
             worker: @worker,

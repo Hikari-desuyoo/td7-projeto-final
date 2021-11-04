@@ -5,21 +5,8 @@ describe 'Logged (complete)Hirer' do
     include ActiveSupport::Testing::TimeHelpers
 
     before(:each) do
-        Occupation.create!(name: 'dev')
-
-        @worker = Worker.create!(
-            email: 'test2@mail.com',
-            password: '123456789',
-            name: 'nome2',
-            surname: 'sobrenome2',
-            birth_date: '2002-06-27'
-        )
-
-        @hirer = Hirer.create!(
-            email: 'test2@mail.com',
-            password: '123456789',  
-            username: 'mister hirer'
-        )
+        @worker = create(:worker, :complete, occupation: Occupation.create!(name: 'dev'))
+        @hirer = create :hirer
 
         HirerFeedback.new(
             worker: @worker,

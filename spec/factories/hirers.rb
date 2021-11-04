@@ -1,9 +1,7 @@
 FactoryBot.define do
     factory :hirer do
-      trait :common do
-        email { 'test@mail.com' }
+        sequence(:email) { |n| "test#{n}@email.com" }
         password { '123456789' }
-        username { 'mister hirer' }
-      end
+        sequence(:username) { |n| "mister hirer ##{n}" }
     end
-  end
+end

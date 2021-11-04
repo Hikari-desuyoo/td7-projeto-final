@@ -5,13 +5,7 @@ describe 'Logged (complete)Worker edits profile' do
     before(:each) do
         Occupation.create!(name: 'dev')
 
-        @worker = Worker.create!(
-            email: 'test2@mail.com',
-            password: '123456789',
-            name: 'nome',
-            surname: 'sobrenome',
-            birth_date: '2002-06-27'
-        )
+        @worker = create(:worker, :complete)
     
         login_as @worker, scope: :worker
         visit root_path

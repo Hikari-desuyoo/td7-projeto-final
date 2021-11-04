@@ -1,12 +1,6 @@
 require 'rails_helper'
 
 describe 'Visitor login' do    
-    def create_worker
-        Worker.create!(
-            email: 'test@mail.com',
-            password: '123456789'
-        )
-    end
 
     def visit_login_page
         visit root_path
@@ -14,11 +8,11 @@ describe 'Visitor login' do
     end
 
     it 'successfully' do
-        create_worker
+        existing_worker = create(:worker, :complete)
 
         visit_login_page
-        fill_in 'worker_email', with: 'test@mail.com'
-        fill_in 'worker_password', with: '123456789'
+        fill_in 'worker_email', with: existing_worker.email
+        fill_in 'worker_password', with: existing_worker.password
         click_on 'commit'
 
         expect(current_path).to eq root_path

@@ -5,11 +5,7 @@ describe 'Logged hirer sees own profile' do
     include ActiveSupport::Testing::TimeHelpers
 
     before(:each) do
-        @hirer = Hirer.create!(
-            email: 'test2@mail.com',
-            password: '123456789',
-            username: 'nome2'
-        )
+        @hirer = create :hirer
     end
 
     it 'sees own profile' do

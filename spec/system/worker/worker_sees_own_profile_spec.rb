@@ -7,13 +7,7 @@ describe 'Logged (complete)Worker sees own profile' do
     before(:each) do
         Occupation.create!(name: 'dev')
 
-        @worker = Worker.create!(
-            email: 'test2@mail.com',
-            password: '123456789',
-            name: 'nome2',
-            surname: 'sobrenome2',
-            birth_date: '2002-06-27'
-        )
+        @worker = create(:worker, :complete)
     end
 
     it 'successfully' do

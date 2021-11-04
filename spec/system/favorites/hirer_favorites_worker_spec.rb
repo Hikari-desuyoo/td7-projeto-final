@@ -2,19 +2,8 @@ require 'rails_helper'
 
 describe 'hirer favorites worker' do
     before(:each) do
-        @worker = Worker.create!(
-            email: 'test2@mail.com',
-            password: '123456789',
-            name: 'nome2',
-            surname: 'sobrenome2',
-            birth_date: '2002-06-27'
-        )
-
-        @hirer = Hirer.create!(
-            email: 'test@mail.com',
-            password: '123456789',
-            username: 'mister hirer'
-        )
+        @worker = create(:worker, :complete)
+        @hirer = create(:hirer)
     end
 
     it 'successfully' do

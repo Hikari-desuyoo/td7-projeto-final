@@ -1,16 +1,8 @@
 require 'rails_helper'
 
 describe 'Visitor logs out' do    
-    def create_hirer
-        Hirer.create!(
-            email: 'test@mail.com',
-            password: '123456789',
-            username: 'mister hirer'
-        )
-    end
-
     it 'successfully' do
-        hirer = create_hirer
+        hirer = create :hirer
         
         login_as hirer, scope: :hirer
 

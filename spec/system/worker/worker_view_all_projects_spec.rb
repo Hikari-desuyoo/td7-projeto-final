@@ -7,25 +7,9 @@ describe 'Logged (complete)Worker' do
     before(:each) do
         Occupation.create!(name: 'dev')
 
-        @worker = Worker.create!(
-            email: 'test2@mail.com',
-            password: '123456789',
-            name: 'nome2',
-            surname: 'sobrenome2',
-            birth_date: '2002-06-27'
-        )
-
-        @hirer1 = Hirer.create!(
-            email: 'test@mail.com',
-            password: '123456789',
-            username: 'mister hirer'
-        )
-
-        @hirer2 = Hirer.create!(
-            email: 'test2@mail.com',
-            password: '123456789',
-            username: 'mister hirer2'
-        )
+        @worker = create(:worker, :complete)
+        @hirer1 = create(:hirer)
+        @hirer2 = create(:hirer)
 
         @projects = [
             Project.create!(

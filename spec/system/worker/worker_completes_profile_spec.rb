@@ -5,10 +5,7 @@ describe 'Logged (incomplete)Worker ' do
     before(:each) do
         Occupation.create!(name: 'dev')
 
-        @worker = Worker.create!(
-            email: 'test@mail.com',
-            password: '123456789'
-        )
+        @worker = create :worker
     
         login_as @worker, scope: :worker
     end

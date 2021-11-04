@@ -1,15 +1,8 @@
 require 'rails_helper'
 
 describe 'Visitor logs out' do    
-    def create_worker
-        Worker.create!(
-            email: 'test@mail.com',
-            password: '123456789'
-        )
-    end
-
     it 'successfully' do
-        worker = create_worker
+        worker = create(:worker)
         
         login_as worker, scope: :worker
 

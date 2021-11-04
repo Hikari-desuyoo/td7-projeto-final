@@ -3,13 +3,7 @@ require 'rails_helper'
 
 describe 'Logged Hirer creates project' do    
     before(:each) do
-        #@hirer = Hirer.create!(
-        #    email: 'test@mail.com',
-        #    password: '123456789',
-        #    username: 'mister hirer'
-        #)
-
-        @hirer = create :hirer, :common
+        @hirer = create :hirer
     
         login_as @hirer, scope: :hirer
     end

@@ -3,28 +3,9 @@ require 'rails_helper'
 
 describe 'Logged (complete)Worker visits project page' do 
     before(:each) do
-        @worker = Worker.create!(
-            email: 'test2@mail.com',
-            password: '123456789',
-            name: 'nome2',
-            surname: 'sobrenome2',
-            birth_date: '2002-06-27'
-        )
-
-        @hirer = Hirer.create!(
-            email: 'test@mail.com',
-            password: '123456789',
-            username: 'mister hirer'
-        )
-
-        @project = Project.create!(
-            title: 'titulo2',
-            description: 'descrição2',
-            skills_needed: 'habilidades2',
-            max_pay_per_hour: '123',
-            open_until: 5.days.from_now,
-            hirer: @hirer
-        )
+        @worker = create(:worker, :complete)
+        @hirer = create(:hirer)
+        @project = create(:project, hirer: @hirer)
 
         @application = ProjectApplication.create!(
             worker: @worker,

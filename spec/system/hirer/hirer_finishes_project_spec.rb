@@ -2,29 +2,9 @@ require 'rails_helper'
 
 describe 'hirer finishes project' do
     before(:each) do
-        @worker = Worker.create!(
-            email: 'test2@mail.com',
-            password: '123456789',
-            name: 'nome2',
-            surname: 'sobrenome2',
-            birth_date: '2002-06-27',
-            occupation: Occupation.create!(name: 'dev')
-        )
-
-        @hirer = Hirer.create!(
-            email: 'test@mail.com',
-            password: '123456789',
-            username: 'mister hirer'
-        )
-
-        @project = Project.create!(
-            title: 'titulo',
-            description: 'descrição',
-            skills_needed: 'habilidades',
-            max_pay_per_hour: '123',
-            open_until: 5.days.from_now,
-            hirer: @hirer
-        )
+        @worker = create(:worker, :complete, occupation: Occupation.create!(name: 'dev'))
+        @hirer = create :hirer
+        @project = create(:project, hirer: @hirer)
 
         @project_application = ProjectApplication.create!(
             project: @project,
