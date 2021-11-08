@@ -22,6 +22,5 @@ RSpec.describe WorkerFeedback, type: :model do
     )
 
     expect(feedback.save).to eq(false)
-
   end
 end

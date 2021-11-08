@@ -1,3 +1,3 @@
 class Occupation < ApplicationRecord
-    has_many :workers
+  has_many :workers
 end

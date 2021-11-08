@@ -1,65 +1,62 @@
 require 'rails_helper'
 
 describe 'worker tries to give project feedback' do
-    before(:each) do
-        @worker = create(:worker, :complete, occupation: Occupation.create!(name: 'dev'))
-        @hirer = create(:hirer)
-        @project = create(:project, hirer: @hirer)
+  before(:each) do
+    @worker = create(:worker, :complete, occupation: Occupation.create!(name: 'dev'))
+    @hirer = create(:hirer)
+    @project = create(:project, hirer: @hirer)
 
-        @project_application = ProjectApplication.create!(
-            project: @project,
-            worker: @worker
-        )
+    @project_application = ProjectApplication.create!(
+      project: @project,
+      worker: @worker
+    )
 
-        @project_application.accepted!
+    @project_application.accepted!
+  end
+
+  it 'successfully if project finished ' do
+    @project.finished!
+
+    login_as @worker, scope: :worker
+    visit "/projects/#{@project.id}"
+
+    # PROJECT PAGE
+    find('.project_feedback_button').click
+
+    # PROJECT FEEDBACK # NEW
+    fill_in 'project_feedback_score', with: '1'
+    fill_in 'project_feedback_comment', with: 'muito bom!'
+    within '#project_feedback_form' do
+      click_on 'commit'
     end
 
-    it 'successfully if project finished ' do
-        @project.finished!
+    # PROJECT PAGE
+    expect(page).to have_content(I18n.t('feedbacks.create.submit_success'))
 
-        login_as @worker, scope: :worker
-        visit "/projects/#{@project.id}"
-
-        #PROJECT PAGE
-        find(".project_feedback_button").click
-
-        #PROJECT FEEDBACK # NEW
-        fill_in 'project_feedback_score', with: '1'
-        fill_in 'project_feedback_comment', with: 'muito bom!'
-        within '#project_feedback_form' do
-            click_on 'commit'
-        end
-        
-        #PROJECT PAGE
-        expect(page).to have_content(I18n.t('feedbacks.create.submit_success'))
-
-        within '#your_feedback' do
-            expect(page).to have_content('muito bom!')
-            expect(page).to have_css('.score', text: '1')
-        end
-
-        expect(page).to_not have_css(".project_feedback_button")
-
-        expect(page.body).to_not include('translation-missing')
-        expect(page.body).to_not include('translation missing')
+    within '#your_feedback' do
+      expect(page).to have_content('muito bom!')
+      expect(page).to have_css('.score', text: '1')
     end
 
-    it 'but sees no feedback button if project is still open' do
-        login_as @worker, scope: :worker
-        visit "/projects/#{@project.id}"
+    expect(page).to_not have_css('.project_feedback_button')
 
-        expect(page).to_not have_css(".project_feedback_button")
+    expect(page.body).to_not include('translation-missing')
+    expect(page.body).to_not include('translation missing')
+  end
 
-    end
+  it 'but sees no feedback button if project is still open' do
+    login_as @worker, scope: :worker
+    visit "/projects/#{@project.id}"
 
-    it 'but sees no feedback button if project is not finished' do
-        @project.closed!
+    expect(page).to_not have_css('.project_feedback_button')
+  end
 
-        login_as @worker, scope: :worker
-        visit "/projects/#{@project.id}"
+  it 'but sees no feedback button if project is not finished' do
+    @project.closed!
 
-        expect(page).to_not have_css(".project_feedback_button")
+    login_as @worker, scope: :worker
+    visit "/projects/#{@project.id}"
 
-    end
-
+    expect(page).to_not have_css('.project_feedback_button')
+  end
 end

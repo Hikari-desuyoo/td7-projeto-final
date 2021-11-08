@@ -1,0 +1,35 @@
+require:
+   - 'rubocop-rails'
+
+AllCops:
+   TargetRubyVersion: 2.7
+   Exclude:
+      - 'bin/**/*'
+      - 'db/**/*'
+      - 'spec/spec_helper.rb'
+      - 'spec/rails_helper.rb'
+      - 'config/puma.rb'
+      - 'config/initializers/**/*'
+      - 'config/environments/**/*'
+      - 'config/application.rb'
+
+Layout/ClosingParenthesisIndentation:
+   Enabled: false
+
+Style/Documentation:
+   Enabled: false
+
+Style/AndOr:
+  Enabled: false
+
+Style/Not:
+  Enabled: false
+
+Metrics/BlockLength:
+   Enabled: false
+
+Style/FrozenStringLiteralComment:
+   Enabled: false
+
+Layout/ArgumentAlignment:
+   Enabled: false

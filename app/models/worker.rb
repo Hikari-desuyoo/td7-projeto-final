@@ -6,7 +6,7 @@ class Worker < ApplicationRecord
 
   belongs_to :occupation, optional: true
 
-  validates :name, 
+  validates :name,
             :surname,
             :birth_date,
             :occupation_id,
@@ -19,8 +19,6 @@ class Worker < ApplicationRecord
   has_many :project_feedbacks
 
   has_many :favorited_hirers
-
-
 
   def complete_profile?
     not (
@@ -43,24 +41,24 @@ class Worker < ApplicationRecord
   end
 
   def gave_project_feedback?(project)
-    feedback_query = project_feedbacks.where(:project => project)
+    feedback_query = project_feedbacks.where(project: project)
     feedback_query.any?
   end
 
   def human_occupation_name
-    I18n.t('occupation_name.' + occupation.name)
+    I18n.t("occupation_name.#{occupation.name}")
   end
 
   def favorited_by?(hirer)
     if hirer
-      hirer.favorited_workers.where(:worker => self).any?
+      hirer.favorited_workers.where(worker: self).any?
     end
   end
 
   def get_feedback_by(hirer)
     query_results = worker_feedbacks.where(hirer: hirer)
-    if query_results.any? 
-      return query_results[0]
+    if query_results.any?
+      query_results[0]
     end
   end
 end
