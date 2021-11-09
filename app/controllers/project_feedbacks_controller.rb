@@ -2,7 +2,7 @@ class ProjectFeedbacksController < ApplicationController
   before_action :authenticate_worker!
   def new
     @project = Project.find(params[:project_id])
-    @feedback = ProjectFeedback.new()
+    @feedback = ProjectFeedback.new
   end
 
   def create
@@ -23,7 +23,8 @@ class ProjectFeedbacksController < ApplicationController
     end
   end
 
-    private
+  private
+
   def cant_feedback
     zero_feedbacks = @project.project_feedbacks.where(worker: current_worker).empty?
     # There's probably a better way to do this

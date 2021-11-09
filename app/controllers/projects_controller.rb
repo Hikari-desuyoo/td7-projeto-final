@@ -50,13 +50,14 @@ class ProjectsController < ApplicationController
     @projects = current_hirer.projects
   end
 
-    private
+  private
+
   def set_feedback_attributes
     @project_average_score = @project.get_average_score
     @feedbacks = @project.project_feedbacks
     @your_feedback = @project.get_feedback(current_worker)
 
-    if @project_average_score == nil then @project_average_score = '-' end
+    if @project_average_score.nil? then @project_average_score = '-' end
   end
 
   def project_params

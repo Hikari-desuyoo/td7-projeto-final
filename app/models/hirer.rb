@@ -17,7 +17,7 @@ class Hirer < ApplicationRecord
   def get_feedback_by(worker)
     query_results = hirer_feedbacks.where(worker: worker)
     if query_results.any?
-      return query_results[0]
+      query_results[0]
     end
   end
 
@@ -26,5 +26,4 @@ class Hirer < ApplicationRecord
       worker.favorited_hirers.where(hirer: self).any?
     end
   end
-
 end

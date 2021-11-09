@@ -7,7 +7,8 @@ class HomeController < ApplicationController
     end
   end
 
-    private
+  private
+
   def worker_index
     @current_worker = current_worker
     @occupations = Occupation.all
@@ -20,8 +21,6 @@ class HomeController < ApplicationController
   end
 
   def only_open_projects
-    @projects = @projects.select { |project|
-      project.status == 'open'
-    }
+    @projects = @projects.select { |project| project.status == 'open' }
   end
 end

@@ -10,7 +10,8 @@ class SearchController < ApplicationController
     end
   end
 
-    private
+  private
+
   def only_open_project_results
     @results = @results.where(
       status: 'open'
@@ -26,45 +27,21 @@ class SearchController < ApplicationController
   def search_projects
     get_search_term
 
-    results = Project.where(
-      'title like ?', "%#{@search_term}%"
+    Project.where('title like ?', "%#{@search_term}%").or(
+      Project.where('description like ?', "%#{@search_term}%")
+    ).or(
+      Project.where('skills_needed like ?', "%#{@search_term}%")
     )
-
-    results = results.or(
-      Project.where(
-        'description like ?', "%#{@search_term}%"
-      )
-    )
-
-    results = results.or(
-      Project.where(
-        'skills_needed like ?', "%#{@search_term}%"
-      )
-    )
-
-    return results
   end
 
   def search_workers
     get_search_term
 
-    results = Worker.where(
-      'name like ?', "%#{@search_term}%"
+    Worker.where('name like ?', "%#{@search_term}%").or(
+      Worker.where('surname like ?', "%#{@search_term}%")
+    ).or(
+      Worker.where('social_name like ?', "%#{@search_term}%")
     )
-
-    results = results.or(
-      Worker.where(
-        'surname like ?', "%#{@search_term}%"
-      )
-    )
-
-    results = results.or(
-      Project.where(
-        'social_name like ?', "%#{@search_term}%"
-      )
-    )
-
-    return results
   end
 
   def authenticate_user
@@ -72,5 +49,4 @@ class SearchController < ApplicationController
       redirect_to '/'
     end
   end
-
 end

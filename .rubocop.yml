@@ -33,3 +33,33 @@ Style/FrozenStringLiteralComment:
 
 Layout/ArgumentAlignment:
    Enabled: false
+
+Style/IfUnlessModifier:
+   Enabled: false
+
+Style/GuardClause:
+   Enabled: false
+
+Rails/HasManyOrHasOneDependent:
+   Enabled: false
+
+Naming/AccessorMethodName:
+   Enabled: false
+
+Style/ClassAndModuleChildren:
+   Enabled: false
+
+Rails/Date:
+   Enabled: false
+
+Rails/InverseOf:
+   Enabled: false
+
+Metrics:
+   Enabled: false
+
+Rails/UniqueValidationWithoutIndex:
+   Enabled: false
+
+Rails/LexicallyScopedActionFilter:
+   Enabled: false

@@ -29,7 +29,7 @@ class Worker < ApplicationRecord
   end
 
   def get_name
-    social_name.blank? ? name : social_name
+    social_name.presence || name
   end
 
   def get_full_name

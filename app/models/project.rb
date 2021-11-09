@@ -45,7 +45,7 @@ class Project < ApplicationRecord
     workers.include?(worker)
   end
 
-  def is_worker_involved?(worker)
+  def worker_involved?(worker)
     if worker
       worker_search_results = project_applications.where(worker_id: worker.id)
       worker_search_results.any?
@@ -55,7 +55,7 @@ class Project < ApplicationRecord
   def can_apply?(worker)
     if worker
       is_open = open?
-      worker_not_involved = not(is_worker_involved?(worker))
+      worker_not_involved = not(worker_involved?(worker))
       is_open and worker_not_involved
     end
   end
@@ -82,6 +82,7 @@ class Project < ApplicationRecord
     if worker
       query_results = project_applications.where(worker: worker)
       if query_results.empty? then return false end
+
       query_results[0]
     end
   end
@@ -103,7 +104,7 @@ class Project < ApplicationRecord
     status == 'open'
   end
 
-    private
+  private
 
   def valid_close_date
     return if open_until.blank?

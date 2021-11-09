@@ -1,7 +1,7 @@
 class WorkerFeedbacksController < ApplicationController
   before_action :authenticate_hirer!
   def new
-    @feedback = WorkerFeedback.new()
+    @feedback = WorkerFeedback.new
     @worker = Worker.find(params[:worker_id])
   end
 
@@ -19,7 +19,8 @@ class WorkerFeedbacksController < ApplicationController
     end
   end
 
-    private
+  private
+
   def feedback_params
     params.require(:worker_feedback).permit(
       :score, :comment

@@ -66,5 +66,4 @@ class Hirers::RegistrationsController < Devise::RegistrationsController
   def sign_up_params
     params.require(:hirer).permit(:username, :email, :password, :password_confirmation)
   end
-
 end

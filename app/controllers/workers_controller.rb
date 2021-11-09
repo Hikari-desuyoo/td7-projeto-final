@@ -42,7 +42,8 @@ class WorkersController < ApplicationController
     redirect_to @current_worker
   end
 
-    private
+  private
+
   def authenticate_right_worker!
     unless worker_signed_in? and (current_worker == Worker.find(params[:id]))
       redirect_to root_path
@@ -54,7 +55,7 @@ class WorkersController < ApplicationController
     @your_feedback = @worker.get_feedback_by current_hirer
     @feedbacks = @worker.worker_feedbacks
 
-    if @worker_average_score == nil then @worker_average_score = '-' end
+    if @worker_average_score.nil? then @worker_average_score = '-' end
   end
 
   def set_favorite_attributes
