@@ -4,8 +4,9 @@ FactoryBot.define do
     password { '123456789' }
 
     trait :complete do
-      sequence(:name) { |n| "nome#{n}" }
-      sequence(:surname) { |n| "sobrenome#{n}" }
+      sequence(:name) { FFaker::NameBR.unique.first_name }
+      sequence(:surname) { FFaker::NameBR.unique.last_name }
+      occupation { Occupation.first }
       birth_date { '2002-06-27' }
     end
   end

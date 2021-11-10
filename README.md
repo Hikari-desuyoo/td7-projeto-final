@@ -11,12 +11,15 @@ Para preparar o projeto para execução, siga estes passos:
 `bundle install`
 
 Uma vez instalado, pode-se usar `rspec` para executar os testes do programa, ou `rails s` para iniciar o servidor.
+Também é recomendado analisar o arquivo db/seeds.rb, que contém alguns modelos pré-feitos e contas prontas, para navegar pelo projeto.
 
 ## <a name="extra-gems"></a>Gems adicionais utilizadas
 ### Devise
 Usada para gerenciar cadastro de usuários e autenticação.
 ### FactoryBot
 Usada para criar exemplos de models de modo padronizado e enxuto em ambiente de teste.
+### FFaker
+Usada para geração de models aleatórios
 ### SimpleCov
 Usada para analisar quais partes do projeto estão sendo cobertas pelo código e quais não estão.
 ### Rubocop

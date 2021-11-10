@@ -18,7 +18,7 @@
         <% end %>
 
         <% if @member_signed_in %>
-            <li><a data-toggle="tab" href="#feedbacks" class="nav-link">
+            <li><a data-toggle="tab" href="#feedbacks" class="nav-link<%= ' disabled' if @feedbacks.empty? %>">
             <%= t('.feedbacks') %>
             </a></li>
         <% end %>
