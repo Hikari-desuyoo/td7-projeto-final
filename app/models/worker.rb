@@ -21,11 +21,13 @@ class Worker < ApplicationRecord
   has_many :favorited_hirers
 
   def complete_profile?
-    not (
-      name.blank? or
-      surname.blank? or
-      birth_date.blank?
-    )
+    !incomplete_profile?
+  end
+
+  def incomplete_profile?
+    name.blank? ||
+    surname.blank? ||
+    birth_date.blank?
   end
 
   def get_name

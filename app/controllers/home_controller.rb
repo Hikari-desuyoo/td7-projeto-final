@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  skip_before_action :redirect_incomplete_workers, only: [:index]
+
   def index
     if worker_signed_in?
       worker_index
@@ -12,8 +14,7 @@ class HomeController < ApplicationController
   def worker_index
     @current_worker = current_worker
     @occupations = Occupation.all
-    @projects = Project.all
-    only_open_projects
+    @projects = only_open_projects
   end
 
   def hirer_index
@@ -21,6 +22,7 @@ class HomeController < ApplicationController
   end
 
   def only_open_projects
-    @projects = @projects.select { |project| project.status == 'open' }
+    projects = Project.all
+    return projects.select { |project| project.status == 'open' }
   end
 end

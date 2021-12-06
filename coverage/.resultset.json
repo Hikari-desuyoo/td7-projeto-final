@@ -2170,6 +2170,7 @@
           1,
           1,
           1,
+          null,
           1,
           1,
           1,
@@ -2660,6 +2661,20 @@
       "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/controllers/application_controller.rb": {
         "lines": [
           1,
+          1,
+          null,
+          1,
+          1,
+          128,
+          null,
+          2,
+          null,
+          null,
+          1,
+          2,
+          0,
+          null,
+          null,
           null
         ]
       },
@@ -2761,9 +2776,9 @@
           1,
           null,
           1,
-          16,
-          6,
-          6,
+          14,
+          4,
+          4,
           null,
           null,
           null
@@ -3289,6 +3304,7 @@
         "lines": [
           1,
           1,
+          1,
           null,
           1,
           2,
@@ -3332,12 +3348,6 @@
           null,
           null,
           1,
-          null,
-          1,
-          2,
-          0,
-          null,
-          null,
           null,
           1,
           11,
@@ -3380,6 +3390,8 @@
         "lines": [
           1,
           1,
+          null,
+          1,
           53,
           23,
           30,
@@ -3393,7 +3405,6 @@
           23,
           23,
           23,
-          23,
           null,
           null,
           1,
@@ -3401,12 +3412,13 @@
           null,
           null,
           1,
+          23,
           47,
           null,
           null
         ]
       }
     },
-    "timestamp": 1638759752
+    "timestamp": 1638800566
   }
 }

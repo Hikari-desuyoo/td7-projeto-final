@@ -19,7 +19,7 @@ describe 'Logged (incomplete)Worker ' do
   it 'successfully fills in profile details' do
     Occupation.create!(name: 'dev')
 
-    worker = create :worker
+    worker = create(:worker)
 
     login_as worker, scope: :worker
     visit root_path
@@ -31,6 +31,7 @@ describe 'Logged (incomplete)Worker ' do
     fill_in 'worker_education', with: 'Formação'
     fill_in 'worker_description', with: 'descrição'
     fill_in 'worker_experience', with: 'experiencia'
+
     find('#worker_occupation_id option:first-of-type').select_option
     within '.edit_worker' do
       click_on 'commit'

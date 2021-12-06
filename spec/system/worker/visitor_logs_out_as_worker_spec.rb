@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Visitor logs out' do
   it 'successfully' do
-    worker = create(:worker)
+    worker = create(:worker, :complete)
 
     login_as worker, scope: :worker
 

@@ -1,5 +1,6 @@
 class WorkersController < ApplicationController
   before_action :authenticate_right_worker!, only: %i[edit update]
+  skip_before_action :redirect_incomplete_workers, only: [:complete_profile]
 
   def complete_profile
     unless worker_signed_in?
@@ -43,12 +44,6 @@ class WorkersController < ApplicationController
   end
 
   private
-
-  def authenticate_right_worker!
-    unless worker_signed_in? and (current_worker == Worker.find(params[:id]))
-      redirect_to root_path
-    end
-  end
 
   def set_feedback_attributes
     @worker_average_score = @worker.worker_feedbacks.average(:score)

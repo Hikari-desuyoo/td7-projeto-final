@@ -24,8 +24,8 @@ end
 
 describe 'cant favorite worker' do
   it 'successfully if youre a worker too' do
-    worker = create(:worker)
-    worker2 = create(:worker)
+    worker = create(:worker, :complete)
+    worker2 = create(:worker, :complete)
 
     login_as worker, scope: :worker
 
@@ -35,8 +35,8 @@ describe 'cant favorite worker' do
   end
 
   it 'successfully if youre a visitor' do
-    create(:worker)
-    worker2 = create(:worker)
+    create(:worker, :complete)
+    worker2 = create(:worker, :complete)
 
     post "/favorited_workers/#{worker2.id}/favorite"
 
