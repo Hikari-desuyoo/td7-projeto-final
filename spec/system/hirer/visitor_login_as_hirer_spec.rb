@@ -1,15 +1,11 @@
 require 'rails_helper'
 
 describe 'Visitor login' do
-  def visit_login_page
-    visit root_path
-    find('#hirer_login_link').click
-  end
-
   it 'successfully' do
     hirer = create :hirer
 
-    visit_login_page
+    visit root_path
+    find('#hirer_login_link').click
     fill_in 'hirer_email', with: hirer.email
     fill_in 'hirer_password', with: hirer.password
     click_on 'commit'

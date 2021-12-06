@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe 'worker unfavorites' do
-
   it 'hirer successfully' do
     worker = create(:worker, :complete)
     hirer = create(:hirer)

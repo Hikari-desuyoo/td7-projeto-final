@@ -1,13 +1,10 @@
 require 'rails_helper'
 
 describe 'Logged Hirer creates project' do
-  before(:each) do
-    @hirer = create :hirer
-
-    login_as @hirer, scope: :hirer
-  end
-
   it 'successfully' do
+    hirer = create :hirer
+
+    login_as hirer, scope: :hirer
     visit root_path
     find('#new_project_link').click
     within '#new_project_form' do
@@ -32,10 +29,13 @@ describe 'Logged Hirer creates project' do
 
     expect(page).to_not have_css('.translation_missing')
 
-    expect(@hirer.projects.length).to be(1)
+    expect(hirer.projects.length).to be(1)
   end
 
   it 'and fills in nothing' do
+    hirer = create :hirer
+
+    login_as hirer, scope: :hirer
     visit root_path
     find('#new_project_link').click
     within '#new_project_form' do
@@ -46,6 +46,9 @@ describe 'Logged Hirer creates project' do
   end
 
   it 'and fills wrong data type for payment' do
+    hirer = create :hirer
+
+    login_as hirer, scope: :hirer
     visit root_path
     find('#new_project_link').click
     within '#new_project_form' do
@@ -57,6 +60,9 @@ describe 'Logged Hirer creates project' do
   end
 
   it 'and fills wrong data type for date' do
+    hirer = create :hirer
+
+    login_as hirer, scope: :hirer
     visit root_path
     find('#new_project_link').click
     within '#new_project_form' do
@@ -74,6 +80,9 @@ describe 'Logged Hirer creates project' do
   end
 
   it 'and fills date before current date' do
+    hirer = create :hirer
+
+    login_as hirer, scope: :hirer
     visit root_path
     find('#new_project_link').click
     within '#new_project_form' do

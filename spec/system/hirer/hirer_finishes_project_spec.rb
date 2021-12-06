@@ -1,24 +1,21 @@
 require 'rails_helper'
 
 describe 'hirer finishes project' do
-  before(:each) do
-    @worker = create(:worker, :complete, occupation: Occupation.create!(name: 'dev'))
-    @hirer = create :hirer
-    @project = create(:project, hirer: @hirer)
+  it 'successfully' do
+    worker = create(:worker, :complete, occupation: Occupation.create!(name: 'dev'))
+    hirer = create :hirer
+    project = create(:project, hirer: hirer)
 
-    @project_application = ProjectApplication.create!(
-      project: @project,
-      worker: @worker
+    project_application = ProjectApplication.create!(
+      project: project,
+      worker: worker
     )
 
-    @project_application.accepted!
-  end
+    project_application.accepted!
+    project.closed!
 
-  it 'successfully' do
-    @project.closed!
-
-    login_as @hirer, scope: :hirer
-    visit "/projects/#{@project.id}"
+    login_as hirer, scope: :hirer
+    visit "/projects/#{project.id}"
 
     find('#finish_button').click
 

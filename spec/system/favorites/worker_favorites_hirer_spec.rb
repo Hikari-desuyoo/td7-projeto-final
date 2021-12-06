@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe 'worker favorites hirer' do
-
   it 'successfully' do
     worker = create(:worker, :complete)
     hirer = create(:hirer)

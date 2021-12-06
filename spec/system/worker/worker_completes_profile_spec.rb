@@ -1,15 +1,12 @@
 require 'rails_helper'
 
 describe 'Logged (incomplete)Worker ' do
-  before(:each) do
+  it 'sees form to complete profile' do
     Occupation.create!(name: 'dev')
 
-    @worker = create :worker
+    worker = create :worker
 
-    login_as @worker, scope: :worker
-  end
-
-  it 'sees form to complete profile' do
+    login_as worker, scope: :worker
     visit root_path
 
     expect(page).to have_css('.edit_worker')
@@ -20,6 +17,11 @@ describe 'Logged (incomplete)Worker ' do
   end
 
   it 'successfully fills in profile details' do
+    Occupation.create!(name: 'dev')
+
+    worker = create :worker
+
+    login_as worker, scope: :worker
     visit root_path
 
     fill_in 'worker_name', with: 'nome'
@@ -43,6 +45,11 @@ describe 'Logged (incomplete)Worker ' do
   end
 
   it 'fills in nothing' do
+    Occupation.create!(name: 'dev')
+
+    worker = create :worker
+
+    login_as worker, scope: :worker
     visit root_path
     within '.edit_worker' do
       click_on 'commit'

@@ -1,24 +1,21 @@
 require 'rails_helper'
 
 describe 'hirer tries to give worker feedback' do
-  before(:each) do
-    @worker = create(:worker, :complete, occupation: Occupation.create!(name: 'dev'))
-    @hirer = create(:hirer)
-    @project = create(:project, hirer: @hirer)
+  it 'successfully if worker was hired at least once' do
+    worker = create(:worker, :complete, occupation: Occupation.create!(name: 'dev'))
+    hirer = create(:hirer)
+    project = create(:project, hirer: hirer)
 
-    @project_application = ProjectApplication.create!(
-      project: @project,
-      worker: @worker
+    project_application = ProjectApplication.create!(
+      project: project,
+      worker: worker
     )
 
-    @project_application.accepted!
-  end
+    project_application.accepted!
+    project.finished!
 
-  it 'successfully if worker was hired at least once' do
-    @project.finished!
-
-    login_as @hirer, scope: :hirer
-    visit "/projects/#{@project.id}"
+    login_as hirer, scope: :hirer
+    visit "/projects/#{project.id}"
 
     # PROJECT PAGE
     within '.project_worker' do
@@ -44,8 +41,18 @@ describe 'hirer tries to give worker feedback' do
   end
 
   it 'but sees no feedback button if project is still open' do
-    login_as @hirer, scope: :hirer
-    visit "/projects/#{@project.id}"
+    worker = create(:worker, :complete, occupation: Occupation.create!(name: 'dev'))
+    hirer = create(:hirer)
+    project = create(:project, hirer: hirer)
+
+    project_application = ProjectApplication.create!(
+      project: project,
+      worker: worker
+    )
+
+    project_application.accepted!
+    login_as hirer, scope: :hirer
+    visit "/projects/#{project.id}"
 
     within '.project_worker' do
       expect(page).to_not have_css('.feedback_button')
@@ -53,10 +60,20 @@ describe 'hirer tries to give worker feedback' do
   end
 
   it 'but sees no feedback button if project is not finished' do
-    @project.closed!
+    worker = create(:worker, :complete, occupation: Occupation.create!(name: 'dev'))
+    hirer = create(:hirer)
+    project = create(:project, hirer: hirer)
 
-    login_as @hirer, scope: :hirer
-    visit "/projects/#{@project.id}"
+    project_application = ProjectApplication.create!(
+      project: project,
+      worker: worker
+    )
+
+    project_application.accepted!
+    project.closed!
+
+    login_as hirer, scope: :hirer
+    visit "/projects/#{project.id}"
 
     within '.project_worker' do
       expect(page).to_not have_css('.feedback_button')
@@ -64,10 +81,20 @@ describe 'hirer tries to give worker feedback' do
   end
 
   it 'and sees no feedback button for themself' do
-    @project.finished!
+    worker = create(:worker, :complete, occupation: Occupation.create!(name: 'dev'))
+    hirer = create(:hirer)
+    project = create(:project, hirer: hirer)
 
-    login_as @hirer, scope: :hirer
-    visit "/projects/#{@project.id}"
+    project_application = ProjectApplication.create!(
+      project: project,
+      worker: worker
+    )
+
+    project_application.accepted!
+    project.finished!
+
+    login_as hirer, scope: :hirer
+    visit "/projects/#{project.id}"
 
     expect(page).to_not have_css('.project_hirer .feedback_button')
   end

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe 'worker cant favorite worker' do
-
   it 'successfully' do
     worker = create(:worker, :complete)
     hirer = create(:hirer)

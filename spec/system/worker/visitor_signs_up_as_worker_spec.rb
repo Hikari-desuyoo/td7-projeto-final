@@ -1,13 +1,9 @@
 require 'rails_helper'
 
 describe 'Visitor signs up' do
-  def visit_sign_up_page
+  it 'successfully' do
     visit root_path
     find('#worker_signup_link').click
-  end
-
-  it 'successfully' do
-    visit_sign_up_page
     fill_in 'worker_email', with: 'test@mail.com'
     fill_in 'worker_password', with: '123456789'
     fill_in 'worker_password_confirmation', with: '123456789'

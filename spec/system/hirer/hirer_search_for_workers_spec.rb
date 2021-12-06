@@ -2,18 +2,6 @@ require 'rails_helper'
 
 describe 'Logged Hirer searchs for worker' do
   include ActiveSupport::Testing::TimeHelpers
-  before(:each) do
-    dev = Occupation.create!(name: 'dev')
-    @hirer = create :hirer
-
-    @workers = [
-      create(:worker, name: 'alguma coisa nada a ver', occupation: dev),
-      create(:worker, occupation: dev),
-      create(:worker, surname: 'alguma coisa', occupation: dev),
-      create(:worker, occupation: dev),
-      create(:worker, occupation: dev)
-    ]
-  end
 
   def search_for(term)
     within('#search_bar') do
@@ -23,11 +11,21 @@ describe 'Logged Hirer searchs for worker' do
   end
 
   it 'successfully' do
-    login_as @hirer, scope: :hirer
+    dev = Occupation.create!(name: 'dev')
+    hirer = create :hirer
+
+    workers = [
+      create(:worker, name: 'alguma coisa nada a ver', occupation: dev),
+      create(:worker, occupation: dev),
+      create(:worker, surname: 'alguma coisa', occupation: dev),
+      create(:worker, occupation: dev),
+      create(:worker, occupation: dev)
+    ]
+    login_as hirer, scope: :hirer
     visit root_path
     search_for('alguma coisa')
-    match_workers = [@workers[0], @workers[2]]
-    non_match_workers = @workers - match_workers
+    match_workers = [workers[0], workers[2]]
+    non_match_workers = workers - match_workers
 
     match_workers.each do |project|
       expect(page).to have_css(".worker_#{project.id}")
@@ -42,7 +40,16 @@ describe 'Logged Hirer searchs for worker' do
   end
 
   it 'and finds nothing' do
-    login_as @hirer, scope: :hirer
+    dev = Occupation.create!(name: 'dev')
+    hirer = create :hirer
+
+    create(:worker, name: 'alguma coisa nada a ver', occupation: dev)
+    create(:worker, occupation: dev)
+    create(:worker, surname: 'alguma coisa', occupation: dev)
+    create(:worker, occupation: dev)
+    create(:worker, occupation: dev)
+
+    login_as hirer, scope: :hirer
     visit root_path
 
     search_for('batatinha')

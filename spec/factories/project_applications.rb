@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :project_application do
-    description { 'Estou me candidatando para este projeto' }
-
+    sequence(:description) { |n| "Estou me candidatando para este projeto #{n}" }
     trait :declined do
       status { :declined }
       decline_reason { 'Rejeitei seu pedido' }
