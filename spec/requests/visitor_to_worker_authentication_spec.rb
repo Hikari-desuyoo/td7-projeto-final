@@ -7,6 +7,6 @@ describe 'Visitor' do
     create(:project)
 
     post '/projects/1/project_applications'
-    expect(response).to redirect_to(new_worker_session_path)
+    expect(response).to redirect_to(root_path)
   end
 end
