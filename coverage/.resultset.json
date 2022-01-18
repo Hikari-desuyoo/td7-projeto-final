@@ -1,30 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/support/factory_bot.rb": {
+      "/td7-projeto-final/spec/support/factory_bot.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/models/favorited_hirer.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/models/favorited_worker_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null
-        ]
-      },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/models/favorited_worker.rb": {
+      "/td7-projeto-final/app/models/favorited_hirer.rb": {
         "lines": [
           1,
           1,
@@ -32,7 +16,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/models/hirer_feedback_spec.rb": {
+      "/td7-projeto-final/spec/models/favorited_worker_spec.rb": {
         "lines": [
           1,
           null,
@@ -40,7 +24,23 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/models/hirer_feedback.rb": {
+      "/td7-projeto-final/app/models/favorited_worker.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/td7-projeto-final/spec/models/hirer_feedback_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/td7-projeto-final/app/models/hirer_feedback.rb": {
         "lines": [
           1,
           1,
@@ -64,7 +64,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/validators/score_validator.rb": {
+      "/td7-projeto-final/app/validators/score_validator.rb": {
         "lines": [
           1,
           1,
@@ -76,7 +76,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/models/hirer_spec.rb": {
+      "/td7-projeto-final/spec/models/hirer_spec.rb": {
         "lines": [
           1,
           null,
@@ -84,7 +84,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/models/occupation_spec.rb": {
+      "/td7-projeto-final/spec/models/occupation_spec.rb": {
         "lines": [
           1,
           null,
@@ -92,14 +92,14 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/models/occupation.rb": {
+      "/td7-projeto-final/app/models/occupation.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/models/project_application_spec.rb": {
+      "/td7-projeto-final/spec/models/project_application_spec.rb": {
         "lines": [
           1,
           null,
@@ -107,7 +107,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/models/project_application.rb": {
+      "/td7-projeto-final/app/models/project_application.rb": {
         "lines": [
           1,
           1,
@@ -123,7 +123,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/models/project_feedback_spec.rb": {
+      "/td7-projeto-final/spec/models/project_feedback_spec.rb": {
         "lines": [
           1,
           null,
@@ -131,7 +131,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/models/project_feedback.rb": {
+      "/td7-projeto-final/app/models/project_feedback.rb": {
         "lines": [
           1,
           1,
@@ -141,7 +141,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/models/project_spec.rb": {
+      "/td7-projeto-final/spec/models/project_spec.rb": {
         "lines": [
           1,
           null,
@@ -199,7 +199,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/models/project.rb": {
+      "/td7-projeto-final/app/models/project.rb": {
         "lines": [
           1,
           1,
@@ -319,7 +319,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/models/worker_feedback_spec.rb": {
+      "/td7-projeto-final/spec/models/worker_feedback_spec.rb": {
         "lines": [
           1,
           null,
@@ -349,7 +349,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/models/worker_feedback.rb": {
+      "/td7-projeto-final/app/models/worker_feedback.rb": {
         "lines": [
           1,
           1,
@@ -373,7 +373,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/models/worker_spec.rb": {
+      "/td7-projeto-final/spec/models/worker_spec.rb": {
         "lines": [
           1,
           null,
@@ -381,7 +381,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/requests/hirer_cant_feedback_worker_cases_spec.rb": {
+      "/td7-projeto-final/spec/requests/hirer_cant_feedback_worker_cases_spec.rb": {
         "lines": [
           1,
           null,
@@ -400,241 +400,6 @@
           1,
           null,
           1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/requests/user_cant_fav_same_user_type_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/requests/user_cant_sign_as_hirer_and_worker_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/requests/visitor_to_hirer_authentication_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/requests/visitor_to_worker_authentication_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/requests/worker_authorization_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/requests/worker_cant_feedback_hirer_cases_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/requests/worker_cant_feedback_project_cases_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          null,
           null,
           null,
           null,
@@ -659,7 +424,242 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/favorites/hirer_cant_favorite_hirer_spec.rb": {
+      "/td7-projeto-final/spec/requests/user_cant_fav_same_user_type_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/td7-projeto-final/spec/requests/user_cant_sign_as_hirer_and_worker_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/td7-projeto-final/spec/requests/visitor_to_hirer_authentication_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/td7-projeto-final/spec/requests/visitor_to_worker_authentication_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/td7-projeto-final/spec/requests/worker_authorization_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/td7-projeto-final/spec/requests/worker_cant_feedback_hirer_cases_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/td7-projeto-final/spec/requests/worker_cant_feedback_project_cases_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/td7-projeto-final/spec/system/favorites/hirer_cant_favorite_hirer_spec.rb": {
         "lines": [
           1,
           null,
@@ -679,7 +679,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/favorites/hirer_favorites_worker_spec.rb": {
+      "/td7-projeto-final/spec/system/favorites/hirer_favorites_worker_spec.rb": {
         "lines": [
           1,
           null,
@@ -700,78 +700,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/favorites/hirer_unfavorites_worker_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/favorites/worker_cant_favorite_worker_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/favorites/worker_favorites_hirer_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/favorites/worker_unfavorites_hirer_spec.rb": {
+      "/td7-projeto-final/spec/system/favorites/hirer_unfavorites_worker_spec.rb": {
         "lines": [
           1,
           null,
@@ -799,7 +728,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/feedbacks/hirer_gives_worker_feedback_spec.rb": {
+      "/td7-projeto-final/spec/system/favorites/worker_cant_favorite_worker_spec.rb": {
         "lines": [
           1,
           null,
@@ -808,136 +737,69 @@
           1,
           1,
           1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/feedbacks/project_page_show_feedbacks_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           1,
           null,
           1,
           null,
           1,
-          1,
-          1,
-          1,
-          null,
-          null,
           1,
           1,
           null,
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/feedbacks/worker_gives_hirer_feedback_spec.rb": {
+      "/td7-projeto-final/spec/system/favorites/worker_favorites_hirer_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/td7-projeto-final/spec/system/favorites/worker_unfavorites_hirer_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/td7-projeto-final/spec/system/feedbacks/hirer_gives_worker_feedback_spec.rb": {
         "lines": [
           1,
           null,
@@ -977,7 +839,6 @@
           1,
           1,
           null,
-          null,
           1,
           1,
           null,
@@ -993,7 +854,6 @@
           null,
           null,
           1,
-          null,
           1,
           1,
           null,
@@ -1044,7 +904,147 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/feedbacks/worker_gives_project_feedback_spec.rb": {
+      "/td7-projeto-final/spec/system/feedbacks/project_page_show_feedbacks_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/td7-projeto-final/spec/system/feedbacks/worker_gives_hirer_feedback_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/td7-projeto-final/spec/system/feedbacks/worker_gives_project_feedback_spec.rb": {
         "lines": [
           1,
           null,
@@ -1127,7 +1127,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/hirer/hirer_closes_project_spec.rb": {
+      "/td7-projeto-final/spec/system/hirer/hirer_closes_project_spec.rb": {
         "lines": [
           1,
           null,
@@ -1156,7 +1156,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/hirer/hirer_creates_project_spec.rb": {
+      "/td7-projeto-final/spec/system/hirer/hirer_creates_project_spec.rb": {
         "lines": [
           1,
           null,
@@ -1263,7 +1263,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/hirer/hirer_finishes_project_spec.rb": {
+      "/td7-projeto-final/spec/system/hirer/hirer_finishes_project_spec.rb": {
         "lines": [
           1,
           null,
@@ -1294,7 +1294,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/hirer/hirer_search_for_workers_spec.rb": {
+      "/td7-projeto-final/spec/system/hirer/hirer_search_for_workers_spec.rb": {
         "lines": [
           1,
           null,
@@ -1361,7 +1361,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/hirer/hirer_sees_average_score_and_feedbacks_spec.rb": {
+      "/td7-projeto-final/spec/system/hirer/hirer_sees_average_score_and_feedbacks_spec.rb": {
         "lines": [
           1,
           null,
@@ -1441,7 +1441,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/hirer/hirer_sees_own_profile_spec.rb": {
+      "/td7-projeto-final/spec/system/hirer/hirer_sees_own_profile_spec.rb": {
         "lines": [
           1,
           null,
@@ -1465,7 +1465,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/hirer/hirer_sees_their_project_list_spec.rb": {
+      "/td7-projeto-final/spec/system/hirer/hirer_sees_their_project_list_spec.rb": {
         "lines": [
           1,
           null,
@@ -1500,7 +1500,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/hirer/visitor_login_as_hirer_spec.rb": {
+      "/td7-projeto-final/spec/system/hirer/visitor_login_as_hirer_spec.rb": {
         "lines": [
           1,
           null,
@@ -1527,7 +1527,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/hirer/visitor_logs_out_as_hirer_spec.rb": {
+      "/td7-projeto-final/spec/system/hirer/visitor_logs_out_as_hirer_spec.rb": {
         "lines": [
           1,
           null,
@@ -1550,7 +1550,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/hirer/visitor_signs_up_as_hirer_spec.rb": {
+      "/td7-projeto-final/spec/system/hirer/visitor_signs_up_as_hirer_spec.rb": {
         "lines": [
           1,
           null,
@@ -1575,7 +1575,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/i18n_no_missing_translations_spec.rb": {
+      "/td7-projeto-final/spec/system/i18n_no_missing_translations_spec.rb": {
         "lines": [
           1,
           null,
@@ -1652,7 +1652,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/project_application/hirer_interacts_with_applications_spec.rb": {
+      "/td7-projeto-final/spec/system/project_application/hirer_interacts_with_applications_spec.rb": {
         "lines": [
           1,
           null,
@@ -1863,7 +1863,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/project_application/worker_applies_for_a_project_spec.rb": {
+      "/td7-projeto-final/spec/system/project_application/worker_applies_for_a_project_spec.rb": {
         "lines": [
           1,
           null,
@@ -1896,7 +1896,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/project_application/worker_cancels_application_spec.rb": {
+      "/td7-projeto-final/spec/system/project_application/worker_cancels_application_spec.rb": {
         "lines": [
           1,
           null,
@@ -1951,7 +1951,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/project_application/worker_sees_applications_spec.rb": {
+      "/td7-projeto-final/spec/system/project_application/worker_sees_applications_spec.rb": {
         "lines": [
           1,
           null,
@@ -1996,7 +1996,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/project_application/worker_sees_apply_button_spec.rb": {
+      "/td7-projeto-final/spec/system/project_application/worker_sees_apply_button_spec.rb": {
         "lines": [
           1,
           null,
@@ -2042,7 +2042,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/visitor_visits_homepage_spec.rb": {
+      "/td7-projeto-final/spec/system/visitor_visits_homepage_spec.rb": {
         "lines": [
           1,
           null,
@@ -2058,7 +2058,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/worker/visitor_login_as_worker_spec.rb": {
+      "/td7-projeto-final/spec/system/worker/visitor_login_as_worker_spec.rb": {
         "lines": [
           1,
           null,
@@ -2066,57 +2066,6 @@
           1,
           1,
           null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/worker/visitor_logs_out_as_worker_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/worker/visitor_signs_up_as_worker_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
           1,
           1,
           1,
@@ -2135,7 +2084,58 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/worker/worker_completes_profile_spec.rb": {
+      "/td7-projeto-final/spec/system/worker/visitor_logs_out_as_worker_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/td7-projeto-final/spec/system/worker/visitor_signs_up_as_worker_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/td7-projeto-final/spec/system/worker/worker_completes_profile_spec.rb": {
         "lines": [
           1,
           null,
@@ -2206,7 +2206,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/worker/worker_edits_profile_spec.rb": {
+      "/td7-projeto-final/spec/system/worker/worker_edits_profile_spec.rb": {
         "lines": [
           1,
           null,
@@ -2241,7 +2241,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/worker/worker_search_for_project_spec.rb": {
+      "/td7-projeto-final/spec/system/worker/worker_search_for_project_spec.rb": {
         "lines": [
           1,
           null,
@@ -2413,7 +2413,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/worker/worker_sees_average_score_and_feedbacks_spec.rb": {
+      "/td7-projeto-final/spec/system/worker/worker_sees_average_score_and_feedbacks_spec.rb": {
         "lines": [
           1,
           null,
@@ -2503,7 +2503,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/worker/worker_sees_own_profile_spec.rb": {
+      "/td7-projeto-final/spec/system/worker/worker_sees_own_profile_spec.rb": {
         "lines": [
           1,
           null,
@@ -2529,7 +2529,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/spec/system/worker/worker_view_all_projects_spec.rb": {
+      "/td7-projeto-final/spec/system/worker/worker_view_all_projects_spec.rb": {
         "lines": [
           1,
           null,
@@ -2625,7 +2625,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/controllers/worker_feedbacks_controller.rb": {
+      "/td7-projeto-final/app/controllers/worker_feedbacks_controller.rb": {
         "lines": [
           1,
           1,
@@ -2658,7 +2658,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/controllers/application_controller.rb": {
+      "/td7-projeto-final/app/controllers/application_controller.rb": {
         "lines": [
           1,
           1,
@@ -2704,7 +2704,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/controllers/favorited_hirers_controller.rb": {
+      "/td7-projeto-final/app/controllers/favorited_hirers_controller.rb": {
         "lines": [
           1,
           1,
@@ -2731,7 +2731,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/controllers/favorited_workers_controller.rb": {
+      "/td7-projeto-final/app/controllers/favorited_workers_controller.rb": {
         "lines": [
           1,
           1,
@@ -2758,7 +2758,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/controllers/workers/sessions_controller.rb": {
+      "/td7-projeto-final/app/controllers/workers/sessions_controller.rb": {
         "lines": [
           null,
           null,
@@ -2790,7 +2790,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/controllers/concerns/accessible.rb": {
+      "/td7-projeto-final/app/controllers/concerns/accessible.rb": {
         "lines": [
           1,
           1,
@@ -2810,7 +2810,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/controllers/workers/registrations_controller.rb": {
+      "/td7-projeto-final/app/controllers/workers/registrations_controller.rb": {
         "lines": [
           null,
           null,
@@ -2877,7 +2877,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/controllers/hirers/sessions_controller.rb": {
+      "/td7-projeto-final/app/controllers/hirers/sessions_controller.rb": {
         "lines": [
           null,
           null,
@@ -2909,7 +2909,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/controllers/hirers/registrations_controller.rb": {
+      "/td7-projeto-final/app/controllers/hirers/registrations_controller.rb": {
         "lines": [
           null,
           null,
@@ -2982,7 +2982,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/controllers/projects_controller.rb": {
+      "/td7-projeto-final/app/controllers/projects_controller.rb": {
         "lines": [
           1,
           1,
@@ -3060,7 +3060,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/controllers/search_controller.rb": {
+      "/td7-projeto-final/app/controllers/search_controller.rb": {
         "lines": [
           1,
           1,
@@ -3116,7 +3116,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/controllers/project_applications_controller.rb": {
+      "/td7-projeto-final/app/controllers/project_applications_controller.rb": {
         "lines": [
           1,
           1,
@@ -3206,7 +3206,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/controllers/hirer_feedbacks_controller.rb": {
+      "/td7-projeto-final/app/controllers/hirer_feedbacks_controller.rb": {
         "lines": [
           1,
           1,
@@ -3239,7 +3239,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/controllers/project_feedbacks_controller.rb": {
+      "/td7-projeto-final/app/controllers/project_feedbacks_controller.rb": {
         "lines": [
           1,
           1,
@@ -3284,7 +3284,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/controllers/hirers_controller.rb": {
+      "/td7-projeto-final/app/controllers/hirers_controller.rb": {
         "lines": [
           1,
           1,
@@ -3312,7 +3312,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/controllers/workers_controller.rb": {
+      "/td7-projeto-final/app/controllers/workers_controller.rb": {
         "lines": [
           1,
           1,
@@ -3398,7 +3398,7 @@
           null
         ]
       },
-      "/home/hikari/projetos/coding/treinadev/td7-projeto-final/app/controllers/home_controller.rb": {
+      "/td7-projeto-final/app/controllers/home_controller.rb": {
         "lines": [
           1,
           1,
@@ -3431,6 +3431,6 @@
         ]
       }
     },
-    "timestamp": 1638886270
+    "timestamp": 1642523861
   }
 }
