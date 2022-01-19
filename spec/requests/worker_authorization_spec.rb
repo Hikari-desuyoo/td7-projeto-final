@@ -12,7 +12,7 @@ describe 'Worker' do
     )
 
     login_as worker, scope: :worker
-    post '/projects/1/project_applications'
+    post "/projects/#{project.id}/project_applications"
     expect(response).to redirect_to(root_path)
   end
 end

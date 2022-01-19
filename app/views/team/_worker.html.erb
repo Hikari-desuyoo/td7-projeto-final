@@ -8,7 +8,7 @@
         <% if project.can_feedback_member?(current_hirer) %>
             <%= 
             link_to t('feedbacks.common.button'), 
-            new_worker_feedback_path(project.hirer), 
+            new_worker_feedback_path(worker), 
             class: 'feedback_button btn btn-primary m-2' 
             %>
         <% end %>
