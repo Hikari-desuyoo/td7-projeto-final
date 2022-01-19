@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_10_16_195801) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "favorited_hirers", force: :cascade do |t|
     t.integer "hirer_id", null: false
     t.integer "worker_id", null: false
