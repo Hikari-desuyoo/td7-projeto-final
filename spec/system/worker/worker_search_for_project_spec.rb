@@ -26,7 +26,7 @@ describe 'Logged (complete)Worker searchs for project' do
         open_until: 5.days.from_now,
         hirer: hirer1),
       create(:project,
-        title: 'titULO2',
+        title: 'titulo2',
         description: 'me ache',
         skills_needed: 'habilidades2',
         max_pay_per_hour: '123',
@@ -54,7 +54,7 @@ describe 'Logged (complete)Worker searchs for project' do
       search_for('titulo')
       match_projects = [projects[0], projects[1]]
       non_match_projects = projects - match_projects
-      byebug
+      
       match_projects.each do |project|
         expect(page).to have_css(".project_#{project.id}")
       end
@@ -93,7 +93,7 @@ describe 'Logged (complete)Worker searchs for project' do
       create(:project,
         title: 'outra_coisa',
         description: 'descrição3',
-        skills_needed: 'mE AcHe',
+        skills_needed: 'me ache',
         max_pay_per_hour: '123',
         open_until: 5.days.from_now,
         hirer: hirer2),
