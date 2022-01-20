@@ -18,5 +18,7 @@ services:
 
   db:
     image: postgres:13
+    env_file:
+      - .env
     environment:
       TZ: Sao_Paulo/Sao_Paulo
