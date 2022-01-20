@@ -13,6 +13,7 @@ WORKDIR ${INSTALL_PATH}
 
 COPY Gemfile .
 COPY Gemfile.lock .
+RUN gem install bundler
 RUN bundler install
 
 COPY . .
