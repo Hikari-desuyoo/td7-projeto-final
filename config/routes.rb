@@ -64,4 +64,10 @@ Rails.application.routes.draw do
       only: %i[new create update]
     )
   end
+
+  namespace :api do
+    namespace :v1 do
+      get 'users_stats', to: 'users_stats#users_stats'
+    end
+  end
 end

@@ -11,10 +11,15 @@ services:
       - .env
     ports:
       - "3000:3000"
+    expose:
+      - "3000"
     environment:
       TZ: Sao_Paulo/Sao_Paulo
     depends_on:
       - db
+    networks:
+      - hiring
+      - db_network
 
   db:
     image: postgres:13
@@ -22,3 +27,11 @@ services:
       - .env
     environment:
       TZ: Sao_Paulo/Sao_Paulo
+    networks:
+      - db_network
+
+networks:
+  hiring: 
+    external: true
+  db_network:
+    external: false
