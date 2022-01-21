@@ -1,6 +1,7 @@
 version: '3.3'
 services:
   web:
+    container_name: td7-projeto-final
     build: .
     stdin_open: true
     tty: true
