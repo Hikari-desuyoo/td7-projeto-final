@@ -16,4 +16,6 @@ COPY Gemfile.lock .
 RUN gem install bundler
 RUN bundler install
 
+COPY tryhard/configuration.rb /usr/local/bundle/gems/railties-6.1.4.1/lib/rails/application
+
 COPY . .
