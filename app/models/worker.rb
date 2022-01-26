@@ -26,8 +26,8 @@ class Worker < ApplicationRecord
 
   def incomplete_profile?
     name.blank? ||
-    surname.blank? ||
-    birth_date.blank?
+      surname.blank? ||
+      birth_date.blank?
   end
 
   def get_name

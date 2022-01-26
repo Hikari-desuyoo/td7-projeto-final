@@ -27,13 +27,12 @@ class SearchController < ApplicationController
   def search_projects
     get_search_term
 
-    result = Project.where('title like ?', "%#{@search_term}%").or(
+    Project.where('title like ?', "%#{@search_term}%").or(
       Project.where('description like ?', "%#{@search_term}%")
     ).or(
       Project.where('skills_needed like ?', "%#{@search_term}%")
     )
-    #byebug
-    result
+    # byebug
   end
 
   def search_workers

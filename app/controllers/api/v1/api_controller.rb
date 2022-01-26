@@ -6,6 +6,7 @@ module Api
       ActiveRecord::Base.include_root_in_json = true
 
       private
+
       def render_not_authorized
         render status: :unauthorized, json: { message: 'Há algo errado com sua autenticação.' }
       end

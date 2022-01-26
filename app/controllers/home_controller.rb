@@ -23,6 +23,6 @@ class HomeController < ApplicationController
 
   def only_open_projects
     projects = Project.all
-    return projects.select { |project| project.status == 'open' }
+    projects.select { |project| project.status == 'open' }
   end
 end

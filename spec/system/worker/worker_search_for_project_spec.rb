@@ -54,7 +54,7 @@ describe 'Logged (complete)Worker searchs for project' do
       search_for('titulo')
       match_projects = [projects[0], projects[1]]
       non_match_projects = projects - match_projects
-      
+
       match_projects.each do |project|
         expect(page).to have_css(".project_#{project.id}")
       end

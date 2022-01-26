@@ -2,7 +2,7 @@ class ProjectApplicationsController < ApplicationController
   before_action :authenticate_complete_worker!, only: %i[create cancel]
   before_action only: %i[cancel accept decline show] do
     @project_application = find(ProjectApplication)
-  end 
+  end
 
   before_action only: %i[cancel] do
     authenticate_project_application_worker @project_application
@@ -17,8 +17,7 @@ class ProjectApplicationsController < ApplicationController
   end
 
   # NOT NESTED ON PROJECT ROUTES
-  def show
-  end
+  def show; end
 
   def my_project_applications
     if hirer_signed_in?

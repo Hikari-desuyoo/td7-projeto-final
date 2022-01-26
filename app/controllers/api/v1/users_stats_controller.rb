@@ -5,11 +5,10 @@ module Api
         workers_amount = Worker.count
         hirers_amount = Hirer.count
 
-        render status: :ok, json: { 
+        render status: :ok, json: {
           workers_amount: workers_amount,
           hirers_amount: hirers_amount
         }
-        
       end
     end
   end
