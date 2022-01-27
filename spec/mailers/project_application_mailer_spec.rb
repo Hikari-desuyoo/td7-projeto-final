@@ -12,9 +12,7 @@ RSpec.describe ProjectApplicationMailer, type: :mailer do
         project: project
       )
 
-      mail = ProjectApplicationMailer.with(
-        project_application: project_application
-      ).notify_new_project_application
+      mail = ProjectApplicationMailer.notify_new_project_application(project_application.id)
 
       expect(mail.to).to eq ['empregador@mail.com']
       expect(mail.from).to eq ['nao-responda@hiring.com.br']

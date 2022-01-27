@@ -7,7 +7,7 @@ services:
     tty: true
     volumes:
       - .:/td7-projeto-final
-    command: bash -c "bin/setup && rails server -b 0.0.0.0 -p 3000"
+    command: bash -c "bin/setup && rails server -b 0.0.0.0 -p 3000 && bundle exec sidekiq" #ver sobre makefile pra tirar esse bin setup daqui(eu acho)
     env_file:
       - .env
     ports:
@@ -18,9 +18,11 @@ services:
       TZ: Sao_Paulo/Sao_Paulo
     depends_on:
       - db
+      - redis
     networks:
       - hiring
       - db_network
+      - redis_network
 
   db:
     image: postgres:13
@@ -31,8 +33,27 @@ services:
     networks:
       - db_network
 
+  redis:
+    command: "redis-server"
+    container_name: redis
+    restart: always
+    image: redis
+    networks:
+      - redis_network
+
+  # jobs:
+  #  image: td7-projeto-final_web:latest
+  #  command: "bundle exec sidekiq"
+  #  networks:
+  #    - redis_network
+  #  depends_on:
+  #    - db
+  #    - redis
+
 networks:
   hiring: 
     external: true
   db_network:
+    external: false
+  redis_network: 
     external: false

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => "/sidekiq"
+
   # BASIC
   root 'home#index'
   patch 'complete_profile', to: 'workers#complete_profile'

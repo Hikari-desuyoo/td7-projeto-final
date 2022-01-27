@@ -17,25 +17,31 @@
           null
         ]
       },
-      "/td7-projeto-final/app/mailers/project_application_mailer.rb": {
+      "/td7-projeto-final/app/workers/project_application_mailer_worker.rb": {
         "lines": [
           1,
-          null,
-          1,
-          1,
-          1,
           1,
           null,
-          null,
+          1,
+          0,
+          0,
           null,
           null
         ]
       },
-      "/td7-projeto-final/app/mailers/application_mailer.rb": {
+      "/td7-projeto-final/app/models/project_application.rb": {
         "lines": [
           1,
           1,
           1,
+          null,
+          1,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
           null
         ]
       },
@@ -158,24 +164,8 @@
           null,
           null
         ]
-      },
-      "/td7-projeto-final/app/models/project_application.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          null
-        ]
       }
     },
-    "timestamp": 1643210419
+    "timestamp": 1643308701
   }
 }
