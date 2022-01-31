@@ -7,10 +7,19 @@ O projeto utiliza Ruby 2.7.0 e Rails 6.1.4.1.
 Para preparar o projeto para execução, siga estes passos:
 ### 1. clonar o repositório
 `git clone https://github.com/Hikari-desuyoo/td7-projeto-final`
-### 2. instalar as gems
-`bundle install`
+### 2. criar o container com Docker
+`docker-compose build`
 
-Uma vez instalado, pode-se usar `rspec` para executar os testes do programa, ou `rails s` para iniciar o servidor.
+### Para subir a aplicação:
+`docker-compose up`
+
+### Para acessar a aplicação, abra no navegador:
+`http://127.0.0.1:3000/`
+
+### Para acessar o terminal do container: 
+`docker-compose run --rm --service-ports web bash`
+
+Uma vez aberto o terminal, pode-se usar `rspec` para executar os testes do programa, ou `rails s -b 0.0.0.0` para iniciar o servidor.
 Também é recomendado analisar o arquivo db/seeds.rb, que contém alguns modelos pré-feitos e contas prontas, para navegar pelo projeto.
 
 ## <a name="extra-gems"></a>Gems adicionais utilizadas

@@ -23,6 +23,8 @@ RSpec.describe ProjectApplicationMailerWorker, type: :worker do
             assert_equal 0, Sidekiq::Queues["default"].size
             ProjectApplicationMailerWorker.perform_async(h, 1)
             assert_equal 1, Sidekiq::Queues["default"].size
+            Sidekiq::Worker.drain_all
+            assert_equal 0, Sidekiq::Queues["default"].size
         end
     end
 end
