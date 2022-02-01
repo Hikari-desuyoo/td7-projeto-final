@@ -105,8 +105,8 @@
         "lines": [
           1,
           1,
-          12,
-          12,
+          13,
+          13,
           null,
           1,
           null,
@@ -347,9 +347,9 @@
           1,
           null,
           1,
-          73,
+          80,
           null,
-          70,
+          77,
           1,
           null,
           null,
@@ -2299,6 +2299,24 @@
           null
         ]
       },
+      "/td7-projeto-final/spec/system/worker/worker_generate_report_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          0,
+          null,
+          null
+        ]
+      },
       "/td7-projeto-final/spec/system/worker/worker_search_for_project_spec.rb": {
         "lines": [
           1,
@@ -3584,6 +3602,6 @@
         ]
       }
     },
-    "timestamp": 1643648756
+    "timestamp": 1643755319
   }
 }

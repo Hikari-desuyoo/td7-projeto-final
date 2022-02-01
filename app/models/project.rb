@@ -6,7 +6,7 @@ class Project < ApplicationRecord
   validates :max_pay_per_hour, numericality: true
   validate :valid_close_date, on: :create
 
-  belongs_to :hirer
+  belongs_to :hirer, dependent: :destroy
 
   has_many :project_applications, dependent: :destroy
 

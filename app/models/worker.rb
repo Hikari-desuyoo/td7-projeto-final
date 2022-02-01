@@ -13,7 +13,7 @@ class Worker < ApplicationRecord
             presence: true, on: :update
 
   has_many :project_applications
-  has_many :projects, through: :project_applications
+  has_many :projects, through: :project_applications, dependent: :destroy
   has_many :hirer_feedbacks
   has_many :worker_feedbacks
   has_many :project_feedbacks

@@ -7,7 +7,7 @@ services:
     tty: true
     volumes:
       - .:/td7-projeto-final
-    command: bash -c "bin/setup && rails server -b 0.0.0.0 -p 3000 && bundle exec sidekiq" #ver sobre makefile pra tirar esse bin setup daqui(eu acho)
+    command: bash -c "bin/setup && rails server -b 0.0.0.0 -p 3000 -d && bundle exec sidekiq" #ver sobre makefile pra tirar esse bin setup daqui(eu acho)
     env_file:
       - .env
     ports:

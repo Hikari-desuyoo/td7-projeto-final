@@ -6,7 +6,7 @@ class Hirer < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true
 
-  has_many :projects
+  has_many :projects, dependent: :destroy
   has_many :project_applications, through: :projects
 
   has_many :hirer_feedbacks

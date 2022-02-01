@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-01-31T17:05:56+00:00">2022-01-31T17:05:56+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-02-01T22:41:59+00:00">2022-02-01T22:41:59+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,7 +23,7 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  99.08%
+  99.02%
 </span>
 
      </span>
@@ -39,15 +39,15 @@
   <a name="AllFiles"></a>
 
   <div>
-    <b>89</b> files in total.
+    <b>90</b> files in total.
   </div>
 
   <div class="t-line-summary">
-    <b>1629</b> relevant lines,
-    <span class="green"><b>1614</b> lines covered</span> and
-    <span class="red"><b>15</b> lines missed. </span>
+    <b>1637</b> relevant lines,
+    <span class="green"><b>1621</b> lines covered</span> and
+    <span class="red"><b>16</b> lines missed. </span>
     (<span class="green">
-  99.08%
+  99.02%
 </span>
 )
   </div>
@@ -352,7 +352,7 @@
             <td class="cell--number">58</td>
             <td class="cell--number">58</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">13.62</td>
+            <td class="cell--number">13.86</td>
             
           </tr>
         
@@ -396,7 +396,7 @@
             <td class="cell--number">5</td>
             <td class="cell--number">5</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">5.40</td>
+            <td class="cell--number">5.80</td>
             
           </tr>
         
@@ -991,6 +991,17 @@
             <td class="cell--number">20</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
+            
+          </tr>
+        
+          <tr class="t-file">
+            <td class="strong t-file__name"><a href="#2921351b14e51854d9528de1f4ac75e352f6f188" class="src_link" title="spec/system/worker/worker_generate_report_spec.rb">spec/system/worker/worker_generate_report_spec.rb</a></td>
+            <td class="yellow strong cell--number t-file__coverage">87.50 %</td>
+            <td class="cell--number">14</td>
+            <td class="cell--number">8</td>
+            <td class="cell--number">7</td>
+            <td class="cell--number">1</td>
+            <td class="cell--number">0.88</td>
             
           </tr>
         
@@ -10993,7 +11004,7 @@
 
             
 
-            <code class="ruby">  belongs_to :hirer</code>
+            <code class="ruby">  belongs_to :hirer, dependent: :destroy</code>
           </li>
         </div>
       
@@ -12098,8 +12109,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="73" data-linenumber="110">
-            <span class="hits">73</span>
+          <li class="covered" data-hits="80" data-linenumber="110">
+            <span class="hits">80</span>
             
 
             
@@ -12120,8 +12131,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="70" data-linenumber="112">
-            <span class="hits">70</span>
+          <li class="covered" data-hits="77" data-linenumber="112">
+            <span class="hits">77</span>
             
 
             
@@ -12739,8 +12750,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="12" data-linenumber="3">
-            <span class="hits">12</span>
+          <li class="covered" data-hits="13" data-linenumber="3">
+            <span class="hits">13</span>
             
 
             
@@ -12750,8 +12761,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="12" data-linenumber="4">
-            <span class="hits">12</span>
+          <li class="covered" data-hits="13" data-linenumber="4">
+            <span class="hits">13</span>
             
 
             
@@ -34764,6 +34775,191 @@
       
         <div>
           <li class="never" data-hits="" data-linenumber="31">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="2921351b14e51854d9528de1f4ac75e352f6f188">
+  <div class="header">
+    <h3>spec/system/worker/worker_generate_report_spec.rb</h3>
+    <h4>
+      <span class="yellow">
+  87.5%
+</span>
+
+      lines covered
+    </h4>
+
+    
+
+    <div class="t-line-summary">
+      <b>8</b> relevant lines.
+      <span class="green"><b>7</b> lines covered</span> and
+      <span class="red"><b>1</b> lines missed.</span>
+    </div>
+
+    
+
+  </div>
+
+  <pre>
+    <ol>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="1">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">require &#39;rails_helper&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="2">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="3">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">describe &#39;Worker requests(and receives) overview report&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="4">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    it &#39;successfully&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="5">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        worker = create(:worker)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="6">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        projects = create_list(:project, 3)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="7">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        closed_projects = create_list(:project, 3, :closed)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="8">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        ten_star_project = create(</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="9">
+            
+            
+
+            
+
+            <code class="ruby">            :project_application, </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="10">
+            
+            
+
+            
+
+            <code class="ruby">            :ten_star_project</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="11">
+            
+            
+
+            
+
+            <code class="ruby">        )</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="12">
+            
+            
+
+            
+
+            <code class="ruby">        byebug</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="13">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="14">
             
             
 
