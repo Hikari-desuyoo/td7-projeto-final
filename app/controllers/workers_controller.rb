@@ -27,6 +27,7 @@ class WorkersController < ApplicationController
       return
     end
 
+    @report_exists = !@worker.worker_report.nil?
     set_feedback_attributes
     set_favorite_attributes
   end

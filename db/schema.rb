@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_16_195801) do
+ActiveRecord::Schema.define(version: 2022_02_03_141134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "favorited_hirers", force: :cascade do |t|
-    t.integer "hirer_id", null: false
-    t.integer "worker_id", null: false
+    t.bigint "hirer_id", null: false
+    t.bigint "worker_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["hirer_id"], name: "index_favorited_hirers_on_hirer_id"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 2021_10_16_195801) do
   end
 
   create_table "favorited_workers", force: :cascade do |t|
-    t.integer "hirer_id", null: false
-    t.integer "worker_id", null: false
+    t.bigint "hirer_id", null: false
+    t.bigint "worker_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["hirer_id"], name: "index_favorited_workers_on_hirer_id"
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2021_10_16_195801) do
   end
 
   create_table "hirer_feedbacks", force: :cascade do |t|
-    t.integer "hirer_id", null: false
-    t.integer "worker_id", null: false
+    t.bigint "hirer_id", null: false
+    t.bigint "worker_id", null: false
     t.text "comment"
     t.integer "score"
     t.datetime "created_at", precision: 6, null: false
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 2021_10_16_195801) do
   end
 
   create_table "project_applications", force: :cascade do |t|
-    t.integer "worker_id", null: false
-    t.integer "project_id", null: false
+    t.bigint "worker_id", null: false
+    t.bigint "project_id", null: false
     t.integer "status", default: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 2021_10_16_195801) do
   end
 
   create_table "project_feedbacks", force: :cascade do |t|
-    t.integer "project_id", null: false
-    t.integer "worker_id", null: false
+    t.bigint "project_id", null: false
+    t.bigint "worker_id", null: false
     t.text "comment"
     t.integer "score"
     t.datetime "created_at", precision: 6, null: false
@@ -96,20 +96,32 @@ ActiveRecord::Schema.define(version: 2021_10_16_195801) do
     t.boolean "presential"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "hirer_id", null: false
+    t.bigint "hirer_id", null: false
     t.integer "status", default: 0
     t.index ["hirer_id"], name: "index_projects_on_hirer_id"
   end
 
   create_table "worker_feedbacks", force: :cascade do |t|
-    t.integer "hirer_id", null: false
-    t.integer "worker_id", null: false
+    t.bigint "hirer_id", null: false
+    t.bigint "worker_id", null: false
     t.text "comment"
     t.integer "score"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["hirer_id"], name: "index_worker_feedbacks_on_hirer_id"
     t.index ["worker_id"], name: "index_worker_feedbacks_on_worker_id"
+  end
+
+  create_table "worker_reports", force: :cascade do |t|
+    t.integer "project_count", default: 0
+    t.integer "best_scored_project_id"
+    t.integer "worst_scored_project_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "worker_id", null: false
+    t.datetime "last_refresh_at"
+    t.integer "status", default: 0
+    t.index ["worker_id"], name: "index_worker_reports_on_worker_id"
   end
 
   create_table "workers", force: :cascade do |t|
@@ -127,7 +139,7 @@ ActiveRecord::Schema.define(version: 2021_10_16_195801) do
     t.text "education"
     t.text "description"
     t.text "experience"
-    t.integer "occupation_id"
+    t.bigint "occupation_id"
     t.index ["email"], name: "index_workers_on_email", unique: true
     t.index ["occupation_id"], name: "index_workers_on_occupation_id"
     t.index ["reset_password_token"], name: "index_workers_on_reset_password_token", unique: true
@@ -146,5 +158,8 @@ ActiveRecord::Schema.define(version: 2021_10_16_195801) do
   add_foreign_key "projects", "hirers"
   add_foreign_key "worker_feedbacks", "hirers"
   add_foreign_key "worker_feedbacks", "workers"
+  add_foreign_key "worker_reports", "projects", column: "best_scored_project_id"
+  add_foreign_key "worker_reports", "projects", column: "worst_scored_project_id"
+  add_foreign_key "worker_reports", "workers"
   add_foreign_key "workers", "occupations"
 end

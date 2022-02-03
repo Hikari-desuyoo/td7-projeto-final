@@ -1,0 +1,53 @@
+<h2><%= "#{t('.title')}#{@worker_report.worker.get_full_name}" %></h2>
+
+
+<% if @worker_report.processed? %>
+    <%= 
+    button_to t('.refresh_report_button'), 
+    refresh_worker_report_path(@worker_report.id), 
+    id: 'refresh_report_button',
+    class: 'btn btn-primary',
+    method: :post
+    %>
+
+    <h3><%= "#{t('.last_refresh_at')}#{@last_refresh_at}" %></h3>
+
+    <div>
+        <span>
+            <%=
+            t(
+                '.delivered_projects', 
+                project_count: @worker_report.project_count, 
+                project_suffix: @worker_report.project_count == 1 ? '' : 's'
+            )
+            %>
+        </span>
+    </div>
+
+    <% if !@worker_report.best_scored_project.nil? %>
+        <span id='best_score_project'>
+            <span><%= t('.best_score_project') %></span>
+            <%=  
+                link_to(
+                    @worker_report.best_scored_project.title,
+                    project_path(@worker_report.best_scored_project.id)
+                )
+            %>
+        </span>
+        <span id='worst_score_project'>
+            <span><%= t('.worst_score_project') %></span>
+            <%=  
+                link_to(
+                    @worker_report.worst_scored_project.title,
+                    project_path(@worker_report.worst_scored_project.id)
+                )
+            %>
+        </span>
+    <% end %>
+
+    </div>
+<% else %>
+    <span><%= t('.processing_report') %></span>
+<% end %>
+
+

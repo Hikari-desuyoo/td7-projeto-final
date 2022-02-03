@@ -33,6 +33,9 @@ Rails.application.routes.draw do
   end
 
   resources :workers, only: %i[show edit update] do
+    resources :worker_reports, shallow: true, only: %i[show] do
+      post 'refresh', on: :member
+    end
     resources :favorited_hirers, shallow: true do
       post 'favorite', on: :member
       delete 'unfavorite', on: :member

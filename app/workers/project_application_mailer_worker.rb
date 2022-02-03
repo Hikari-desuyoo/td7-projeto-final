@@ -1,8 +1,8 @@
 class ProjectApplicationMailerWorker
   include Sidekiq::Worker
 
-  def perform(h, _count)
-    h = JSON.load(h)
-    ProjectApplicationMailer.notify_new_project_application(h['project_application_id']).deliver
+  def perform(json_params, _count)
+    json_params = JSON.parse(json_params)
+    ProjectApplicationMailer.notify_new_project_application(json_params['project_application_id']).deliver
   end
 end

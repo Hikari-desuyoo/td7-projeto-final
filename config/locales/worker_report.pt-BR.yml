@@ -1,0 +1,15 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      worker_report: 'Análise de profissional'
+  worker_reports:
+    show:
+      title: 'Análise de profissional: '
+      refresh_report_button: 'Requisitar análise de profissional atualizada'
+      processing_refresh_notice: 'Processando análise de profissional...'
+      last_refresh_at: 'Feita em '
+      delivered_projects: 'Até hoje, você entregou %{project_count} projeto%{project_suffix}'
+      best_score_project: 'O projeto com maior nota que você participou foi '
+      worst_score_project: 'O projeto com menor nota que você participou foi '
+      processing_report: 'Ainda estamos processando sua análise'

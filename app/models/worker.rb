@@ -19,6 +19,15 @@ class Worker < ApplicationRecord
   has_many :project_feedbacks
 
   has_many :favorited_hirers
+  has_one :worker_report
+
+  after_create :initialize_worker_report
+
+  def initialize_worker_report
+    self.worker_report = WorkerReport.create!(
+      worker: self
+    )
+  end
 
   def complete_profile?
     !incomplete_profile?
