@@ -5,7 +5,7 @@
         "lines": [
           1,
           1,
-          2,
+          6,
           null,
           null
         ]
@@ -347,9 +347,9 @@
           1,
           null,
           1,
-          83,
+          101,
           null,
-          80,
+          98,
           1,
           null,
           null,
@@ -479,7 +479,98 @@
           null
         ]
       },
-      "/td7-projeto-final/spec/requests/api/workers_api_spec.rb": {
+      "/td7-projeto-final/spec/requests/api/hirers/hirers_api_generate_token_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/td7-projeto-final/spec/requests/api/projects/api_projects_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/td7-projeto-final/spec/requests/api/user_stats_api_spec.rb": {
         "lines": [
           1,
           null,
@@ -2917,17 +3008,20 @@
           null
         ]
       },
-      "/td7-projeto-final/app/controllers/api/v1/users_stats_controller.rb": {
+      "/td7-projeto-final/app/controllers/api/v1/hirers_controller.rb": {
         "lines": [
           1,
           1,
           1,
           1,
+          2,
+          null,
+          2,
           1,
           1,
           null,
-          1,
           null,
+          1,
           null,
           null,
           null,
@@ -2948,7 +3042,10 @@
           1,
           null,
           1,
-          0,
+          2,
+          2,
+          null,
+          2,
           null,
           null,
           1,
@@ -2957,6 +3054,62 @@
           null,
           1,
           0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/td7-projeto-final/app/services/jwt_service.rb": {
+        "lines": [
+          1,
+          1,
+          3,
+          null,
+          null,
+          1,
+          3,
+          null,
+          null
+        ]
+      },
+      "/td7-projeto-final/app/controllers/api/v1/projects_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          2,
+          0,
+          0,
+          null,
+          null,
+          2,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/td7-projeto-final/app/controllers/api/v1/users_stats_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
           null,
           null,
           null,
@@ -3813,6 +3966,6 @@
         ]
       }
     },
-    "timestamp": 1643925150
+    "timestamp": 1644587152
   }
 }

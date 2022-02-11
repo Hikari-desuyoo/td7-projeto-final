@@ -7,8 +7,9 @@ ruby '2.7.0'
 gem 'capybara'
 gem 'devise'
 gem 'devise-i18n'
+gem 'jwt'
 gem 'sidekiq'
-gem 'sinatra', github: 'sinatra/sinatra' # Talvez não precisa
+gem 'sinatra', github: 'sinatra/sinatra' # Talvez não precisa # Muito provavelmente não precisa
 
 # Auto placed
 gem 'bootsnap', '>= 1.4.4', require: false

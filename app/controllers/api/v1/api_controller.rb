@@ -7,6 +7,13 @@ module Api
 
       private
 
+      def authenticate_user
+        hirer = Hirer.user_by_jwt request.headers['hirerToken']
+        render_not_authorized if hirer.nil?
+
+        @hirer = hirer
+      end
+
       def render_not_authorized
         render status: :unauthorized, json: { message: 'Há algo errado com sua autenticação.' }
       end

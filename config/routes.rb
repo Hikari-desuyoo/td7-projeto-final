@@ -74,6 +74,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get 'users_stats', to: 'users_stats#users_stats'
+      resources :hirers, shallow: true, only: [] do
+        post 'generate_token', on: :collection
+      end
+      resources :projects, shallow: true, only: %i[index]
     end
   end
 end
